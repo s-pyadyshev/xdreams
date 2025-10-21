@@ -1,0 +1,29 @@
+.swiper {
+    height: 100%;
+}
+
+.swiper-wrapper {
+    width: 100%;
+}
+
+.swiper-slide {
+    height: auto !important;
+}
+
+.slider-features__thumbs .swiper-wrapper {
+    display: grid;
+    gap: 16px;
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+    background: none;
+    position: static;
+    padding: 0;
+    margin: 0 !important;
+}
+
+.swiper-button-prev svg,
+.swiper-button-next svg {
+    fill: none;
+}

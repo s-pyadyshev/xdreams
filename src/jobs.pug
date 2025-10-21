@@ -1,0 +1,100 @@
+extends pug/base
+
+prepend vars
+  - title = 'Jobs'
+
+append vars
+
+block content
+  section.hero.hero--jobs.wave-bottom
+    img(src="images/jobs.jpg" alt="jobs")
+    .hero__inner
+      .hero__motto
+        img.hero__images.hidden-desktop(src="images/our-jobs-header.svg" alt="our jobs.")
+        img.hero__images.visible-desktop(src="images/our-jobs-header-desktop.svg" alt="our jobs.")
+        p Because no one should lose sleep over job applications
+      form(action="#" method="post").form-location.form-location--search
+        input(type="text" placeholder="Search jobs by keyword" name="search")
+        input(type="text" placeholder="Location or postcode" name="location-code")
+        button(type="submit").button.button--primary Search
+
+  section.jobs
+    .container
+      .job-form
+        form(action="#" method="post")
+          .job-form__item 
+            h3 Job Sector
+            .job-form__inputs
+              +checkbox-button('Retail', true)
+              +checkbox-button('Bedquarters', false)
+              +checkbox-button('Bed Factory', false)
+              +checkbox-button('Distribution', false)
+          .job-form__item 
+            h3 Contract Type
+            .job-form__inputs
+              +checkbox-button('Permanent', true)
+              +checkbox-button('Part-time', false)
+              +checkbox-button('Seasonal', false)
+              +checkbox-button('Fixed Contract', false)
+          .job-form__item
+            h3 Location 
+            .job-form__inputs.job-form__inputs--col
+              select.select(name="distance")
+                option(value="30") Within 30 miles
+              input.input(type="text" placeholder="Location or postcode" name="location")
+              button(type="submit").button.button--primary.text-uppercase Update
+
+      .job-list
+        .job-item
+          .job-item__info
+            h3 Retail Sales Assistant
+            p Lorem ipsum dolor sit amet consectetur adipiscing elit. Conubia nostra inceptos himenaeos orci varius natoque penatibus. Ligula congue sollicitudin erat viverra ac tincidunt nam. Cubilia curae hac habitasse platea dictumst lorem ipsum. Taciti sociosqu ad litora torquent per conubia nostra.
+              .job-item__wrapper 
+                .job-item__title 
+                  ul 
+                    li Contract type:
+                    li Contract hours: 
+                    li Location:
+                    li Salary:
+                .job-item__info
+                  ul 
+                    li Permanent
+                    li Full time
+                    li Farnborough
+                    li £30,000pa OTE
+          .job-item__buttons
+            button.button.button--primary Apply
+            button.button Read more
+
+        .job-item
+          .job-item__info
+            h3 Retail Sales Assistant
+            p Lorem ipsum dolor sit amet consectetur adipiscing elit. Conubia nostra inceptos himenaeos orci varius natoque penatibus. Ligula congue sollicitudin erat viverra ac tincidunt nam. Cubilia curae hac habitasse platea dictumst lorem ipsum. Taciti sociosqu ad litora torquent per conubia nostra.
+              .job-item__wrapper 
+                .job-item__title 
+                  ul 
+                    li Contract type:
+                    li Contract hours: 
+                    li Location:
+                    li Salary:
+                .job-item__info
+                  ul 
+                    li Permanent
+                    li Full time
+                    li Farnborough
+                    li £30,000pa OTE
+          .job-item__buttons
+            button.button.button--primary Apply
+            button.button Read more
+    .container
+      .jobs__pagination
+        nav.pagination
+          ul.pagination__list
+            li.pagination__item
+              span.pagination__link.is-active 1
+            li.pagination__item
+              a(href="#").pagination__link 2
+            li.pagination__item
+              a(href="#").pagination__link 3
+            li.pagination__item
+              a(href="#").pagination__link 4

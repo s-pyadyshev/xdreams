@@ -1,0 +1,95 @@
+.slider-menu .swiper-navigation {
+  position: absolute;
+  bottom: 30px;
+  display: flex;
+  justify-content: space-between;
+  width: calc(100% - 60px);
+}
+
+.slider-menu .swiper-pagination {
+  position: static;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  width: calc(100% - 60px);
+}
+
+.slider-menu .swiper-pagination-bullet {
+  vertical-align: top;
+}
+
+.slider-menu .swiper-button-prev {
+  padding-top: 2px;
+  padding-left: 20px;
+}
+
+.slider-menu .swiper-button-next {
+  padding-top: 2px;
+  padding-right: 20px;
+}
+
+.slider-menu .swiper-button-prev svg,
+.slider-menu .swiper-button-next svg {
+  width: 20px;
+  height: 20px;
+  stroke: var(--color-white);
+}
+
+.slider-menu .swiper-pagination-bullet {
+  width: 12px;
+  height: 12px;
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-white);
+}
+
+.slider-menu .swiper-navigation,
+.slider-menu .swiper-pagination {
+  @include desktop {
+    display: none;
+  }
+}
+
+.slider-menu .swiper-slide img {
+  height: 420px;
+  border-radius: 20px;
+  object-fit: cover;
+
+  @include tablet {
+    width: 100%;
+  }
+}
+
+.slider-menu .swiper-slide>a {
+  display: flex;
+  justify-content: center;
+}
+
+.slider-menu .swiper-slide h3 {
+  position: absolute;
+  bottom: 20px;
+  right: auto;
+  left: auto;
+  margin-inline: auto;
+  font-size: 12px;
+  font-weight: 300;
+  padding: 6px 24px 3px;
+  display: block;
+  border-radius: 40px;
+  letter-spacing: 0;
+  backdrop-filter: blur(30px) brightness(70%);
+  background-color: rgba(0, 0, 0, 0.3);
+  font-family: var(--font-primary);
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 2;
+    padding: 10px 30px 8px;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+}
+
+.menu__content .slider-menu3 .swiper-wrapper {
+  @include desktop {
+    grid-template-columns: 2fr 2fr;
+  }
+}

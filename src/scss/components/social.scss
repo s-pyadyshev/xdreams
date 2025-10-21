@@ -1,0 +1,21 @@
+.social-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  a {
+    &:focus,
+    &:hover,
+    &:active{
+      color: var(--color-secondary);
+    }
+  }
+}

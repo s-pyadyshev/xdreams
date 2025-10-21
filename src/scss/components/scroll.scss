@@ -1,0 +1,48 @@
+#image-sequence {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+
+.pin-section {
+  min-height: 100vh;
+  position: relative;
+  z-index: 2;
+  background: transparent;
+}
+
+.pin-spacer:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0, 0.2);
+}
+
+.pin-section__title {
+  z-index: 1;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 100%;
+
+  color: white;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  text-align: center;
+}
+
+.pin-section__title > img {
+  margin: 0 auto;
+}
+
+#section-6 {
+  height: 800px;
+  background-color: #000;
+}

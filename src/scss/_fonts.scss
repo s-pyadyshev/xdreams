@@ -1,0 +1,52 @@
+// stylelint-disable no-empty-source
+
+@font-face {
+  font-family: 'Axiforma';
+  src: url('../fonts/axiforma-regular.woff2') format('woff2'),
+    url('../fonts/axiforma-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'axiforma';
+  src: url('../fonts/axiforma-black.woff2') format('woff2'),
+    url('../fonts/axiforma-black.woff') format('woff');
+  font-weight: 900;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'axiforma';
+  src: url('../fonts/axiforma-bold.woff2') format('woff2'),
+    url('../fonts/axiforma-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'glamour';
+  src: url('../fonts/glamour-absolute-condensed.woff2') format('woff2'),
+    url('../fonts/glamour-absolute-condensed.woff') format('woff');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'glamour';
+  src: url('../fonts/glamour-absolute-extended.woff2') format('woff2'),
+    url('../fonts/glamour-absolute-extended.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'glamour';
+  src: url('../fonts/glamour-absolute-regular.woff2') format('woff2'),
+    url('../fonts/glamour-absolute-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}

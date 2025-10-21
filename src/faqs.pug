@@ -1,0 +1,83 @@
+extends pug/base
+
+prepend vars
+  - title = 'FAQs'
+
+append vars
+  - var jobs = [{category:'Retail',title:'Retail Sales Assistant',description:'You will have an engaging and positive personality, plus a natural ability to bond with customers.',details:{'Contract type':'Permanent','Contract hours':'Full time','Location':'Farnborough','Salary':'£30,000pa OTE'},traits:['Engaging and positive personalities','No previous experience is necessary','Determined and motivated']},{category:'Hospitality',title:'Barista & Customer Service',description:'Passionate about coffee and delivering exceptional customer experiences in a fastpaced environment.',details:{'Contract type':'Permanent','Contract hours':'Part time','Location':'Guildford','Salary':'£22,000pa'},traits:['Coffee enthusiasts','Friendly and approachable','Able to work weekends']},{category:'Tech',title:'Junior Web Developer',description:'Join our team to build modern, responsive websites using HTML, CSS, and JavaScript.',details:{'Contract type':'Fixed term','Contract hours':'Full time','Location':'Remote (UK)','Salary':'£28,000pa'},traits:['Basic coding knowledge','Eager to learn','Problem solvers']},{category:'Education',title:'Teaching Assistant',description:'Support children’s learning and development in a nurturing primary school setting.',details:{'Contract type':'Permanent','Contract hours':'Term time only','Location':'Reading','Salary':'£19,000pa (pro rata)'},traits:['Patient and caring','Good with children','Team players']},{category:'Logistics',title:'Warehouse Operative',description:'Help keep our supply chain running smoothly with picking, packing, and dispatch duties.',details:{'Contract type':'Temporary','Contract hours':'Full time','Location':'Slough','Salary':'£11.50/hour'},traits:['Physically fit','Reliable and punctual','Attention to detail']},{category:'Healthcare',title:'Care Assistant',description:'Make a real difference by supporting elderly residents with daily living activities.',details:{'Contract type':'Permanent','Contract hours':'Shift work','Location':'Woking','Salary':'£21,500pa'},traits:['Compassionate','Good communication skills','Empathetic and kind']}]
+
+block content
+  section.hero.hero--faqs.wave-bottom
+    img(src="images/faqs.jpg" alt="faqs")
+    .hero__inner
+      .hero__motto
+        h1 FAQs
+        p Because no one should lose sleep over job applications
+  section 
+    .container 
+      h2 Got questions?
+      h3 We’ve got answers.
+      p Think of this as your bedside guide to the application process – short, helpful and with a smile along the way.
+      .tabs(data-tabs="tabs")
+        button.button.is-active(data-tab="tab1") General Application Process
+        button.button(data-tab="tab2") Interview Process
+        button.button(data-tab="tab3") Skills and Right to Work
+        button.button(data-tab="tab4") Working at Dreams
+        button.button(data-tab="tab5") Technical Questions
+
+      .tab-content(data-tabs-content="tabs")
+        .tab-slide.is-active(data-tab-content="tab1")
+          .tab-slide-wrapper
+            .tab-slide__top
+              .tab-slide__card
+                h4 How do I apply for <br> a role?
+                h5 Ready to dream big with us?
+                p Just follow a few simple steps to set up your account and upload your CV. Easy as fluffing a pillow.
+              .tab-slide__card
+                h4 Can I apply <br> for more than one <br> position at a time?
+                h5 Absolutely – you can apply for more than one role
+                p Just not the same one twice (we know you’re keen, but one dream at a time).
+              .tab-slide__card
+                h4 What happens <br> after I submit my <br> application?
+                h5 You’ll get an email confirming we’ve received it.
+                p Then we’ll review it and if it’s a dream match, a hiring manager will be in touch.
+            .tab-slide__bot
+              .tab-slide__card
+                h4 How long does the <br> recruitment process <br> take?
+                h5 We try to respond as quickly as possible, but it may take up to 21 days.
+                p Hang tight – we’re working through the pile like a stack of cosy duvets.
+              .tab-slide__card
+                h4 Have a <br> question for us?
+                h5 We’re here to help
+                p Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Quisque faucibus ex sapien vitae pellentesque.
+                form.tab-slide__form(action="" method="post")
+                  input.tab-slide__input(type="text" name="first-name" placeholder="First Name" id="tab-slide-first-name")
+                  input.tab-slide__input(type="text" name="last-name" placeholder="Last Name" id="tab-slide-second-name")
+                  input.tab-slide__input(type="mail" name="mail" placeholder="Email adress" id="tab-slide-mail")
+                  textarea.tab-slide__input(type="textarea" name="comment" placeholder="Write your question(s) here" rows="6" id="tab-slide-areatext")
+                  .tab-slide__checkboxes
+                    .tab-slide__checkbox.tab-slide__checkbox-1
+                      input(type="checkbox" id="permission")
+                      label(for="permission") I acknowledge and give permission for my data to be held by Dreams and WeLove9am in accordance with the General Data Protection Regulation
+                    .tab-slide__checkbox.tab-slide__checkbox-2
+                      input(type="checkbox" id="policy")
+                      label(for="policy") I have read and agree to the privacy policy
+                  input.tab-slide__submit(type="submit" value="Submit")
+
+
+        .tab-slide(data-tab-content="tab2")
+          div Tab 2
+        .tab-slide(data-tab-content="tab3")
+          div Tab 3
+        .tab-slide(data-tab-content="tab4")
+          div Tab 4
+        .tab-slide(data-tab-content="tab5")
+          div Tab 5
+  section
+    .container
+      .section-header
+        h2 Find your perfect job
+    +slider-jobs(jobs)
+  section
+    +next
+

@@ -1,0 +1,43 @@
+.map {
+  position: relative;
+}
+
+.map__image {
+  position: relative;
+}
+
+.map__image img {
+  height: 562px;
+  object-fit: cover;
+  margin: 0 auto;
+
+  @include tablet {
+    height: 900px;
+  }
+
+  @include desktop-l {
+    height: 1240px;
+  }
+}
+
+.map__card {
+  margin-top: -80px;
+  padding: 0 20px;
+
+  @include desktop {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+  }
+}
+
+.map__inner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  max-width: 1920px;
+  margin: 0 auto;
+}

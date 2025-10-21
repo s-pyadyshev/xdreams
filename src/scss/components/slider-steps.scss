@@ -1,0 +1,244 @@
+.slider-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-block: 40px;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 12px;
+    }
+  }
+
+  &__imageSmall {
+    width: 100%;
+    aspect-ratio: 1/0.9;
+    margin-bottom: 20px;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      border-radius: 10px;
+    }
+
+    @include desktop {
+      display: none;
+    }
+  }
+
+  &__progress {
+    width: 100%;
+    margin-bottom: 24px;
+  }
+
+  &__progress-bar {
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 2px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  &__progress-fill {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background-color: var(--color-primary);
+    transform-origin: left;
+  }
+
+  &__fake {
+    height: 0;
+    visibility: hidden;
+  }
+
+  &__main {
+    border-radius: 20px;
+  }
+
+  &__navigation {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+  }
+
+  &__nav-btn {
+    background: none;
+    border: 0;
+    padding: 0;
+    flex-shrink: 0;
+
+    svg {
+      width: 34px;
+      height: 34px;
+      stroke: var(--color-primary);
+
+      @include desktop {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  }
+}
+
+.slider-steps-slide {
+  border-radius: 10px;
+  height: 100%;
+  transition: background-size 500ms ease;
+  padding: 66px 20px;
+  box-sizing: border-box;
+
+  @include desktop {
+    padding: 30px 52px;
+  }
+
+  background-size: 100% auto;
+  background-position: center center;
+  transition: background-size 2s ease-out,
+  background-position 2s ease-out;
+
+  &-1 {
+    background-image: url("../../images/application/slider-steps/test-slide.png");
+  }
+
+  &-2 {
+    background-image: url("../../images/application/slider-steps/test-slide.png");
+  }
+
+  &-3 {
+    background-image: url("../../images/application/slider-steps/test-slide.png");
+  }
+
+  &-4 {
+    background-image: url("../../images/application/slider-steps/test-slide.png");
+  }
+
+  &__header {
+    color: white;
+
+    h3 {
+      font-size: 28px;
+      line-height: 30px;
+      // margin-bottom: 25px;
+    }
+
+    transition: opacity 1s ease,
+    visibility 1s ease,
+    margin 1s ease;
+  }
+
+  &__body {
+    max-height: 0;
+    opacity: 0;
+    visibility: hidden;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+
+    h3 {
+      font-size: 28px;
+      line-height: 30px;
+      letter-spacing: 0;
+    }
+
+    p {
+      font-size: 12px;
+      line-height: 19px;
+      margin: 0;
+    }
+
+    &>p:first-of-type {
+      font-size: 15px;
+      line-height: 22px;
+      font-weight: 600;
+    }
+  }
+
+  .swiper-slide:not(.swiper-slide-thumb-active) {
+    background-size: cover;
+  }
+}
+
+.slider-steps__real {
+  @include desktop {
+    .swiper-slide {
+      width: calc((100% - 54px) / 6) !important;
+    }
+
+    .swiper-slide-thumb-active {
+      width: calc((100% - 54px) / 2) !important;
+    }
+  }
+}
+
+.swiper-slide-thumb-active {
+  .slider-steps-slide__header {
+    margin-bottom: 25px;
+  }
+}
+
+// .swiper-slide-thumb-active {
+
+// }
+
+.swiper-slide-thumb-active .slider-steps-slide {
+  background-size: cover;
+
+  &-1 {
+    background-image:
+      linear-gradient(to bottom, rgba(37, 17, 99, 0.6) 0%, rgba(37, 17, 99, 0.6) 100%),
+      url("../../images/application/slider-steps/test-slide.png");
+  }
+
+  &-2 {
+    background-image:
+      linear-gradient(to bottom, rgba(37, 17, 99, 0.6) 0%, rgba(37, 17, 99, 0.6) 100%),
+      url("../../images/application/slider-steps/test-slide.png");
+  }
+
+  &-3 {
+    background-image:
+      linear-gradient(to bottom, rgba(37, 17, 99, 0.6) 0%, rgba(37, 17, 99, 0.6) 100%),
+      url("../../images/application/slider-steps/test-slide.png");
+  }
+
+  &-4 {
+    background-image:
+      linear-gradient(to bottom, rgba(37, 17, 99, 0.6) 0%, rgba(37, 17, 99, 0.6) 100%),
+      url("../../images/application/slider-steps/test-slide.png");
+  }
+
+  @include desktop {
+    background-size: cover;
+  }
+}
+
+.swiper-slide-thumb-active .slider-steps-slide__body {
+  max-height: 2000px;
+  opacity: 1;
+  visibility: visible;
+  margin-top: 0;
+  display: flex;
+
+  transition:
+    opacity 1s ease,
+    visibility 1s ease,
+    margin 1s ease;
+}
+
+.swiper-slide-thumb-active .slider-steps-slide__bottom {
+  span {
+    color: var(--color-secondary);
+  }
+}

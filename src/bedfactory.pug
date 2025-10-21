@@ -1,0 +1,15 @@
+extends pug/base
+
+prepend vars
+  - title = 'Bed Factory'
+
+append vars
+
+block content
+  section.hero.hero--bedfactory.wave-bottom
+    img(src="images/bedfactory.jpg" alt="bed factory")
+    .hero__inner
+      .hero__motto
+        img.hero__images.hidden-desktop(src="images/bedfactory-header.png" alt="beds don't make themselves.")
+        img.hero__images.visible-desktop(src="images/bedfactory-header.svg" alt="beds don't make themselves.")
+      p From fabric cutting to mattress building, the Bed Factory is where raw materials transform into the stuff sweet dreams are made of.

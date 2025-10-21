@@ -1,0 +1,79 @@
+mixin menu()
+  nav.menu
+    ul.menu__list
+      li.menu__item
+        button(data-collapse-target="menu1" data-collapse-group="menu").menu__link Our teams
+        ul.menu__content 
+          li(data-collapse-content="menu1")
+            .swiper.slider-menu.slider-menu1
+              .swiper-wrapper
+                .swiper-slide
+                  a(href="/").menu__content-link
+                    img(src="images/retail.jpg" alt="Retail.")
+                    h3 Retail
+                .swiper-slide
+                  a(href="/").menu__content-link
+                    img(src="images/retail.jpg" alt="Bedquarters.")
+                    h3 Bedquarters
+                .swiper-slide
+                  a(href="/").menu__content-link
+                    img(src="images/retail.jpg" alt="Distribution.")
+                    h3 Distribution
+                .swiper-slide
+                  a(href="/").menu__content-link
+                    img(src="images/retail.jpg" alt="Bed Factory.")
+                    h3 Bed Factory
+              .swiper-pagination
+              .swiper-navigation
+                button.swiper-button-prev
+                  +svg('chevron-left')
+                button.swiper-button-next
+                  +svg('chevron-right')
+      li.menu__item
+        button(data-collapse-target="menu2" data-collapse-group="menu").menu__link About us
+        ul.menu__content
+          li(data-collapse-content="menu2")
+            .swiper.slider-menu.slider-menu2
+              .swiper-wrapper
+                .swiper-slide
+                  a(href="/").menu__content-link
+                    img(src="images/retail.jpg" alt="Retail.")
+                    h3 About us & History
+                .swiper-slide
+                  a(href="/").menu__content-link
+                    img(src="images/retail.jpg" alt="Bedquarters.")
+                    h3 Values
+                .swiper-slide
+                  a(href="/").menu__content-link
+                    img(src="images/retail.jpg" alt="Distribution.")
+                    h3 L&D Staff Networks
+                .swiper-slide
+                  a(href="/").menu__content-link
+                    img(src="images/retail.jpg" alt="Distribution.")
+                    h3 Benefits & Wellbeing
+              .swiper-pagination
+              .swiper-navigation
+                button.swiper-button-prev
+                  +svg('chevron-left')
+                button.swiper-button-next
+                  +svg('chevron-right')
+      li.menu__item
+        button(data-collapse-target="menu3" data-collapse-group="menu").menu__link How to apply
+        ul.menu__content 
+          li(data-collapse-content="menu3")
+            .swiper.slider-menu.slider-menu3
+              .swiper-wrapper
+                .swiper-slide
+                  a(href="/").menu__content-link
+                    img(src="images/retail.jpg" alt="Retail.")
+                    h3 Application Process
+                .swiper-slide
+                  a(href="/").menu__content-link
+                    img(src="images/retail.jpg" alt="Bedquarters.")
+                    h3 FAQs
+              .swiper-pagination
+              .swiper-navigation
+                button.swiper-button-prev
+                  +svg('chevron-left')
+                button.swiper-button-next
+                  +svg('chevron-right')

@@ -1,0 +1,90 @@
+extends pug/base
+
+prepend vars
+  - title = 'Staff Networks'
+
+append vars
+
+block content
+  section.hero.hero--staff.wave-bottom
+    img(src="images/learning.jpg" alt="staff")
+    .hero__inner
+      .hero__motto
+        img.hero__images.hidden-desktop(src="images/staff-header.png" alt="wakeup your potential.")
+        img.hero__images.visible-desktop(src="images/staff-header.svg" alt="wakeup your potential.")
+      p From learning that keeps you wide awake to networks that help you feel at home, we’ll support every step of your journey.
+
+  section.page-header
+    .container
+      img.page-header--image(src="images/learningDevelopment.jpg" alt="learning&Development")
+      p.page-header--title At Dreams, we don’t believe careers should stand still — they should keep you wide awake.
+      h4.page-header--texst Development here is about helping you move forward, wherever you’re starting from and wherever you want to go. Some people want to step into leadership, others want to get even comfier in the role they’re in, and some are still figuring out their dream path. Whatever stage you’re at, we’ll help you get there.
+
+  section.about
+    .container
+      img.about__img(src="images/learning1.png" alt="meeting.")
+      .about__text
+        h3 Progression that fits you
+        h4 Think of it like finding the right mattress — no two people need exactly the same thing.
+        p That’s why our learning comes in all shapes and sizes: apprenticeships that lead to qualifications, training days to swap stories and skills and Beducation — our online platform with bite-sized learning you can dip into whenever you need a boost. Plus, our internal learning team is always on hand to guide, support and cheer you on.
+      img.about__img(src="images/learning2.png" alt="discussion.")
+      .about__text
+        h3 Stepping into leadership
+        h4 If moving up is your dream, our Stepping into Leadership programme is the perfect first step.
+        p Already managing? Our Elevate programme helps you build confidence and stretch further. It’s about giving you the tools to lead brilliantly – no sleepless nights required.
+      img.about__img(src="images/learning3.png" alt="delivery.")
+      .about__text
+        h3 Your journey, your pace
+        h4 Careers aren’t one-size-fits-all and they definitely don’t follow a set bedtime routine.
+        p Your development journey is yours to shape and we’ll be right there with you – whether you’re taking small steps or making giant leaps.
+
+  section.inclusion
+    .animation-start-top.inclusion__images
+      img(src="images/inclusion-top1.png" alt="delivery").image--1
+      img(src="images/inclusion-top2.png" alt="builder").image--2
+      img(src="images/inclusion-top3.png" alt="conversation").image--3
+
+    .container
+      .card.card--primary
+        h3 Colleague Inclusion Network
+        h4 Our Colleague Inclusion Network is exactly what it sounds like – a place for connection, learning and action, open to everyone no matter your role, background or experience.
+        p It’s about more than conversations (though we have plenty of those). We share stories, host events and shine a light on lived experiences – but we also turn insight into impact. From inclusive leadership to everyday interactions, we’re focused on making sure our culture reflects the customers and communities we serve.
+        ul.card__list
+          li.card__item
+            strong.item__title Disability:
+            p.item__desc  Promoting accessibility, sharing lived experiences, and advocating for customers and colleagues with disabilities
+          li.card__item
+            strong.item__title  Neurodiversity:
+            p.item__desc Raising awareness, challenging stigma, and support tailored approaches to communication and working styles.
+          li.card__item
+            strong.item__title LGBTQ+:
+            p.item__desc Celebrating identities, influencing inclusive language and creating safe spaces for our colleagues and customers
+          li.card__item
+            strong.item__title Faith and Culture:
+            p.item__desc  Encouraging respectful dialogue and celebrating diverse traditions.
+          li.card__item
+            strong.item__title Gender:
+            p.item__desc Challenging stereotypes, promoting equity, and supporting inclusion throughout the business.
+        p What makes this network special is that it’s real. We’re not here to tick boxes. We’re here to create a workplace where people feel safe to be themselves. Because when people belong, they thrive – and when they thrive, so does the whole team.
+        p You don’t need to be an expert to get involved – just curious, open-minded and ready to be part of something that makes Dreams stronger.
+    .animation-start-bottom.inclusion__images
+      img(src="images/inclusion-bottom1.png" alt="conversation").image--4
+      img(src="images/inclusion-bottom2.png" alt="employee").image--5
+      img(src="images/inclusion-bottom3.png" alt="conversation").image--6
+
+block scripts
+  script.
+    document.addEventListener("scroll", () => {
+      const topSection = document.querySelector(".animation-start-top");
+      const bottomSection = document.querySelector(".animation-start-bottom");
+
+      [topSection, bottomSection].forEach(section => {
+        if (!section) return;
+        const rect = section.getBoundingClientRect();
+
+        if (rect.top < window.innerHeight * 0.8) {
+          section.classList.add("animate");
+        }
+      });
+    });
+

@@ -1,0 +1,77 @@
+extends pug/base
+
+prepend vars
+  - title = 'Retail'
+
+append vars
+  - var jobs = [{category:'Retail',title:'Retail Sales Assistant',description:'You will have an engaging and positive personality, plus a natural ability to bond with customers.',details:{'Contract type':'Permanent','Contract hours':'Full time','Location':'Farnborough','Salary':'£30,000pa OTE'},traits:['Engaging and positive personalities','No previous experience is necessary','Determined and motivated']},{category:'Hospitality',title:'Barista & Customer Service',description:'Passionate about coffee and delivering exceptional customer experiences in a fastpaced environment.',details:{'Contract type':'Permanent','Contract hours':'Part time','Location':'Guildford','Salary':'£22,000pa'},traits:['Coffee enthusiasts','Friendly and approachable','Able to work weekends']},{category:'Tech',title:'Junior Web Developer',description:'Join our team to build modern, responsive websites using HTML, CSS, and JavaScript.',details:{'Contract type':'Fixed term','Contract hours':'Full time','Location':'Remote (UK)','Salary':'£28,000pa'},traits:['Basic coding knowledge','Eager to learn','Problem solvers']},{category:'Education',title:'Teaching Assistant',description:'Support children’s learning and development in a nurturing primary school setting.',details:{'Contract type':'Permanent','Contract hours':'Term time only','Location':'Reading','Salary':'£19,000pa (pro rata)'},traits:['Patient and caring','Good with children','Team players']},{category:'Logistics',title:'Warehouse Operative',description:'Help keep our supply chain running smoothly with picking, packing, and dispatch duties.',details:{'Contract type':'Temporary','Contract hours':'Full time','Location':'Slough','Salary':'£11.50/hour'},traits:['Physically fit','Reliable and punctual','Attention to detail']},{category:'Healthcare',title:'Care Assistant',description:'Make a real difference by supporting elderly residents with daily living activities.',details:{'Contract type':'Permanent','Contract hours':'Shift work','Location':'Woking','Salary':'£21,500pa'},traits:['Compassionate','Good communication skills','Empathetic and kind']}]
+
+block content 
+  section.section.hero.hero--retail.wave-bottom
+    img(src="images/retail.jpg" alt="retail.")
+    .hero__inner
+      .hero__motto
+        h1 Where finding “the one”
+        img.hero__images.hidden-desktop(src="images/retail-header.png" alt="happens every day.")
+        img.hero__images.visible-desktop(src="images/retail-header.svg" alt="happens every day.")
+      p In store is where customers meet our Bed Experts and leave one step closer to their perfect night’s sleep.
+
+  section.section.intro
+    .container.intro__inner
+      .intro__text 
+        h2 A bed is never just a bed
+        h3 Which is why we’ve got over 200 stores nationwide, filled with trained Bed Experts ready to help the Great British public find their perfect match.
+        p In-store, no two days are the same. One minute you’ll be listening closely to a customer’s needs, the next you’ll be guiding them through high-value purchases with confidence and care. With our Sleepmatch technology on hand, you’ll turn what could be a confusing decision into an exciting (and reassuring) one.
+        p We make sure every in-store visit is exceptional, and that starts with equipping you with the right tools, training and support to do your best work. Because a great night’s sleep is personal — and so is the service we give.
+      img(src="images/retail-bed.png" alt="bed." width="418" height="306").intro__image
+  section.section
+    .container
+      .section-header
+        h2 Don’t just take <br> our word for it
+        h3 Meet your Dreams team.
+      +slider-features
+  section.section
+    .container
+      .section-header
+        h2 We can’t promise <br> breakfast in bed
+        h3 But, we can promise these:
+    .container
+      +slider-spotlight
+  section.section.map
+    .map__image.wave-top.wave-bottom
+      img(src="images/retail-map.jpg" alt="map.")
+    .map__inner
+      .map__card
+        .card.card--primary
+          h3 Over 200 stores nationwide
+          h4 At Dreams, our retail stores are much more than showrooms—they’re where we turn the art of restful sleep into a joyful, friendly experience. Our network of stores truly stretches from Aberdeen to Truro.
+          p Our regional stores are dynamic hubs that welcome a diverse range of roles, From Retail Sales Assistants who guide customers to their dream bed using our unique Sleepmatch technology, creating a memorable and personalised experience. To our Retail Store Managers who lead their in store team, deliver exceptional customer experiences.
+          form(action="" method="post")
+            .control
+              input.input.input--round(type="search" name="store" placeholder="Find your local store")
+              button(type="submit").input__icon
+                +svg('search')
+  section.section
+    .container 
+      include ./pug/components/quiz.pug
+  //- section.map
+  //-   .map__image.wave-top.wave-bottom
+  //-     img(src="images/retail-map.jpg" alt="map.")
+  //-   .map__inner
+  //-     .map__card
+  //-       .card.card--primary
+  //-         h3 Where you’ll be working
+  //-         h4 Here is where you’ll be based, whether that’s Bedquarters, or our Bed Factory or one of our stores.
+  //-         p Dreams Farnborough,<br> Solartron Retail Park,<br>  Solartron Rd, <br> Farnborough <br> GU14 7QJ
+  //-         form(action="" method="post")
+  //-           .control 
+  //-             input.input.input--round(type="search" name="store" placeholder="Find your local store")
+  //-             button(type="submit").input__icon
+  //-               +svg('search')
+  section.section
+    .container
+      .section-header
+        h2 Find your perfect job
+    +slider-jobs(jobs)
+  section.section
+    +next

@@ -1,0 +1,19 @@
+extends pug/base
+
+prepend vars
+  - title = 'Job Listing'
+
+append vars
+
+block content
+  section.hero.hero--jobs__listing.wave-bottom
+    img(src="images/jobs__listing.jpg" alt="jobs__listing")
+    .hero__inner
+      .hero__motto
+        h1 Retail Sales Assistant
+      .hero__info
+        button(type="submit").button.button--gray Retail
+        button(type="submit").button.button--gray Permanent
+        button(type="submit").button.button--gray Full-time
+        button(type="submit").button.button--gray Farnborough
+        button(type="submit").button.button--gray £30,000pa OTE

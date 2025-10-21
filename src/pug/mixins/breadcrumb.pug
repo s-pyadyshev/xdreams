@@ -1,0 +1,26 @@
+mixin breadcrumbs(options)
+  - const opts = Object.assign({
+  -   items: [],
+  -   separator: '>',
+  -   currentPage: null
+  - }, options)
+  
+  nav.breadcrumbs
+    ol.breadcrumbs__list
+      each item, index in opts.items
+        li.breadcrumbs__item
+          if index < opts.items.length - 1
+            a.breadcrumbs__link(href=item.url)= item.title
+          else
+            span.breadcrumbs__current= item.title
+          if index < opts.items.length - 1
+            span.breadcrumbs__separator= opts.separator
+
+//- +breadcrumbs({
+//-   items: [
+//-     { title: 'Home', url: '/' },
+//-     { title: 'Category', url: '/category' },
+//-     { title: 'Current Page', url: '/category/page' }
+//-   ],
+//-   separator: '/'
+//- })

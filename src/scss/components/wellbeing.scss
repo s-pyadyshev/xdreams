@@ -1,0 +1,166 @@
+.wellbeing {
+  display: flex;
+  flex-direction: column;
+  color: var(--color-primary);
+  padding-top: 40px;
+}
+
+.wellbeing h3 {
+  font-family: var(--font-primary);
+  font-size: 28px;
+  font-weight: 900;
+  line-height: 31px;
+  letter-spacing: -0.84px;
+  margin: 0;
+
+  @include laptop {
+    font-size: 45px;
+  }
+
+  @include desktop {
+    font-size: 45px;
+    line-height: 60px;
+    font-weight: 900;
+  }
+
+  @include desktop-l {
+    font-size: 55px;
+    line-height: 60px;
+    font-weight: 900;
+  }
+}
+
+.wellbeing h4 {
+  font-family: var(--font-primary);
+  font-size: 15px;
+  font-weight: 700;
+  line-height: 22px;
+  margin: 0;
+
+  @include laptop {
+    font-size: 16px;
+  }
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+}
+
+.wellbeing p {
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 19px;
+  letter-spacing: 0;
+  margin: 0;
+
+  @include laptop {
+    font-size: 14px;
+  }
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: 400;
+  }
+}
+
+.wellbeing__description {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  padding-bottom: 40px;
+
+  @include tablet {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  @include desktop {
+    max-width: 1088px;
+  }
+}
+
+.wellbeing__card {
+  display: flex;
+  flex-direction: column;
+
+  @include laptop {
+    flex-direction: row;
+    background-color: var(--color-muted);
+    border-radius: 20px;
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+.wellbeing__card img {
+  z-index: 1;
+  margin: 0 auto;
+
+  @include laptop {
+    width: 550px;
+    order: 2;
+    margin: 0;
+    height: 588px;
+    margin-top: -18px;
+    margin-bottom: -18px;
+  }
+
+  @include desktop {
+    height: 602px;
+    margin-bottom: -8px;
+    margin-top: -8px;
+    justify-content: center;
+  }
+}
+
+.wellbeing__card-body {
+  position: relative;
+  background-color: var(--color-muted);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 322px;
+  margin: -40px auto 0 auto;
+  padding: 20px;
+  z-index: 2;
+
+  @include tablet {
+    margin-top: 0;
+    order: 1;
+  }
+
+  @include laptop {
+    margin: 0;
+    padding: 30px 50px 30px 50px;
+    width: 500px;
+    margin: 0 auto;
+    justify-content: center;
+  }
+
+  @include desktop {
+    height: 100%;
+  }
+}
+
+.wellbeing__card-body p {
+  font-weight: 400;
+}
+
+.wellbeing__card-body ul {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  padding-left: 13px;
+}
+
+.wellbeing__card-body ul li {
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 19px;
+}

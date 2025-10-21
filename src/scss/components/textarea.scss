@@ -1,0 +1,31 @@
+.textarea {
+  font-size: 16px;
+  font-weight: 300;
+  padding: 16px 20px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--color-black);
+  transition-property: border-color;
+  transition-duration: var(--transition-duration);
+  resize: none;
+
+  @include tablet {
+    padding: 14px 30px;
+  }
+
+  &:focus,
+  &:hover,
+  &:active {
+    border-color: rgba(255, 255, 255, 0.5);
+  }
+
+  &[disabled] {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+
+  &::placeholder {
+    color: #cccccc;
+  }
+}

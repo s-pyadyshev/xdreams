@@ -1,0 +1,49 @@
+extends pug/base
+
+prepend vars
+  - title = 'Homepage'
+
+append vars
+//-  - pageWrapperClass = 'custom-class'
+
+block content
+  <canvas id="image-sequence" width="1920" height="1080"></canvas>
+
+  <section id="section-1" class="pin-section" data-frame-count="75" data-image-path="images/general/dreamscareersite-general">
+    <div class="pin-section__title">
+      img.hidden-desktop(src="images/home-header-1.png" alt="from our big thinkers.")
+      img.visible-desktop(src="images/home-header-1-desktop.svg" alt="from our big thinkers.")
+    </div>
+    //- p SCROLL TO EXPLORE
+  </section>
+  <section id="section-2" class="pin-section" data-frame-count="75" data-image-path="images/bedquarters/dreamscareersite-bedquarters">
+    <div class="pin-section__title">
+      img.hidden-desktop(src="images/home-header-2.svg" alt="from our big thinkers.")
+      img.visible-desktop(src="images/home-header-2-desktop.svg" alt="from our big thinkers.")
+    </div>
+  </section>
+  <section id="section-3" class="pin-section" data-frame-count="75" data-image-path="images/bedfactory/dreamscareersite-bedfactory">
+    <div class="pin-section__title">
+      img.hidden-desktop(src="images/home-header-3.svg" alt="from our big thinkers.")
+      img.visible-desktop(src="images/home-header-3-desktop.svg" alt="from our big thinkers.")
+    </div>
+  </section>
+  <section id="section-4" class="pin-section" data-frame-count="87" data-image-path="images/retail/dreamscareersite-retail">
+    <div class="pin-section__title">
+      img.hidden-desktop(src="images/home-header-4.png" alt="from our big thinkers.")
+      img.visible-desktop(src="images/home-header-5-desktop.svg" alt="from our big thinkers.")
+    </div>
+  </section>
+  <section id="section-5" class="pin-section" data-frame-count="75" data-image-path="images/distribution/dreamscareersite-distribution">
+    <div class="pin-section__title">
+      img.hidden-desktop(src="images/home-header-5.svg" alt="from our big thinkers.")
+      img.visible-desktop(src="images/home-header-5-desktop.svg" alt="from our big thinkers.")
+    </div>
+  </section>
+  <section id="section-6" class="pin-section" data-frame-count="75" data-image-path="images/distribution/dreamscareersite-distribution">
+    <div class="pin-section__title">
+      h2 Every role has its part to play in
+      img.hidden-desktop(src="images/home-header-6.svg" alt="helping the nation sleep better.")
+      img.visible-desktop(src="images/home-header-6-desktop.svg" alt="helping the nation sleep better.")
+    </div>
+  </section>

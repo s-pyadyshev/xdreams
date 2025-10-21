@@ -1,0 +1,104 @@
+.menu-toggle__text {
+  display: none;
+  position: absolute;
+  top: calc(50% - 8px);
+  right: 70px;
+  color: var(--color-white);
+
+  .menu-active & {
+    display: block;
+  }
+
+  @include desktop {
+    display: none;
+    font-size: 20px;
+    top: calc(50% - 10px);
+    right: 65px;
+  }
+}
+
+.menu-toggle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: inherit;
+  height: inherit;
+  padding: 0;
+  background: none;
+  border: 0;
+
+  &:focus,
+  &:focus-visible {
+    outline: none;
+  }
+
+  .menu-active & {
+    z-index: 10;
+    position: relative;
+    display: flex;
+  }
+}
+
+.menu-icon {
+  width: 16px;
+  height: 16px;
+  position: relative;
+  cursor: pointer;
+  transform: rotate(0deg);
+  transition: all 0.5s ease-in-out;
+
+  &:focus,
+  &:active {
+    .menu-icon__line:nth-child(3) {
+      width: 21px;
+    }
+  }
+}
+
+.menu-toggle:not(.active) .menu-icon {
+  height: 12px;
+}
+
+.menu-icon .menu-icon__line {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  background: var(--color-white);
+  border-radius: 50px;
+  opacity: 1;
+  left: 0;
+  transform: rotate(0deg);
+  transition: all 0.5s ease-in-out;
+}
+
+.menu-icon .menu-icon__line:nth-child(1) {
+  top: -1px;
+}
+
+.menu-icon .menu-icon__line:nth-child(2) {
+  top: 5px;
+}
+
+.menu-icon .menu-icon__line:nth-child(3) {
+  top: 11px;
+}
+
+.menu-toggle.active .menu-icon__line:nth-child(1) {
+  top: 7px;
+  transform: rotate(135deg);
+  width: 25px;
+  left: -4px;
+}
+
+.menu-toggle.active .menu-icon__line:nth-child(2) {
+  display: none;
+  opacity: 0;
+}
+
+.menu-toggle.active .menu-icon__line:nth-child(3) {
+  top: 7px;
+  left: -4px;
+  transform: rotate(-135deg);
+  width: 25px;
+}

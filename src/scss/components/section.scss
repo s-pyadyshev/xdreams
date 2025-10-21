@@ -1,0 +1,87 @@
+.section {
+  // padding-top: var(--section-padding-vertical);
+  // padding-bottom: var(--section-padding-vertical);
+
+  // @include desktop {
+  //   padding-top: var(--section-padding-vertical-desktop);
+  //   padding-bottom: var(--section-padding-vertical-desktop);
+  // }
+}
+
+.section-title {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  column-gap: 18px;
+  margin-bottom: 28px;
+
+  @include laptop {
+    margin-bottom: 18px;
+  }
+
+  h2 {
+    margin: 0;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 1.7;
+    letter-spacing: 4px;
+
+    @include laptop {
+      font-size: 14px;
+      letter-spacing: 7px;
+    }
+  }
+
+  &:before {
+    content: "";
+    width: 20px;
+    height: 2px;
+    margin-top: -3px;
+    background-color: rgb(231, 42, 51);
+
+    @include laptop {
+      width: 40px;
+    }
+  }
+}
+
+.section-accent {
+  --padding-left: 37px;
+  --padding-right: 37px;
+  --padding-top: 37px;
+  --padding-bottom: 37px;
+
+  h2 {
+    @include desktop {
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+  }
+
+  @include tablet-h {
+    --padding-left: 130px;
+  }
+
+  @include laptop {
+    --padding-left: 160px;
+  }
+
+  @include desktop {
+    --padding-top: 58px;
+    --padding-right: 70px;
+    --padding-bottom: 80px;
+  }
+}
+
+.section-accent-wrap {
+  padding: var(--padding-top) var(--padding-right) var(--padding-bottom) var(--padding-left);
+  border-radius: 20px;
+  background-image: linear-gradient(180.00deg, rgb(255, 236, 236), rgba(255, 236, 236, 0) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  @include desktop {
+    border-radius: 40px;
+  }
+}

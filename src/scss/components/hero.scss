@@ -1,0 +1,284 @@
+.hero {
+  position: relative;
+  height: 697px;
+
+  @include desktop {
+    height: 100vh;
+  }
+
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+}
+
+.hero>img {
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+  margin-inline: auto;
+  width: 100%;
+}
+
+.hero__inner {
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 0 auto;
+  line-height: 1;
+  max-width: 1130px;
+  padding: 0 20px;
+  text-align: center;
+  color: var(--color-white);
+  margin-top: -6px;
+
+  @include desktop {
+    margin-top: -20px;
+  }
+}
+
+.hero__motto h1 {
+  font-family: var(--font-primary);
+  font-size: 28px;
+  margin-bottom: 0;
+  letter-spacing: 0;
+
+  @include desktop {
+    font-weight: 900;
+    font-size: 55px;
+    line-height: 70px;
+    margin-bottom: 20px;
+  }
+}
+
+
+.hero__motto p {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 700;
+  margin-top: 10px;
+
+  @include desktop {
+    font-size: 31px;
+    line-height: 38px;
+    max-width: 100%;
+    padding: 0px 45px;
+  }
+}
+
+.hero__motto img {
+  margin: 0 auto;
+
+  @include desktop {
+    height: auto;
+    width: auto;
+    object-fit: contain;
+    display: block;
+  }
+}
+
+.hero__sleep {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+
+  @include desktop {
+    width: 100%;
+  }
+
+  & img:last-child {
+    display: none;
+
+    @include desktop {
+      display: block;
+    }
+  }
+
+  & img {
+    @include desktop {
+      width: 100%;
+    }
+  }
+
+  & img:first-child {
+    @include desktop {
+      display: none;
+    }
+  }
+}
+
+.wave.wave--white {
+  transform: translateY(-100%);
+  height: auto;
+}
+
+// .hero.hero--jobs__listing .wave.wave--white,
+// .hero.hero--jobs .wave.wave--white {
+//   transform: translateY(-100%);
+//   height: auto;
+
+//   @include desktop {
+//     transform: translateY(-50%);
+//   }
+// }
+
+.hero__info {
+  margin-top: 76px;
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+
+  @include desktop {
+    margin-top: 173px;
+  }
+}
+
+.hero--retail .hero__motto img:nth-child(1) {
+  margin-bottom: -10px;
+}
+
+.hero--bedquarters {
+  h1 {
+    @include desktop {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.hero--distribution .hero__inner {
+  margin-top: 4px;
+
+  @include desktop {
+    margin-top: -20px;
+  }
+}
+
+.hero.hero--benefits .hero__inner {
+  margin-top: -16px;
+
+  p {
+    margin-top: 27px;
+
+    @include desktop {
+      margin-top: 61px;
+    }
+  }
+
+  @include desktop {
+    margin-top: -57px;
+  }
+}
+
+.hero.hero--faqs .hero__inner {
+  margin-top: 8px;
+
+  @include desktop {
+    margin-top: -49px;
+  }
+}
+
+.hero--bedquarters .hero__motto img:first-child {
+  margin-bottom: 5px;
+}
+
+.hero--distribution .hero__motto img:first-child {
+  margin-bottom: 5px;
+}
+
+.hero--bedfactory .hero__motto img:nth-child(1) {
+  margin-bottom: -10px;
+}
+
+.hero--bedfactory .hero__motto img:nth-child(2) {
+  margin-bottom: 5px;
+}
+
+.hero--benefits .hero__motto img:first-child {
+  margin-bottom: 5px;
+}
+
+.hero--application .hero__motto img:first-child {
+  margin-bottom: 10px;
+}
+
+.hero.hero--jobs__listing {
+  max-height: 574px;
+
+  @include desktop {
+    max-height: 790px;
+  }
+
+  .hero__inner {
+    padding: 0;
+    max-width: 1180px;
+    margin-top: 81px;
+
+    @include desktop {
+      margin-top: 77px;
+    }
+  }
+
+}
+
+.hero.hero--jobs {
+  max-height: 574px;
+
+  @include desktop {
+    max-height: 790px;
+  }
+
+  .hero__inner {
+    margin-top: 80px;
+
+    @include desktop {
+      margin-top: 70px;
+      padding: 0;
+    }
+  }
+
+  p {
+    @include desktop {
+      display: none;
+    }
+  }
+}
+
+.hero__video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.hero__video iframe {
+  width: 100vw;
+  height: 56.25vw;
+  /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
+  min-height: 100vh;
+  min-width: 177.77vh;
+  /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}

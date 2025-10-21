@@ -1,0 +1,234 @@
+
+mixin slider()
+  .swiper.slider
+    .swiper-wrapper
+      .swiper-slide
+        h3 Slide 1
+        img(src="http://placekitten.com/500/300" alt="")
+      .swiper-slide
+        h3 Slide 2
+        img(src="http://placekitten.com/500/300" alt="")
+      .swiper-slide
+        h3 Slide 3
+        img(src="http://placekitten.com/500/300" alt="")
+    .swiper-pagination
+    button.swiper-button-prev
+    button.swiper-button-next
+
+
+mixin slider-thumbs()
+  .swiper.slider-thumbs
+    .swiper-wrapper
+      .swiper-slide
+        h3 Slide 1
+        img(src="http://placekitten.com/500/300" alt="")
+      .swiper-slide
+        h3 Slide 2
+        img(src="http://placekitten.com/500/300" alt="")
+      .swiper-slide
+        h3 Slide 3
+        img(src="http://placekitten.com/500/300" alt="")
+      .swiper-slide
+        h3 Slide 4
+        img(src="http://placekitten.com/500/300" alt="")
+    button.swiper-button-prev
+    button.swiper-button-next
+
+  .swiper.slider-thumbs-nav
+    .swiper-wrapper
+      .swiper-slide
+        h3 Slide 1
+        img(src="http://placekitten.com/500/300" alt="")
+      .swiper-slide
+        h3 Slide 2
+        img(src="http://placekitten.com/500/300" alt="")
+      .swiper-slide
+        h3 Slide 3
+        img(src="http://placekitten.com/500/300" alt="")
+      .swiper-slide
+        h3 Slide 4
+        img(src="http://placekitten.com/500/300" alt="")
+
+
+mixin slider-features()
+  .slider-features
+    .slider-features__left
+      .swiper.slider-features__thumbs
+        .swiper-wrapper
+
+          .swiper-slide
+            .slider-feature-slide
+              .slider-feature-slide__header
+                h3 “I’ve learned so much .”
+              .slider-feature-slide__body
+                .slider-features__imageSmall
+                    img(src="images/retail/slider-features/slider-features-1.png" alt="Feature 1")
+                p.slider-feature-slide__description
+                  | “Everyone helps each other — whether it’s lifting heavy frames or sharing tips on how to guide customers through our SleepMatch process.  I’ve learned so much about product knowledge, customer care, and teamwork. 
+                  br
+                  br
+                  | It feels like being part of something bigger.”
+              .slider-feature-slide__bottom
+                span Kacey Phelps
+                span Store Team Leader
+                
+          .swiper-slide
+            .slider-feature-slide
+              .slider-feature-slide__header
+                h3 “Such a positive experience…”
+              .slider-feature-slide__body
+                .slider-features__imageSmall
+                    img(src="images/retail/slider-features/slider-features-2.png" alt="Feature 2")
+                p.slider-feature-slide__description
+                  | “Working in store at Dreams has been such a positive experience. 
+                  br
+                  br
+                  | I love helping someone choose the perfect mattress or bed — there’s something really rewarding about knowing you’ve helped someone sleep better. The team’s supportive, and there’s a real focus on learning and growing.”
+              .slider-feature-slide__bottom
+                span Sophie McDonald
+                span Sleep Expert 
+          
+          .swiper-slide
+            .slider-feature-slide
+              .slider-feature-slide__header
+                h3 “I’ve learned so much .”
+              .slider-feature-slide__body
+                .slider-features__imageSmall
+                    img(src="images/retail/slider-features/slider-features-1.png" alt="Feature 1")
+                p.slider-feature-slide__description
+                  | “Everyone helps each other — whether it’s lifting heavy frames or sharing tips on how to guide customers through our SleepMatch process.  I’ve learned so much about product knowledge, customer care, and teamwork. 
+                  br
+                  br
+                  | It feels like being part of something bigger.”
+              .slider-feature-slide__bottom
+                span Kacey Phelps
+                span Store Team Leader
+          
+          .swiper-slide
+            .slider-feature-slide
+              .slider-feature-slide__header
+                h3 “I’ve learned so much .”
+              .slider-feature-slide__body
+                .slider-features__imageSmall
+                    img(src="images/retail/slider-features/slider-features-1.png" alt="Feature 1")
+                p.slider-feature-slide__description
+                  | “Everyone helps each other — whether it’s lifting heavy frames or sharing tips on how to guide customers through our SleepMatch process.  I’ve learned so much about product knowledge, customer care, and teamwork. 
+                  br
+                  br
+                  | It feels like being part of something bigger.”
+              .slider-feature-slide__bottom
+                span Kacey Phelps
+                span Store Team Leader
+          
+    
+    .slider-features__right
+      .swiper.slider-features__main
+        .swiper-wrapper
+          .swiper-slide
+            .slider-features__image
+              img(src="images/retail/slider-features/slider-features-1.png" alt="Feature 1")
+          .swiper-slide
+            .slider-features__image
+              img(src="images/retail/slider-features/slider-features-2.png" alt="Feature 2")
+          .swiper-slide
+            .slider-features__image
+              img(src="images/retail/slider-features/slider-features-1.png" alt="Feature 3")
+          .swiper-slide
+            .slider-features__image
+              img(src="images/retail/slider-features/slider-features-2.png" alt="Feature 4")
+  
+  .slider-features__controls
+    .slider-features__progress
+      .slider-features__progress-bar
+        .slider-features__progress-fill
+    .slider-features__navigation
+      button.swiper-button-prev.slider-features__nav-btn.slider-features__nav-btn--prev
+        +svg('chevron-circle-left')
+      button.swiper-button-next.slider-features__nav-btn.slider-features__nav-btn--next
+        +svg('chevron-circle-right')
+
+mixin slider-spotlight()
+  .slider-spotlight
+    .swiper.slider-spotlight__thumbs
+      .swiper-wrapper
+        .swiper-slide.slider-spotlight__thumb-slide(data-duration=5)
+          .slider-spotlight__thumb-content
+            h4 
+              | Wellbeing that works
+            p 
+              | It’s not something we sweep under the bed – it’s central to how we look after each other.
+          .slider-spotlight__progress
+            .slider-spotlight__progress-fill
+        .swiper-slide.slider-spotlight__thumb-slide(data-duration=5)
+          .slider-spotlight__thumb-content
+            h4 
+              | Wellbeing that works
+            p 
+              | It’s not something we sweep under the bed – it’s central to how we look after each other.
+          .slider-spotlight__progress
+            .slider-spotlight__progress-fill
+        .swiper-slide.slider-spotlight__thumb-slide(data-duration=5)
+          .slider-spotlight__thumb-content
+            h4 
+              | Wellbeing that works
+            p 
+              | It’s not something we sweep under the bed – it’s central to how we look after each other.
+          .slider-spotlight__progress
+            .slider-spotlight__progress-fill
+        .swiper-slide.slider-spotlight__thumb-slide(data-duration=5)
+          .slider-spotlight__thumb-content
+            h4 
+              | Wellbeing that works
+            p 
+              | It’s not something we sweep under the bed – it’s central to how we look after each other.
+          .slider-spotlight__progress
+            .slider-spotlight__progress-fill
+
+    .swiper.slider-spotlight__main
+      .swiper-wrapper
+        .swiper-slide.slider-spotlight__slide
+          .card.card--image
+            img(src="images/work.png" alt="work." width="543" height="459")
+            .card__body
+              h3 Perks you can pick
+              h4 Life looks different for everyone, so we give you options.
+              h5 Buy extra holiday when you need more time off, opt into private healthcare or make use of our savings and loans schemes.
+              p Are you a sun seeker who wants an extra week to drink pina coladas somewhere tropical, maybe you’d like a few extra days to spend time with your little ones or perhaps you’ve just got a bit of DIY or a home project you can’t seem to find the time to finish off… Well, good news, we have an amazing scheme where you can buy up to five extra days holiday per year. 
+              p Take advantage of fantastic discounts on everyday products and services offered to you just for being a Dreams colleague. From discounted gym memberships, days out, supermarket vouchers to cinema trips, there’s great discounts to benefit everyone. There are also loads of great resources to help support your health & wellbeing.
+        .swiper-slide.slider-spotlight__slide
+          .card.card--image
+            img(src="images/work.png" alt="work." width="543" height="459")
+            .card__body
+              h3 Perks you can pick
+              h4 Life looks different for everyone, so we give you options.
+              h5 Buy extra holiday when you need more time off, opt into private healthcare or make use of our savings and loans schemes.
+              p Are you a sun seeker who wants an extra week to drink pina coladas somewhere tropical, maybe you’d like a few extra days to spend time with your little ones or perhaps you’ve just got a bit of DIY or a home project you can’t seem to find the time to finish off… Well, good news, we have an amazing scheme where you can buy up to five extra days holiday per year. 
+              p Take advantage of fantastic discounts on everyday products and services offered to you just for being a Dreams colleague. From discounted gym memberships, days out, supermarket vouchers to cinema trips, there’s great discounts to benefit everyone. There are also loads of great resources to help support your health & wellbeing.
+        .swiper-slide.slider-spotlight__slide
+          .card.card--image
+            img(src="images/work.png" alt="work." width="543" height="459")
+            .card__body
+              h3 Perks you can pick
+              h4 Life looks different for everyone, so we give you options.
+              h5 Buy extra holiday when you need more time off, opt into private healthcare or make use of our savings and loans schemes.
+              p Are you a sun seeker who wants an extra week to drink pina coladas somewhere tropical, maybe you’d like a few extra days to spend time with your little ones or perhaps you’ve just got a bit of DIY or a home project you can’t seem to find the time to finish off… Well, good news, we have an amazing scheme where you can buy up to five extra days holiday per year. 
+              p Take advantage of fantastic discounts on everyday products and services offered to you just for being a Dreams colleague. From discounted gym memberships, days out, supermarket vouchers to cinema trips, there’s great discounts to benefit everyone. There are also loads of great resources to help support your health & wellbeing.
+        .swiper-slide.slider-spotlight__slide
+          .card.card--image
+            img(src="images/work.png" alt="work." width="543" height="459")
+            .card__body
+              h3 Perks you can pick
+              h4 Life looks different for everyone, so we give you options.
+              h5 Buy extra holiday when you need more time off, opt into private healthcare or make use of our savings and loans schemes.
+              p Are you a sun seeker who wants an extra week to drink pina coladas somewhere tropical, maybe you’d like a few extra days to spend time with your little ones or perhaps you’ve just got a bit of DIY or a home project you can’t seem to find the time to finish off… Well, good news, we have an amazing scheme where you can buy up to five extra days holiday per year. 
+              p Take advantage of fantastic discounts on everyday products and services offered to you just for being a Dreams colleague. From discounted gym memberships, days out, supermarket vouchers to cinema trips, there’s great discounts to benefit everyone. There are also loads of great resources to help support your health & wellbeing.
+
+
+mixin slider-jobs(jobsData)
+  - var jobs = jobsData || []
+  .slider-jobs-wrapper
+    .swiper.slider-jobs
+      .swiper-wrapper
+        each job in jobs
+          .swiper-slide
+            +card-job(job)

@@ -1,0 +1,32 @@
+mixin accordion(title, content)
+  li.accordion-list__item
+    .accordion
+      .accordion__header.background-primary
+        button.accordion__toggle(data-accordion aria-expanded="false")
+          h3.accordion__title= title
+          .accordion__toggle-icon
+            +svg("arrow-down-bold")
+          .accordion__toggle-opened
+            +svg("arrow-up-bold")
+      .accordion__content= content
+        ul.accordion-list
+          li.accordion-list__item
+            .accordion
+              .accordion__header
+                button.accordion__toggle(data-accordion aria-expanded="false")
+                  h3.accordion__title= title
+                  .accordion__toggle-icon
+                    +svg("arrow-down-bold")
+                  .accordion__toggle-opened
+                    +svg("arrow-up-bold")
+              .accordion__content= content
+
+mixin accordion-native(title, content, open = false)
+  details.details(open = open ? '' : null)
+    summary.details__summary.background-primary
+      h3= title
+      .details__icon-closed
+        +svg("arrow-down-bold")
+      .details__icon-opened
+        +svg("arrow-up-bold")
+    p= content

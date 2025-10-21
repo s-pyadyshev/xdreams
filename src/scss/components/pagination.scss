@@ -1,0 +1,31 @@
+.pagination__list {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 0;
+  margin-top: 60px;
+  margin: 60px;
+  list-style-type: none;
+}
+
+.pagination__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 55px;
+  height: 55px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  border-radius: 50%;
+  text-decoration: none;
+  background-color: #EDEDED;
+  color: var(--color-primary);
+}
+
+.pagination__link.is-active {
+  background-color: var(--color-primary);
+  color: #F5F5F5;
+}

@@ -1,0 +1,22 @@
+mixin card-job(data)
+  article.card-job
+    span.card-job__category= data.category
+
+    h3= data.title
+
+    p= data.description
+
+    .card-job__details
+      ul.card-job__detail-list
+        each val, key in data.details
+          li
+            span.card-job__detail-label #{key}:
+            span.card-job__detail-value= val
+
+    h5 Perfect for:
+
+    .card-job__traits
+      ul
+        each trait in data.traits
+          li
+            span.card-job__trait= trait

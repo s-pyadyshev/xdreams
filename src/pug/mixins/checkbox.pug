@@ -1,0 +1,11 @@
+mixin checkbox(label, checked)
+  label.checkbox
+    input.checkbox-input(type="checkbox" name="checkbox" checked=checked)
+    .checkbox-box
+      span.checkbox-box__label= label
+      +svg("check")
+
+mixin checkbox-button(label, checked)
+  label.checkbox.button
+    input.checkbox-input(type="checkbox" name="checkbox" checked=checked)
+    span.checkbox-box__label= label

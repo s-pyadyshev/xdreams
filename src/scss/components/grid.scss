@@ -1,0 +1,186 @@
+// 1. Required Sass math module
+@use "sass:math";
+
+// 2. Base spacer value
+$spacer: 1rem !default;
+
+// 3. Grid variables
+$grid-columns: 12;
+$grid-gutter-width: 1.5rem;
+$gutters: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+
+// 4. Breakpoints
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// 5. Container max widths
+$container-max-widths: (
+  sm: 540px,
+  md: 720px,
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px
+);
+
+// 6. Media query mixins and functions
+@mixin media-breakpoint-up($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+
+  @if $min {
+    @media (min-width: $min) {
+      @content;
+    }
+  }
+
+  @else {
+    @content;
+  }
+}
+
+@function breakpoint-infix($name, $breakpoints: $grid-breakpoints) {
+  @return if(breakpoint-min($name, $breakpoints)==null, "", "-#{$name}");
+}
+
+@function breakpoint-min($name, $breakpoints: $grid-breakpoints) {
+  $min: map-get($breakpoints, $name);
+  @return if($min !=0, $min, null);
+}
+
+// // 7. Container styles
+// @mixin make-container($gutter: $grid-gutter-width) {
+//   width: 100%;
+//   padding-right: 40px;
+//   padding-left: 40px;
+//   margin-right: auto;
+//   margin-left: auto;
+// }
+
+// .container,
+// .container-fluid {
+//   @include make-container();
+// }
+
+// 8. Responsive containers
+// @each $breakpoint, $container-max-width in $container-max-widths {
+//   .container-#{$breakpoint} {
+//     @extend .container-fluid;
+//   }
+
+//   @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+//     $max-width: $container-max-width;
+
+//     .container-#{$breakpoint} {
+//       max-width: $max-width;
+//     }
+//   }
+// }
+
+// 9. Row styles
+@mixin make-row($gutter: $grid-gutter-width) {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: calc($gutter * -0.5);
+  margin-left: calc($gutter * -0.5);
+}
+
+.row {
+  @include make-row();
+}
+
+// 10. Column mixins (updated with math.div)
+@mixin make-col-ready($gutter: $grid-gutter-width) {
+  width: 100%;
+  padding-right: calc($gutter * 0.5);
+  padding-left: calc($gutter * 0.5);
+}
+
+@mixin make-col($size, $columns: $grid-columns) {
+  flex: 0 0 auto;
+  width: percentage(math.div($size, $columns));
+}
+
+@mixin make-col-auto() {
+  flex: 0 0 auto;
+  width: auto;
+}
+
+@mixin make-col-offset($size, $columns: $grid-columns) {
+  $num: math.div($size, $columns);
+  margin-left: if($num ==0, 0, percentage($num));
+}
+
+// 11. Generate grid columns
+@each $breakpoint in map-keys($grid-breakpoints) {
+  $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+  @include media-breakpoint-up($breakpoint, $grid-breakpoints) {
+    .col#{$infix} {
+      flex: 1 0 0%;
+    }
+
+    .col#{$infix}-auto {
+      @include make-col-auto();
+    }
+
+    @for $i from 1 through $grid-columns {
+      .col#{$infix}-#{$i} {
+        @include make-col($i, $grid-columns);
+      }
+    }
+
+    @for $i from 0 through ($grid-columns - 1) {
+      @if not ($infix =="" and $i ==0) {
+        .offset#{$infix}-#{$i} {
+          @include make-col-offset($i, $grid-columns);
+        }
+      }
+    }
+  }
+}
+
+// 12. Gutters
+@each $i, $gutter in $gutters {
+
+  .g-#{$i},
+  .gx-#{$i} {
+    --bs-gutter-x: #{$gutter};
+  }
+
+  .g-#{$i},
+  .gy-#{$i} {
+    --bs-gutter-y: #{$gutter};
+  }
+}
+
+// 13. Final row implementation
+.row {
+  --bs-gutter-x: #{$grid-gutter-width};
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+
+  >* {
+    flex-shrink: 0;
+    width: 100%;
+    max-width: 100%;
+    padding-right: calc(var(--bs-gutter-x) * 0.5);
+    padding-left: calc(var(--bs-gutter-x) * 0.5);
+    margin-top: var(--bs-gutter-y);
+  }
+}

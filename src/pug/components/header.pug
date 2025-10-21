@@ -1,0 +1,17 @@
+header.header
+  .header__inner
+    a.header__logo(href="/")
+      img(src="images/logo.svg" alt="logo Dreams." width="187" height="67")
+    .header__menu
+      +menu
+    .header__links 
+      a(href="/").header__link View jobs
+      a(href="").header__link
+        +svg('search')
+    a(href="/").header__login Login
+    .header__menu-toggle
+      button.menu-toggle.js-toggle-menu(type="button")
+        .menu-icon
+          .menu-icon__line
+          .menu-icon__line
+          .menu-icon__line

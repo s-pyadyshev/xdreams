@@ -1,0 +1,234 @@
+:root {
+  --fsb-border: 1px solid var(--color-primary);
+  --fsb-radius: 10px;
+  --fsb-color: inherit;
+  --fsb-background: #fff;
+  --fsb-font-size: 1rem;
+  --fsb-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+  --fsb-padding: 8px;
+  --fsb-padding-right: var(--fsb-padding);
+  --fsb-arrow-size: 15px;
+  --fsb-arrow-padding: var(--fsb-padding);
+  --fsb-arrow-color: currentColor;
+  --fsb-icon-color: currentColor;
+  --fsb-list-height: 300px;
+  --fsb-list-border: var(--fsb-border);
+  --fsb-list-radius: 3px;
+  --fsb-list-color: var(--fsb-color);
+  --fsb-list-background: var(--fsb-background);
+  --fsb-hover-color: var(--fsb-color);
+  --fsb-hover-background: #ddd;
+  --fsb-disabled-opacity: .3;
+}
+
+.fsb-original-select {
+  display: inline-block;
+  margin: 0;
+  padding: 8px 22px 8px 8px;
+  padding: var(--fsb-padding);
+  padding-right: calc(var(--fsb-arrow-padding) * 2 + var(--fsb-arrow-size));
+  font-family: inherit;
+  line-height: inherit;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+.fsb-original-select[disabled] {
+  color: rgba(0, 0, 0, .3);
+  cursor: not-allowed;
+}
+
+.fsb-select {
+  display: inline-block;
+  position: relative;
+}
+
+select[disabled]+.fsb-select {
+  cursor: not-allowed;
+}
+
+.fsb-select,
+.fsb-original-select {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid var(--color-primary);
+  border: var(--fsb-border);
+  border-radius: 10px;
+  border-radius: var(--fsb-radius);
+  box-sizing: border-box;
+  color: inherit;
+  color: var(--fsb-color);
+  background-color: #fff;
+  background-color: var(--fsb-background);
+  font-size: 1em;
+  font-size: var(--fsb-font-size);
+  box-shadow: none;
+  box-shadow: var(--fsb-shadow);
+}
+
+.fsb-select svg {
+  width: 1em;
+  height: 1em;
+  margin-right: 8px;
+  margin-right: var(--fsb-padding-right);
+  fill: currentColor;
+  fill: var(--fsb-icon-color);
+  pointer-events: none;
+}
+
+.fsb-label {
+  display: none;
+}
+
+/* While it's common sense to avoid using !important as much as possible, it is used
+ * here to prevent inheriting style from other rules that may target buttons. */
+.fsb-button {
+  display: flex !important;
+  align-items: center;
+  position: relative !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 14px 40px 14px 20px !important;
+  border: 0 !important;
+  border-radius: inherit !important;
+  color: inherit !important;
+  background-color: inherit !important;
+  font-size: 16px !important;
+  font-family: inherit !important;
+  font-weight: 300;
+  line-height: 1.7;
+  text-align: inherit !important;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    padding: 14px 60px 14px 30px !important;
+  }
+}
+
+.fsb-button>span {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.fsb-button>span,
+.fsb-option>span {
+  pointer-events: none;
+}
+
+select[disabled]+.fsb-select .fsb-button {
+  opacity: .4;
+  pointer-events: none;
+}
+
+.fsb-button:after,
+select[disabled]+.fsb-select .fsb-button[aria-expanded="true"]:after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 15px;
+  height: 13px;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-45%) rotate(180deg);
+  border-style: solid;
+  border-width: 0 7.5px 13px 7.5px;
+  border-color: transparent transparent #000 transparent;
+  box-sizing: border-box;
+  transition: transform .3s ease-in-out;
+  pointer-events: none;
+
+  @media (min-width: 768px) {
+    right: 30px;
+  }
+}
+
+.fsb-button[aria-expanded="true"]:after {
+  transform: translateY(-45%) rotate(0);
+}
+
+.fsb-list,
+select[disabled]+.fsb-select .fsb-list {
+  display: block;
+  visibility: hidden;
+  position: absolute;
+  min-width: 100%;
+  height: 0;
+  margin: 0;
+  left: 0;
+  top: 100%;
+  z-index: 1;
+  padding: 0;
+  border: inherit;
+  border: var(--fsb-list-border);
+  border-radius: inherit;
+  border-radius: var(--fsb-list-radius);
+  box-sizing: border-box;
+  color: inherit;
+  color: var(--fsb-list-color);
+  background-color: inherit;
+  background-color: var(--fsb-list-background);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
+  opacity: 0;
+  transition: opacity .2s ease-in-out;
+  overflow: auto;
+}
+
+.fsb-top .fsb-list {
+  top: auto;
+  bottom: 100%;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, .2);
+}
+
+.fsb-button[aria-expanded="true"]+.fsb-list {
+  height: auto;
+  max-height: var(--fsb-list-height);
+  visibility: visible;
+  opacity: 1;
+  border-radius: 10px;
+}
+
+.fsb-option {
+  display: flex;
+  align-items: center;
+  padding: 14px 20px;
+  font-weight: 300;
+  font-size: 16px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+
+  @media (min-width: 768px) {
+    padding: 14px 30px;
+  }
+}
+
+.fsb-option:not([aria-disabled="true"]):focus {
+  outline: none;
+  color: var(--fsb-hover-color);
+  background-color: var(--fsb-hover-background);
+}
+
+.fsb-option[aria-disabled="true"] {
+  opacity: var(--fsb-disabled-opacity);
+}
+
+.fsb-resize {
+  display: block;
+  height: 0;
+  padding-right: 14px;
+  padding-right: calc(var(--fsb-arrow-padding) * 2 + var(--fsb-arrow-size) - var(--fsb-padding-right));
+  box-sizing: border-box;
+}
+
+.fsb-resize>* {
+  display: block;
+}

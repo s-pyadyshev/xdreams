@@ -1,0 +1,17 @@
+extends pug/base
+
+prepend vars
+  - title = 'Benefits & Wellbeing'
+
+append vars
+
+block content
+  section.hero.hero--benefits
+    img(src="images/benefits.jpg" alt="benefits")
+    .hero__inner
+      .hero__motto
+        h1 It’s not just about
+        img.hero__images.hidden-desktop(src="images/benefits-header.png" alt="great beds.")
+        img.hero__images.visible-desktop(src="images/benefits-header.svg" alt="great beds.")
+      p Our people get plenty of extras too – from everyday support to big perks.
+    img(src="images/white__wave.svg" alt="white__wave").wave.wave--white 

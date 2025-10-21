@@ -1,0 +1,90 @@
+section.section.quiz.card
+  form#quiz-form(name="quiz-form" action="#" method="post") 
+    .quiz__intro
+      h3 Discover where you’ll make the biggest impact
+      h4 Take our 10-question Skills Matcher to uncover which roles best align with your strengths, experience and working style.
+      p It’s a smart first step to finding a career that’s built around you.
+      button.button.button--primary.js-quiz-start(type="button") Start
+      .question-info
+        b Why are we asking this?
+        p We know choosing the right career is a really important decision, so we’d love to help you choose a pathway that suits you and your unique skill set. You more information you give us the more tailored your results.
+
+    ul.quiz__question-wrap
+      li.quiz__question
+        .container
+          .quiz__question-form
+            h3 Skills matcher
+
+            h4 I am comfortable telling people what they need to do
+            .quiz__controls
+              .form-group
+                +radio("Yes, I feel confident in this task", "radio1", "value1", true,"images/retail.jpg")
+              .form-group
+                +radio("I have no experience in this", "radio1", "value2","","images/retail.jpg")
+
+
+            .quiz__buttons
+              button.button.button--primary.quiz__next(type="button") Next
+
+            .question-info
+              b Why are we asking this?
+              p We know choosing the right career is a really important decision, so we’d love to help you choose a pathway that suits you and your unique skill set. You more information you give us the more tailored your results.
+
+
+      li.quiz__question
+        .container
+          .quiz__question-form
+            h3 Skills matcher
+
+            h4 How do you like to measure success?
+            .quiz__controls
+              .form-group
+                +radio("Yes, I feel confident in this task", "radio2", "value1", true, "images/retail.jpg")
+              .form-group
+                +radio("I have no experience in this", "radio2", "value2","","images/retail.jpg")
+            .quiz__buttons
+              button.button.button--primary.text-right.icon-left.quiz__prev(type="button") Previous
+              button.button.button--primary.quiz__next(type="button") Next
+            .question-info
+              b Why are we asking this?
+              p We know choosing the right career is a really important decision, so we’d love to help you choose a pathway that suits you and your unique skill set. You more information you give us the more tailored your results.
+
+
+      li.quiz__question
+        .container
+          .quiz__question-form
+            h3 Skills matcher
+
+            h4 How do you like to measure success?
+            .quiz__controls
+              .form-group
+                +radio("Speaking to people in authority is my worst nightmare", "radio3", "value1", true,"images/retail.jpg")
+              .form-group
+                +radio("Very. I’m always happy to make myself heard", "radio3", "value2","","images/retail.jpg")
+            .quiz__buttons
+              button.button.button--primary.text-right.icon-left.quiz__prev(type="button") Previous
+              button.button.button--primary.quiz__submit(type="submit") Submit
+            .question-info
+              b Why are we asking this?
+              p We know choosing the right career is a really important decision, so we’d love to help you choose a pathway that suits you and your unique skill set. You more information you give us the more tailored your results.
+
+
+  .quiz__result
+    .container
+      .text-center
+        h3.h3.text-primary Great! It sounds like you've got what it takes for a career in care.
+        p Here are some current roles you might be interested 
+      .quiz__result-actions
+        a(href="/").button.button--primary View my roles
+      .question-info
+        b Why are we asking this?
+        p We know choosing the right career is a really important decision, so we’d love to help you choose a pathway that suits you and your unique skill set. You more information you give us the more tailored your results.
+  .quiz__progress
+    .container
+      .progress
+        .progress__questions &nbsp;
+          span.progress__questions-current
+          |&nbsp;of&nbsp;
+          span.progress__questions-total
+        progress.progress__line(value="10" max="100")
+        .progress__dividers

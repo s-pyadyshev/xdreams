@@ -1,0 +1,44 @@
+mixin tabs
+  .tabs(data-tabs="tabs")
+    button.tab-button.is-active(data-tab="tab1") Tab 1
+    button.tab-button(data-tab="tab2") Tab 2
+
+  .tab-content(data-tabs-content="tabs")
+    .is-active(data-tab-content="tab1")
+      div Tab 1
+      .tabs(data-tabs="tabs2")
+        button.tab-button.is-active(data-tab="tab3") Tab 3
+        button.tab-button(data-tab="tab4") Tab 4
+
+      .tab-content(data-tabs-content="tabs2")
+        .is-active(data-tab-content="tab3")
+          div Tab 3
+        div(data-tab-content="tab4")
+          div Tab 4
+    div(data-tab-content="tab2")
+      div Tab 2
+
+mixin tabs-custom(tabs)
+  .tabs(data-tabs="tabs")
+    button.tabs__prev
+      +svg("chevron-left")
+    each data in tabs
+      if data.active
+        a.button.button--secondary.tab-button.is-active(href=data.href)= data.name
+      else
+        a.button.button--secondary.tab-button(href=data.href)= data.name
+    button.tabs__next
+      +svg("chevron-right")
+
+mixin tabs-custom-slider(tabs)
+  .swiper.tabs.js-tabs-slider
+    .swiper-wrapper
+      each data in tabs
+        if data.active
+          .swiper-slide
+            a.button.button--secondary.tab-button.is-active(href=data.href)= data.name
+        else
+          .swiper-slide
+            a.button.button--secondary.tab-button(href=data.href)= data.name
+  button.swiper-button-prev
+  button.swiper-button-next

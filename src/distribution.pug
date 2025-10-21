@@ -1,0 +1,16 @@
+extends pug/base
+
+prepend vars
+  - title = 'Distribution'
+
+append vars
+
+block content
+  section.hero.hero--distribution.wave-bottom
+    img(src="images/distribution.jpg" alt="distribution")
+    .hero__inner
+      .hero__motto
+        h1 Where sweet dreams
+        img.hero__images.hidden-desktop(src="images/distribution-header.png" alt="hit the road.")
+        img.hero__images.visible-desktop(src="images/distribution-header.svg" alt="hit the road.")
+      p From warehouse floors to front doors, Distribution is where teamwork, graft and a lot of heavy lifting keep the nation sleeping soundly.

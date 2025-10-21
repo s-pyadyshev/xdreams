@@ -1,0 +1,129 @@
+.container {
+  width: 100%;
+  margin-inline: auto;
+  max-width: var(--container-max-width);
+  padding-inline: var(--container-padding);
+
+  @include tablet {
+    padding-inline: var(--container-padding-tablet);
+  }
+
+  @include desktop-l {
+    padding-inline: var(--container-padding-desktop);
+  }
+}
+
+.section-header h2 {
+  font-family: var(--font-primary);
+  font-size: 28px;
+  line-height: 31px;
+  font-weight: 800;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 42px;
+
+  @include desktop {
+    font-size: 55px;
+    line-height: 70px;
+    margin-bottom: 50px;
+    margin-top: 51px;
+  }
+}
+
+.section-header h2 br {
+  display: none;
+}
+
+.section-header:has(h3)>h2 {
+  margin-bottom: 20px;
+
+  @include desktop {
+    margin-bottom: 30px;
+  }
+}
+
+.section-header h3 {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-align: center;
+  margin: 0;
+  margin-bottom: 20px;
+
+  @include desktop {
+    font-size: 21px;
+    line-height: 28px;
+    margin-bottom: 20px;
+  }
+}
+
+.section-header h3 br {
+  display: none;
+}
+
+.section-header:has(h2)>p {
+  margin: 0;
+  margin-inline: 16px;
+  font-size: 12px;
+  line-height: 19px;
+  text-align: left;
+  margin-bottom: 15px;
+  font-weight: 300;
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 23px;
+    text-align: center;
+    margin-inline: 0;
+  }
+}
+
+.container>p {
+  font-family: var(--font-primary);
+  font-size: 18px;
+  line-height: 24px;
+  color: var(--color-primary);
+  text-align: center;
+  font-weight: 700;
+  margin-top: 0;
+  margin-bottom: 50px;
+
+  @include desktop {
+    font-size: 31px;
+    line-height: 38px;
+  }
+}
+
+.container--fluid {
+  max-width: 100%;
+}
+
+.container__title {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  flex-shrink: 0;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.container__title img {
+  height: auto;
+}
+
+.container__title img:last-child {
+  display: none;
+
+  @include desktop {
+    display: block;
+  }
+}
+
+.container__title img:not(:last-child) {
+  @include desktop {
+    display: none;
+  }
+}

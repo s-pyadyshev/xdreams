@@ -1,0 +1,34 @@
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+:where(:root) {
+  line-height: 1.15;
+  box-sizing: border-box;
+}
+
+:where(html) {
+  -moz-text-size-adjust: none;
+  -webkit-text-size-adjust: none;
+  text-size-adjust: none;
+}
+
+:where(body) {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  // stylelint-disable-next-line
+  text-rendering: optimizeLegibility;
+  text-size-adjust: 100%;
+}
+
+:where(main) {
+  display: block;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  :where(html:focus-within) {
+    scroll-behavior: smooth;
+  }
+}

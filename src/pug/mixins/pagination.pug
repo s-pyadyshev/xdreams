@@ -1,0 +1,46 @@
+mixin pagination(options)
+  - const opts = Object.assign({
+  -   current: 1,
+  -   total: 10,
+  -   baseUrl: '#',
+  -   showFirst: true,
+  -   showLast: true,
+  -   showPrev: true,
+  -   showNext: true
+  - }, options)
+  
+  nav.pagination
+    if opts.showFirst && opts.current > 1
+      a.pagination__link.pagination__link--first(href=`${opts.baseUrl}1`) « First
+    
+    if opts.showPrev && opts.current > 1
+      a.pagination__link.pagination__link--prev(href=`${opts.baseUrl}${opts.current - 1}`) ‹ Prev
+    
+    .pagination__numbers
+      - let start = Math.max(1, opts.current - 2)
+      - let end = Math.min(opts.total, start + 4)
+      - if (end - start < 4) start = Math.max(1, end - 4)
+      
+      if start > 1
+        span.pagination__ellipsis ...
+      
+      - for (let i = start; i <= end; i++)
+        if i === opts.current
+          span.pagination__current= i
+        else
+          a.pagination__link(href=`${opts.baseUrl}${i}`)= i
+      
+      if end < opts.total
+        span.pagination__ellipsis ...
+    
+    if opts.showNext && opts.current < opts.total
+      a.pagination__link.pagination__link--next(href=`${opts.baseUrl}${opts.current + 1}`) Next ›
+    
+    if opts.showLast && opts.current < opts.total
+      a.pagination__link.pagination__link--last(href=`${opts.baseUrl}${opts.total}`) Last »
+
+//- +pagination({
+//-   current: 3,
+//-   total: 15,
+//-   baseUrl: '/page/'
+//- })

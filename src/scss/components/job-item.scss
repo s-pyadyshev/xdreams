@@ -1,0 +1,107 @@
+.job-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  @include desktop {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 75%;
+  }
+}
+
+.job-item {
+  background-color: #EDEDED;
+  padding: 40px 20px 40px 20px;
+  border-radius: 10px;
+  text-align: left;
+  color: var(--color-primary);
+
+  @include desktop {
+    padding: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  h3 {
+    font-size: 28px;
+    line-height: 31px;
+    letter-spacing: -0.84px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    max-width: 200px;
+
+    @include tablet {
+      max-width: 100%;
+    }
+
+    @include desktop {
+      font-size: 31px;
+      line-height: 34px;
+    }
+  }
+
+  p {
+    font-size: 12px;
+    line-height: 19px;
+    margin-bottom: 20px;
+    font-weight: 400;
+
+    @include desktop {
+      font-size: 16px;
+      line-height: 23px;
+    }
+  }
+}
+
+.job-item__info {
+  @include desktop {
+    max-width: 708px;
+  }
+}
+
+.job-item__wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+
+  ul {
+    list-style: none;
+  }
+
+  ul li {
+    font-size: 12px;
+    line-height: 19px;
+
+    @include desktop {
+      font-size: 16px;
+      line-height: 23px;
+    }
+  }
+}
+
+.job-item__title {
+  font-weight: 700;
+}
+
+.job-item__buttons {
+  @include desktop {
+    min-width: 206px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  button {
+    @include desktop {
+      width: 100%;
+    }
+  }
+}
+
+.jobs__pagination {
+  width: 100%;
+  text-align: center;
+}

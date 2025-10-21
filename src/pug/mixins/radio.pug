@@ -1,0 +1,7 @@
+mixin radio(label, name, value, checked, image)
+  label.radio
+    input.radio-input(type="radio" name=name value=value checked=checked)
+    span.radio-box
+      if image
+        img.radio-image(src=image alt=label)
+      span.radio-box__label= label

@@ -1,0 +1,96 @@
+// stylelint-disable scss/dollar-variable-empty-line-before
+
+:root {
+  // Fonts
+  // ---------------------------------
+  --font-primary: "axiforma", -apple-system, BlinkMacSystemFont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+  --font-secondary: "glamour", -apple-system, blinkmacsystemfont, "Segoe UI", roboto, oxygen-sans, ubuntu, cantarell, "Helvetica Neue", sans-serif;
+  --font-weight: 400;
+  --line-height: 1.7;
+  --font-size: 16px;
+
+  // Colors
+  // ---------------------------------
+  --color-black: #000;
+  --color-white: #fff;
+  --color-muted: #f5f5f5;
+
+  // Primary - Secondary
+  // ---------------------------------
+  --color-primary: #251163;
+  --color-secondary: #dba5ba;
+  --color-text-default: var(--color-primary);
+
+  // Forms
+  // ---------------------------------
+  --input-background-color: var(--color-white);
+  --input-color: var(--color-black);
+  --input-border-width: 1px;
+  --input-border-color: var(--color-black);
+  --input-icon-width: 32px;
+  --input-padding-x: 30px;
+  --input-padding-y: 14px;
+  --input-hint-font-size: 14px;
+  --input-placeholder-color: var(--color-muted);
+
+  // Global cosmetic styles
+  // ---------------------------------
+  --overlay: rgb(0 0 0 / 20%);
+
+  // Sections
+  // ---------------------------------
+  --section-padding-vertical: 40px;
+  --section-padding-vertical-desktop: 80px;
+  --section-padding-horizontal-sm: 30px;
+  --section-padding-horizontal-md: 80px;
+  --section-padding-horizontal-lg: 160px;
+
+  // Transitions
+  // ---------------------------------
+  --transition-duration: 0.2s;
+
+  // Containers
+  // ---------------------------------
+  --container-max-width: 1920px;
+  --container-padding: 20px;
+  --container-padding-tablet: 40px;
+  --container-padding-desktop: 200px;
+}
+
+// Settings
+// ---------------------------------
+//
+
+$tablet: 768; // Tablets, Ipads (portrait) - from 768px to 1024px
+$tablet-h: 1024;
+$laptop: 1025; // Laptops, Desktops - from 1025px to 1280px
+$desktop: 1200; // Desktops = 1280px to higher resolution desktops
+$desktop-l: 1600;
+
+$container-widths: (
+  sm: 768px,
+  md: 1024px,
+  lg: 1200px,
+  default: 1920px
+);
+
+// Bootstrap overrides
+// scss-docs-end grid-breakpoints
+// ---------------------------------
+$grid-gutter-width: 16px;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px) !default;
+
+@each $breakpoint, $value in $grid-breakpoints {
+  .hidden-#{$breakpoint} {
+    @media (min-width: $value) {
+      display: none;
+    }
+  }
+}

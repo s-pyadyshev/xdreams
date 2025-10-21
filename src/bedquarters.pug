@@ -1,0 +1,60 @@
+extends pug/base
+
+prepend vars
+  - title = 'Bedquarters'
+
+append vars
+
+block content
+  section.section.hero.hero--bedquarters.wave-bottom
+    img(src="images/bedquarters.jpg" alt="bedquarters")
+    .hero__inner
+      h1 Where big
+      .hero__motto
+        img.hero__images.hidden-desktop(src="images/bedquarters-header.png" alt="dreams get done.")
+        img.hero__images.visible-desktop(src="images/bedquarters-header.svg" alt="dreams get done.")
+      p Part ideas hub, part problem-solving pitstop — Bedquarters is where the sparks fly and the plans come to life.
+
+  section.section.intro
+    .container.intro__inner
+      .intro__text 
+        h2 Welcome to Bedquarters
+        h3 Our head office in Loudwater, High Wycombe. This is where we keep everything running behind the scenes.
+        p From big ideas to fine details. We’re made up of over 250 team members:
+        ul 
+          li <b>The Thinkers</b> – Buying, Insights, Finance. (Big brains, big impact.)
+          li <b>The Creators</b> – Marketing, E-Commerce, Merchandising. (The noisey ones, in a good way.)
+          li <b>The Fixers</b> – IT, Customer Services, Risk. (No drama too big, no laptop too slow.)
+          li <b>The Planners</b> – Supply Chain, Property, People. (The unsung heroes making it all work.)
+      img(src="images/retail-bed.png" alt="bed." width="418" height="306").intro__image
+  section.section
+    .container
+      h2 Real people. Real jobs. Really into beds.
+      +slider-features
+  section.section
+    .container
+      .section-header
+        h2 We can’t promise <br> breakfast in bed
+        h3 But, we can promise these:
+    .container
+      +slider-spotlight
+  section.section.map
+    .map__image.wave-top.wave-bottom
+      img(src="images/map-bedquarters.jpg" alt="map.")
+    .map__inner
+      .map__card
+        .card.card--primary
+          h3 The beating heart of our business.
+          h4 It’s where big ideas take shape, where innovation meets collaboration, and where every department works together to make the nation’s dreams come true.
+          p From our digital, marketing, and merchandising teams who bring our products and brand to life, to our supply chain, finance, and people teams who keep everything running smoothly, Bedquarters is home to a diverse mix of talent.
+          p It’s a place full of energy, creativity, and teamwork, where every colleague plays a part in delivering exceptional experiences for our customers—whether they’re shopping in-store, online, or waiting for a delivery at their front door.
+  section.section
+    .container 
+      include ./pug/components/quiz.pug
+  section.section
+    .container
+      .section-header
+        h2 Find your perfect job
+    +slider-jobs(jobs)
+  section.section
+    +next

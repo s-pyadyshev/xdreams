@@ -1,0 +1,19 @@
+mixin hero(obj)
+  .hero&attributes(attributes)
+    .hero__top
+      .container.container-sm
+        if (obj.title) 
+          h1.hero__title !{obj.title}
+        if (obj.subheader)  
+          div.hero__subheader !{obj.subheader}
+        if (obj.desc) 
+          div.hero__desc !{obj.desc}
+        if (obj.button)
+          a.button(href=obj.button.href ? obj.button.href : "#" )
+            span !{obj.button.text}
+            +svg('arrow-right').button__icon
+    .hero__bot 
+      .hero__bot__left 
+      .hero__mask
+      .hero__bot__right
+

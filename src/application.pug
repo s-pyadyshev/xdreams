@@ -1,0 +1,76 @@
+extends pug/base
+
+prepend vars
+  - title = 'Application process'
+
+append vars
+
+block content
+  section.hero.hero--application.wave-bottom
+    img(src="images/application.jpg" alt="application")
+    .hero__inner
+      .hero__motto
+        img.hero__images.hidden-desktop(src="images/application-header.png" alt="sweet dreams start with simple steps.")
+        img.hero__images.visible-desktop(src="images/application-header.svg" alt="sweet dreams start with simple steps.")
+      p We’re here to make applying easy, so you can focus on your dream role
+  section
+    .container
+      h2 4 steps of the <br> application process:
+        .slider-steps
+          .slider-steps__real
+            .swiper.slider-steps-show
+              .swiper-wrapper
+                
+                .swiper-slide
+                  .slider-steps-slide.slider-steps-slide-1
+                    .slider-steps-slide__header
+                      h3 1
+                    .slider-steps-slide__body
+                      h3 How we shortlist
+                      p Once applications are in, <br> we take a good look.
+                      p We’re looking for more than skills on a page – we’re looking for the spark that makes you a great fit for our team, the kind of person who helps us all sleep a little easier.
+                .swiper-slide
+                  .slider-steps-slide.slider-steps-slide-2
+                    .slider-steps-slide__header
+                      h3 2
+                    .slider-steps-slide__body
+                      h3 How we shortlist
+                      p Once applications are in, we take a good look.
+                      p We’re looking for more than skills on a page – we’re looking for the spark that makes you a great fit for our team, the kind of person who helps us all sleep a little easier.
+                .swiper-slide
+                  .slider-steps-slide.slider-steps-slide-3
+                    .slider-steps-slide__header
+                      h3 3
+                    .slider-steps-slide__body
+                      h3 How we shortlist
+                      p Once applications are in, we take a good look.
+                      p We’re looking for more than skills on a page – we’re looking for the spark that makes you a great fit for our team, the kind of person who helps us all sleep a little easier.
+                .swiper-slide
+                  .slider-steps-slide.slider-steps-slide-4
+                    .slider-steps-slide__header
+                      h3 4
+                    .slider-steps-slide__body
+                      h3 How we shortlist
+                      p Once applications are in, we take a good look.
+                      p We’re looking for more than skills on a page – we’re looking for the spark that makes you a great fit for our team, the kind of person who helps us all sleep a little easier.
+          .slider-steps__fake
+              .swiper.slider-steps-hide
+                .swiper-wrapper
+                  .swiper-slide
+                    p 1
+                  .swiper-slide
+                    p 2
+                  .swiper-slide
+                    p 3
+                  .swiper-slide
+                    p 4
+
+          .slider-steps__controls
+            .slider-steps__progress
+              .slider-steps__progress-bar
+                .slider-steps__progress-fill
+            .slider-steps__navigation
+              button.swiper-button-prev.slider-steps__nav-btn.slider-steps__nav-btn--prev
+                +svg('chevron-circle-left')
+              button.swiper-button-next.slider-steps__nav-btn.slider-steps__nav-btn--next
+                +svg('chevron-circle-right')

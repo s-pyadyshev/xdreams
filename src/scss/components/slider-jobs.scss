@@ -1,0 +1,16 @@
+.slider-jobs {
+  margin-bottom: 40px;
+  padding-inline: 20px;
+
+  @include laptop {
+    padding-inline: 40px;
+  }
+
+  @include desktop-l {
+    padding-inline: 200px 0;
+  }
+}
+
+.slider-jobs .swiper-slide>* {
+  height: 100%;
+}
