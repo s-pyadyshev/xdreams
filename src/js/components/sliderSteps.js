@@ -1,84 +1,141 @@
-import Swiper from "swiper";
-import { Navigation, Thumbs, EffectFade } from "swiper/modules";
-
 export const sliderSteps = (function () {
-  let thumbsSwiper = null;
-  let mainSwiper = null;
+  // Mobile-first: base state assumes mobile layout
+  let state = {
+    activeIndex: 0,
+    totalSlides: 0,
+    isDesktop: false,
+    elements: {
+      wrapper: null,
+      container: null,
+      slides: null,
+      progressFill: null,
+      navPrev: null,
+      navNext: null,
+    },
+  };
 
-  const updateProgressBar = function (swiper) {
-    const progressFill = document.querySelector(
-      ".slider-steps__progress-fill"
+  // Mobile-first: base update logic (height animation)
+  const updateMobileLayout = function () {
+    state.elements.slides.forEach((slide, i) => {
+      if (i === state.activeIndex) {
+        slide.classList.add("steps-slider__slide-inner--active");
+      } else {
+        slide.classList.remove("steps-slider__slide-inner--active");
+      }
+    });
+  };
+
+  // Desktop-only: grid layout updates
+  const updateDesktopLayout = function () {
+    if (!state.isDesktop) return;
+
+    // Reset container classes
+    state.elements.container.className = "steps-slider";
+    // Apply active state class for grid columns
+    state.elements.container.classList.add(
+      `steps-slider--active-${state.activeIndex}`
     );
-    if (!progressFill) return;
+  };
 
-    const totalSlides = swiper.slides.length;
-    const currentIndex = swiper.activeIndex;
+  // Shared logic for both layouts
+  const updateSharedState = function () {
+    // Update steps-slider-slide active class
+    document.querySelectorAll(".steps-slider-slide").forEach((slide, i) => {
+      slide.classList.toggle("slide-active", i === state.activeIndex);
+    });
 
-    const segmentWidth = 100 / totalSlides;
+    // Update progress indicator (works on both layouts)
+    const translateX = state.activeIndex * 100;
+    state.elements.progressFill.style.transform = `translateX(${translateX}%)`;
+  };
 
-    progressFill.style.width = `${segmentWidth}%`;
-    progressFill.style.transform = `translateX(${currentIndex * 100}%)`;
+  const normalizeIndex = function (index) {
+    if (index < 0) return state.totalSlides - 1;
+    if (index >= state.totalSlides) return 0;
+    return index;
+  };
+
+  const setActiveSlide = function (index) {
+    state.activeIndex = normalizeIndex(index);
+
+    // Mobile-first: always update mobile layout
+    updateMobileLayout();
+
+    // Conditionally update desktop layout
+    if (state.isDesktop) {
+      updateDesktopLayout();
+    }
+
+    // Always update shared state
+    updateSharedState();
+  };
+
+  const checkLayout = function () {
+    const isNowDesktop = window.innerWidth > 1400;
+    if (isNowDesktop !== state.isDesktop) {
+      state.isDesktop = isNowDesktop;
+      // Re-apply layout when switching modes
+      if (state.isDesktop) {
+        updateDesktopLayout();
+      } else {
+        // On mobile, ensure we're using flex layout
+        state.elements.container.className = "steps-slider";
+      }
+    }
   };
 
   const init = function () {
-    const thumbsElement = document.querySelector(".slider-steps-show");
-    const mainElement = document.querySelector(".slider-steps-hide");
+    const wrapper = document.querySelector("[data-steps-slider]");
+    if (!wrapper) return;
 
-    if (!thumbsElement || !mainElement) return;
+    // Cache elements
+    state.elements.wrapper = wrapper;
+    state.elements.container = wrapper.querySelector("[data-slider-container]");
+    state.elements.slides = wrapper.querySelectorAll(
+      ".steps-slider__slide-inner"
+    );
+    state.elements.progressFill = wrapper.querySelector("[data-progress-fill]");
+    state.elements.navPrev = wrapper.querySelector("[data-nav-prev]");
+    state.elements.navNext = wrapper.querySelector("[data-nav-next]");
 
-    thumbsSwiper = new Swiper(".slider-steps-show", {
-      modules: [Thumbs],
-      direction: "vertical",
-      slidesPerView: 4,
-      spaceBetween: 16,
-      watchSlidesProgress: true,
-      slideToClickedSlide: true,
-      slideThumbActiveClass: "swiper-slide-thumb-active",
-      multipleActiveThumbs: false,
-      breakpoints: {
-        1200: {
-          direction: "horizontal",
-        },
-      },
+    state.totalSlides = state.elements.slides.length;
+
+    // Initialize layout state
+    checkLayout();
+    setActiveSlide(0);
+
+    // Event listeners
+    state.elements.slides.forEach((slide) => {
+      slide.addEventListener("click", () => {
+        const index = parseInt(slide.getAttribute("data-slide-index"), 10);
+        if (index !== state.activeIndex) {
+          setActiveSlide(index);
+        }
+      });
     });
 
-    mainSwiper = new Swiper(".slider-steps-hide", {
-      modules: [Navigation, Thumbs,],
-      spaceBetween: 0,
-      navigation: {
-        nextEl: ".swiper-button-next",
-        prevEl: ".swiper-button-prev",
-      },
-      thumbs: {
-        swiper: thumbsSwiper,
-        slideThumbActiveClass: "swiper-slide-thumb-active",
-        multipleActiveThumbs: false,
-        slidesPerView: 1,
-      },
-      on: {
-        init: function (swiper) {
-          updateProgressBar(swiper);
-        },
-        slideChange: function (swiper) {
-          updateProgressBar(swiper);
-        },
-      },
+    state.elements.navPrev.addEventListener("click", () => {
+      setActiveSlide(state.activeIndex - 1);
     });
-  };
 
-  const destroy = function () {
-    if (mainSwiper) {
-      mainSwiper.destroy(true, true);
-      mainSwiper = null;
-    }
-    if (thumbsSwiper) {
-      thumbsSwiper.destroy(true, true);
-      thumbsSwiper = null;
-    }
+    state.elements.navNext.addEventListener("click", () => {
+      setActiveSlide(state.activeIndex + 1);
+    });
+
+    // Keyboard navigation
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") {
+        setActiveSlide(state.activeIndex - 1);
+      } else if (e.key === "ArrowRight") {
+        setActiveSlide(state.activeIndex + 1);
+      }
+    });
+
+    // Handle layout changes
+    window.addEventListener("resize", checkLayout);
   };
 
   return {
     init,
-    destroy,
   };
 })();

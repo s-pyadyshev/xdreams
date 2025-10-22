@@ -5,6 +5,13 @@ $checkbox-color-focus: var(--color-black);
 
 .checkbox {
   display: flex;
+  font-size: 12px;
+  line-height: 19px;
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 23px;
+  }
 }
 
 .checkbox-input {
@@ -15,11 +22,11 @@ $checkbox-color-focus: var(--color-black);
   clip: rect(0 0 0 0);
 }
 
-.checkbox-input:focus~.checkbox-box:before {
+.checkbox-input:focus ~ .checkbox-box:before {
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2);
 }
 
-.checkbox-input~.checkbox-box {
+.checkbox-input ~ .checkbox-box {
   display: flex;
   align-items: flex-start;
   position: relative;
@@ -38,7 +45,7 @@ $checkbox-color-focus: var(--color-black);
   }
 }
 
-.checkbox-input:checked~.checkbox-box:after {
+.checkbox-input:checked ~ .checkbox-box:after {
   content: "";
   position: absolute;
   top: 7px;

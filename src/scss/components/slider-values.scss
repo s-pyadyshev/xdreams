@@ -101,6 +101,11 @@
 }
 
 .slider-values-slide__top img {
+  @include desktop {
+    width: 100px;
+    height: 100px;
+  }
+
   @include desktop-l {
     width: 120px;
     height: 120px;

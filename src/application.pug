@@ -13,64 +13,49 @@ block content
         img.hero__images.hidden-desktop(src="images/application-header.png" alt="sweet dreams start with simple steps.")
         img.hero__images.visible-desktop(src="images/application-header.svg" alt="sweet dreams start with simple steps.")
       p We’re here to make applying easy, so you can focus on your dream role
-  section
+  section.section
     .container
-      h2 4 steps of the <br> application process:
-        .slider-steps
-          .slider-steps__real
-            .swiper.slider-steps-show
-              .swiper-wrapper
-                
-                .swiper-slide
-                  .slider-steps-slide.slider-steps-slide-1
-                    .slider-steps-slide__header
-                      h3 1
-                    .slider-steps-slide__body
-                      h3 How we shortlist
-                      p Once applications are in, <br> we take a good look.
-                      p We’re looking for more than skills on a page – we’re looking for the spark that makes you a great fit for our team, the kind of person who helps us all sleep a little easier.
-                .swiper-slide
-                  .slider-steps-slide.slider-steps-slide-2
-                    .slider-steps-slide__header
-                      h3 2
-                    .slider-steps-slide__body
-                      h3 How we shortlist
-                      p Once applications are in, we take a good look.
-                      p We’re looking for more than skills on a page – we’re looking for the spark that makes you a great fit for our team, the kind of person who helps us all sleep a little easier.
-                .swiper-slide
-                  .slider-steps-slide.slider-steps-slide-3
-                    .slider-steps-slide__header
-                      h3 3
-                    .slider-steps-slide__body
-                      h3 How we shortlist
-                      p Once applications are in, we take a good look.
-                      p We’re looking for more than skills on a page – we’re looking for the spark that makes you a great fit for our team, the kind of person who helps us all sleep a little easier.
-                .swiper-slide
-                  .slider-steps-slide.slider-steps-slide-4
-                    .slider-steps-slide__header
-                      h3 4
-                    .slider-steps-slide__body
-                      h3 How we shortlist
-                      p Once applications are in, we take a good look.
-                      p We’re looking for more than skills on a page – we’re looking for the spark that makes you a great fit for our team, the kind of person who helps us all sleep a little easier.
-          .slider-steps__fake
-              .swiper.slider-steps-hide
-                .swiper-wrapper
-                  .swiper-slide
-                    p 1
-                  .swiper-slide
-                    p 2
-                  .swiper-slide
-                    p 3
-                  .swiper-slide
-                    p 4
+      .section-header
+        h2 4 steps of the <br> application process:
 
-          .slider-steps__controls
-            .slider-steps__progress
-              .slider-steps__progress-bar
-                .slider-steps__progress-fill
-            .slider-steps__navigation
-              button.swiper-button-prev.slider-steps__nav-btn.slider-steps__nav-btn--prev
-                +svg('chevron-circle-left')
-              button.swiper-button-next.slider-steps__nav-btn.slider-steps__nav-btn--next
-                +svg('chevron-circle-right')
+      .steps-slider__wrapper(data-steps-slider='')
+        .steps-slider(data-slider-container='')
+          .steps-slider-slide
+            .steps-slider__slide-inner(data-slide-index='0')
+              .steps-slider__number 01
+              .steps-slider__content
+                h3.steps-slider__title Innovative Solutions
+                .steps-slider__subtitle Digital Transformation
+                p.steps-slider__text
+                  | Our approach combines cutting-edge technology with strategic insights to drive meaningful business outcomes and sustainable growth.
+          .steps-slider-slide
+            .steps-slider__slide-inner(data-slide-index='1')
+              .steps-slider__number 02
+              .steps-slider__content
+                h3.steps-slider__title User-Centric Design
+                .steps-slider__subtitle Experience Excellence
+                p.steps-slider__text
+                  | We prioritize human-centered design principles to create intuitive, engaging, and accessible digital experiences that resonate with users.
+          .steps-slider-slide
+            .steps-slider__slide-inner(data-slide-index='2')
+              .steps-slider__number 03
+              .steps-slider__content
+                h3.steps-slider__title Data-Driven Strategy
+                .steps-slider__subtitle Intelligent Insights
+                p.steps-slider__text
+                  | Leveraging advanced analytics and AI, we transform complex data into actionable intelligence that powers smarter decisions and innovation.
+          .steps-slider-slide
+            .steps-slider__slide-inner(data-slide-index='3')
+              .steps-slider__number 04
+              .steps-slider__content
+                h3.steps-slider__title Agile Development
+                .steps-slider__subtitle Continuous Innovation
+                p.steps-slider__text
+                  | Our agile methodology ensures rapid iteration, continuous improvement, and the ability to adapt quickly to changing market demands.
+        .steps-slider__progress
+          .steps-slider__progress-fill(data-progress-fill='')
+        .steps-slider__navigation
+          button.steps-slider__nav-btn(data-nav-prev='' aria-label='Previous step')
+            +svg('chevron-circle-left')
+          button.steps-slider__nav-btn(data-nav-next='' aria-label='Next step')
+            +svg('chevron-circle-right')

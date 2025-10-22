@@ -32,6 +32,59 @@ window.addEventListener(
 
     const canvas = document.querySelector("#image-sequence");
     const sections = gsap.utils.toArray(".pin-section");
+    let lastScrollTop = window.scrollY;
+    let isSnapping = false;
+    let lastSectionActivated = false;
+    let userHasScrolled = false;
+
+    window.addEventListener("scroll", () => {
+      if (!isSnapping) {
+        lastScrollTop = window.scrollY;
+        userHasScrolled = true;
+      }
+    });
+
+    ScrollTrigger.addEventListener("scrollEnd", () => {
+      if (isSnapping) return;
+
+      const currentScroll = window.scrollY;
+      const direction = currentScroll > lastScrollTop ? "down" : "up";
+
+      if (direction === "up") {
+        for (let i = sections.length - 1; i >= 0; i--) {
+          const section = sections[i];
+          const sectionTop = section.offsetTop;
+          if (sectionTop <= currentScroll) {
+            if (i > 0) {
+              const prevSection = sections[i - 1];
+              const currentSection = sections[i];
+              const sectionHeight = section.offsetHeight;
+              const distanceFromTop = currentScroll - sectionTop;
+
+              if (distanceFromTop < sectionHeight * 0.3) {
+                currentSection.classList.add("pin-section-in-transition");
+                isSnapping = true;
+
+                window.scrollTo({
+                  top: prevSection.offsetTop,
+                  behavior: "auto",
+                });
+
+                requestAnimationFrame(() => {
+                  currentSection.classList.remove("pin-section-in-transition");
+                  isSnapping = false;
+                });
+              }
+            }
+            break;
+          }
+        }
+      }
+    });
+
+    function onLastSectionComplete() {
+      console.log("test");
+    }
 
     let updateCallbacks = [];
 
@@ -58,27 +111,45 @@ window.addEventListener(
       const imagePath = section.dataset.imagePath;
       const urls = generateImageUrls(frameCount, imagePath);
       const nextSection = sections[index + 1];
+      const isLastSection = index === sections.length - 1;
+
+      const handleComplete = () => {
+        if (nextSection) {
+          nextSection.classList.add("pin-section-in-transition");
+          gsap.to(window, {
+            duration: 1,
+            scrollTo: nextSection,
+            overwrite: "auto",
+            onComplete: () => {
+              nextSection.classList.remove("pin-section-in-transition");
+            },
+          });
+        }
+      };
+
+      const scrollTriggerConfig = {
+        trigger: section,
+        pin: true,
+        start: "top top",
+        end: "bottom top",
+        scrub: true,
+        snap: 0.7,
+      };
+
+      if (isLastSection) {
+        scrollTriggerConfig.onEnter = (self) => {
+          if (userHasScrolled && self.direction > 0 && !lastSectionActivated) {
+            lastSectionActivated = true;
+            onLastSectionComplete();
+          }
+        };
+      }
 
       const anim = imageSequence({
         urls,
         canvas: canvas,
-        scrollTrigger: {
-          trigger: section,
-          pin: true,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-          snap: 0.7,
-        },
-        onComplete: () => {
-          if (nextSection) {
-            gsap.to(window, {
-              duration: 2,
-              scrollTo: nextSection,
-              overwrite: "auto",
-            });
-          }
-        },
+        scrollTrigger: scrollTriggerConfig,
+        onComplete: handleComplete,
         effectiveFps: 15,
       });
 

@@ -44,7 +44,7 @@ export const sliderValues = (function () {
                 },
                 1600: {
                     slidesPerView: 4,
-                    spaceBetween: 60
+                    spaceBetween: 40
                 }
             },
             on: {

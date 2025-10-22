@@ -11,9 +11,64 @@ block content
     .hero__inner
       .hero__motto
         h1 Retail Sales Assistant
-      .hero__info
-        button(type="submit").button.button--gray Retail
-        button(type="submit").button.button--gray Permanent
-        button(type="submit").button.button--gray Full-time
-        button(type="submit").button.button--gray Farnborough
-        button(type="submit").button.button--gray £30,000pa OTE
+      .hero__tags
+        .button.button--gray Retail
+        .button.button--gray Permanent
+        .button.button--gray Full-time
+        .button.button--gray Farnborough
+        .button.button--gray £30,000pa OTE
+
+  section.section
+    .container.container-sm
+      article.card
+        h4 Overview
+        h5 Lorem ipsum dolor sit amet consectetur adipiscing elit. Leo eu aenean sed diam urna tempor pulvinar. Semper vel class aptent taciti sociosqu ad litora. Mus donec rhoncus eros lobortis nulla molestie mattis. Blandit quis suspendisse aliquet nisi sodales consequat magna. Ac tincidunt nam porta elementum a enim euismod.
+        p Cras eleifend turpis fames primis vulputate ornare sagittis. Netus suscipit auctor curabitur facilisi cubilia curae hac. Sem placerat in id cursus mi pretium tellus. Egestas iaculis massa nisl malesuada lacinia integer nunc. Orci varius natoque penatibus et magnis dis parturient.
+        p Non purus est efficitur laoreet mauris pharetra vestibulum. Finibus facilisis dapibus etiam interdum tortor ligula congue. Dignissim velit aliquam imperdiet mollis nullam volutpat porttitor. Proin libero feugiat tristique accumsan maecenas potenti ultricies.
+        p Sit amet consectetur adipiscing elit quisque faucibus ex. Sed diam urna tempor pulvinar vivamus fringilla lacus. Aptent taciti sociosqu ad litora torquent per conubia.
+        h4 What’ll be doing
+        h5 Lorem ipsum dolor sit amet consectetur adipiscing elit. Leo eu aenean sed diam urna tempor pulvinar. Semper vel class aptent taciti sociosqu ad litora. Mus donec rhoncus eros lobortis nulla molestie mattis. Blandit quis suspendisse aliquet nisi sodales consequat magna. Ac tincidunt nam porta elementum a enim euismod.
+        p Cras eleifend turpis fames primis vulputate ornare sagittis. Netus suscipit auctor curabitur facilisi cubilia curae hac:
+        ul 
+          li Sem placerat in id cursus mi pretium tellus. 
+          li Egestas iaculis massa nisl malesuada lacinia integer nunc. 
+          li Orci varius natoque penatibus et magnis dis parturient.
+        p Non purus est efficitur laoreet mauris pharetra vestibulum. Finibus facilisis dapibus etiam interdum tortor ligula congue. Dignissim velit aliquam imperdiet mollis nullam volutpat porttitor. Proin libero feugiat tristique accumsan maecenas potenti ultricies.
+        ul 
+          li Sem placerat in id cursus mi pretium tellus. 
+          li Egestas iaculis massa nisl malesuada lacinia integer nunc. 
+          li Orci varius natoque penatibus et magnis dis parturient.
+        h4 Who we’re looking for
+        p Lorem ipsum dolor sit amet consectetur adipiscing elit. Leo eu aenean sed diam urna tempor pulvinar. Semper vel class aptent taciti sociosqu ad litora. Mus donec rhoncus eros lobortis nulla molestie mattis. Blandit quis suspendisse aliquet nisi sodales consequat magna. Ac tincidunt nam porta elementum a enim euismod.
+        p Cras eleifend turpis fames primis vulputate ornare sagittis. Netus suscipit auctor curabitur facilisi cubilia curae hac. Sem placerat in id cursus mi pretium tellus. Egestas iaculis massa nisl malesuada lacinia integer nunc. Orci varius natoque penatibus et magnis dis parturient. 
+        p Non purus est efficitur laoreet mauris pharetra vestibulum. Finibus facilisis dapibus etiam interdum tortor ligula congue. Dignissim velit aliquam imperdiet mollis nullam volutpat porttitor. Proin libero feugiat tristique accumsan maecenas potenti ultricies.
+        p Sit amet consectetur adipiscing elit quisque faucibus ex. Sed diam urna tempor pulvinar vivamus fringilla lacus. Aptent taciti sociosqu ad litora torquent per conubia.
+  section.section
+    .container
+      .section-header
+        h2 We can’t promise <br> breakfast in bed
+        h3 But, we can promise these:
+    .container
+      +slider-spotlight
+  section.section.map
+    .map__image.wave-top.wave-bottom
+      img(src="images/retail-map.jpg" alt="map." width="1920" height="1240")
+    .map__inner
+      .map__card
+        .card.card--primary
+          h3 Where you’ll be working
+          h4 Here is where you’ll be based, whether that’s Bedquarters, or our Bed Factory or one of our stores.
+          address
+            b Dreams Farnborough,
+            p Solartron Retail Park,
+            p Solartron Rd,
+            p Farnborough
+            p GU14 7QJ
+  section.section
+    .container
+      .section-header
+        h2 Don’t just take <br> our word for it
+        h3 Meet your Dreams team.
+      +slider-features
+  section.section
+    +next
