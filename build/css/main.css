@@ -2707,8 +2707,21 @@ details[open] > summary:first-of-type .details__icon-opened {
 .wellbeing {
   display: flex;
   flex-direction: column;
+  row-gap: 20px;
   color: var(--color-primary);
-  padding-top: 40px;
+  height: 100%;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.wellbeing__background {
+  position: absolute;
+  z-index: -1;
+  background-color: var(--color-secondary);
+  width: 100vw;
+  height: calc(100% - 60px);
+  bottom: 30px;
 }
 
 .wellbeing h3 {
@@ -2748,11 +2761,14 @@ details[open] > summary:first-of-type .details__icon-opened {
 .wellbeing__card {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
 .wellbeing__card img {
   z-index: 1;
-  margin: 0 auto;
+  aspect-ratio: 1.1/1;
+  border-radius: 10px;
+  width: 100%;
 }
 
 .wellbeing__card-body {
@@ -2762,7 +2778,8 @@ details[open] > summary:first-of-type .details__icon-opened {
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 322px;
+  width: calc(100% - 30px);
+  margin-inline: auto;
   margin: -40px auto 0 auto;
   padding: 20px;
   z-index: 2;
@@ -2882,11 +2899,24 @@ label.button:has(input[type=checkbox]:checked) {
   margin-bottom: 20px;
 }
 
+.section-header h4 {
+  font-family: var(--font-primary);
+  font-size: 12px;
+  line-height: 19px;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-align: center;
+  margin: 0;
+  margin-bottom: 20px;
+}
+
 .section-header h3 br {
   display: none;
 }
 
-.section-header:has(h2) > p {
+.section-header:has(h3) > p {
+  font-family: var(--font-primary);
+  color: var(--color-primary);
   margin: 0;
   margin-inline: 16px;
   font-size: 12px;
@@ -2894,6 +2924,16 @@ label.button:has(input[type=checkbox]:checked) {
   text-align: left;
   margin-bottom: 15px;
   font-weight: 300;
+}
+
+.section-header p.short {
+  font-family: var(--font-primary);
+  font-size: 12px;
+  line-height: 19px;
+  font-weight: 400;
+  color: var(--color-primary);
+  margin: 0;
+  margin-bottom: 30px;
 }
 
 .container--fluid {
@@ -3792,11 +3832,6 @@ label.button:has(input[type=checkbox]:checked) {
 
 .hero__sleep img:last-child {
   display: none;
-}
-
-.wave.wave--white {
-  transform: translateY(-100%);
-  height: auto;
 }
 
 .hero__tags {
@@ -5853,16 +5888,6 @@ label.button:has(input[type=checkbox]:checked) {
     margin-top: auto;
   }
 
-  .wellbeing__description {
-    max-width: 500px;
-    margin: 0 auto;
-  }
-
-  .wellbeing__card-body {
-    margin-top: 0;
-    order: 1;
-  }
-
   .container {
     padding-inline: var(--container-padding-tablet);
   }
@@ -6239,41 +6264,8 @@ label.button:has(input[type=checkbox]:checked) {
     padding: 60px;
   }
 
-  .wellbeing h3 {
-    font-size: 45px;
-  }
-
-  .wellbeing h4 {
-    font-size: 16px;
-  }
-
-  .wellbeing p {
-    font-size: 14px;
-  }
-
-  .wellbeing__card {
-    flex-direction: row;
-    background-color: var(--color-muted);
-    border-radius: 20px;
-    width: 100%;
-    justify-content: space-between;
-  }
-
   .wellbeing__card img {
-    width: 550px;
-    order: 2;
-    margin: 0;
-    height: 588px;
-    margin-top: -18px;
-    margin-bottom: -18px;
-  }
-
-  .wellbeing__card-body {
-    margin: 0;
-    padding: 30px 50px 30px 50px;
-    width: 500px;
-    margin: 0 auto;
-    justify-content: center;
+    border-radius: 20px;
   }
 
   .header__menu {
@@ -6699,37 +6691,47 @@ label.button:has(input[type=checkbox]:checked) {
     width: 600px;
   }
 
+  .wellbeing {
+    row-gap: 30px;
+  }
+
+  .wellbeing__background {
+    height: calc(100% - 300px);
+    bottom: 150px;
+  }
+
   .wellbeing h3 {
-    font-size: 45px;
-    line-height: 60px;
-    font-weight: 900;
-  }
-
-  .wellbeing h4 {
-    font-size: 16px;
-    line-height: 28px;
-    font-weight: 700;
-  }
-
-  .wellbeing p {
-    font-size: 14px;
-    line-height: 23px;
-    font-weight: 400;
+    font-size: 40px;
+    line-height: 44px;
   }
 
   .wellbeing__description {
     max-width: 1088px;
   }
 
+  .wellbeing__card {
+    flex-direction: row;
+    max-width: 1323px;
+  }
+
   .wellbeing__card img {
-    height: 602px;
-    margin-bottom: -8px;
-    margin-top: -8px;
-    justify-content: center;
+    aspect-ratio: 1.12/1;
+    width: 50%;
+    order: 2;
+    border-radius: 20px;
   }
 
   .wellbeing__card-body {
-    height: 100%;
+    padding: 30px 50px 30px 50px;
+    justify-content: center;
+    width: 50%;
+    border-radius: 20px 0 0 20px;
+    margin: 18px 0;
+  }
+
+  .wellbeing__card-body ul li {
+    font-size: 14px;
+    line-height: 23px;
   }
 
   .checkbox {
@@ -6749,16 +6751,38 @@ label.button:has(input[type=checkbox]:checked) {
   }
 
   .section-header h3 {
-    font-size: 21px;
-    line-height: 28px;
-    margin-bottom: 20px;
+    font-size: 31px;
+    line-height: 38px;
+    margin-inline: auto;
+    margin-bottom: 50px;
+    max-width: 1088px;
   }
 
-  .section-header:has(h2) > p {
+  .section-header h4 {
+    font-size: 21px;
+    line-height: 28px;
+    margin-inline: auto;
+    margin-bottom: 50px;
+    max-width: 1088px;
+  }
+
+  .section-header:has(p, h4) h3 {
+    margin-bottom: 30px;
+  }
+
+  .section-header:has(h3) > p {
     font-size: 16px;
     line-height: 23px;
     text-align: center;
     margin-inline: 0;
+  }
+
+  .section-header p.short {
+    max-width: 655px;
+    margin: 0 auto;
+    margin-bottom: 60px;
+    font-size: 14px;
+    line-height: 23px;
   }
 
   .container__title img:last-child {
@@ -7880,7 +7904,18 @@ label.button:has(input[type=checkbox]:checked) {
   .wellbeing h3 {
     font-size: 55px;
     line-height: 60px;
-    font-weight: 900;
+  }
+
+  .wellbeing h4 {
+    font-size: 21px;
+    line-height: 28px;
+    font-weight: 700;
+  }
+
+  .wellbeing p {
+    font-size: 14px;
+    line-height: 23px;
+    font-weight: 400;
   }
 
   .container {

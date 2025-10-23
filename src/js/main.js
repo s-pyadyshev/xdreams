@@ -35,12 +35,12 @@ window.addEventListener(
     let lastScrollTop = window.scrollY;
     let isSnapping = false;
     let lastSectionActivated = false;
-    let userHasScrolled = false;
+    // let userHasScrolled = false;
 
     window.addEventListener("scroll", () => {
       if (!isSnapping) {
         lastScrollTop = window.scrollY;
-        userHasScrolled = true;
+        // userHasScrolled = true;
       }
     });
 
@@ -82,10 +82,6 @@ window.addEventListener(
       }
     });
 
-    function onLastSectionComplete() {
-      console.log("test");
-    }
-
     let updateCallbacks = [];
 
     const resizeCanvas = (canvasElement, updateImageCallback) => {
@@ -111,7 +107,7 @@ window.addEventListener(
       const imagePath = section.dataset.imagePath;
       const urls = generateImageUrls(frameCount, imagePath);
       const nextSection = sections[index + 1];
-      const isLastSection = index === sections.length - 1;
+      const isLastSection = index + 1 === sections.length - 1;
 
       const handleComplete = () => {
         if (nextSection) {
@@ -121,6 +117,19 @@ window.addEventListener(
             scrollTo: nextSection,
             overwrite: "auto",
             onComplete: () => {
+              setTimeout(() => {
+                if (isLastSection) {
+                  const menuLinkFirst = document
+                    .querySelectorAll(".menu__item")[0]
+                    .querySelector(".menu__link ");
+                  const menuContentFirst =
+                    menuLinkFirst.nextElementSibling.querySelector("li");
+
+                  menuLinkFirst.classList.toggle("active");
+                  menuContentFirst.classList.toggle("active");
+                }
+              }, 2000);
+
               nextSection.classList.remove("pin-section-in-transition");
             },
           });
@@ -138,9 +147,8 @@ window.addEventListener(
 
       if (isLastSection) {
         scrollTriggerConfig.onEnter = (self) => {
-          if (userHasScrolled && self.direction > 0 && !lastSectionActivated) {
+          if (self.direction > 0) {
             lastSectionActivated = true;
-            onLastSectionComplete();
           }
         };
       }

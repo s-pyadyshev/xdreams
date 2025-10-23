@@ -1,8 +1,30 @@
 .wellbeing {
   display: flex;
   flex-direction: column;
+  row-gap: 20px;
   color: var(--color-primary);
-  padding-top: 40px;
+  height: 100%;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+
+  @include desktop {
+    row-gap: 30px;
+  }
+}
+
+.wellbeing__background {
+  position: absolute;
+  z-index: -1;
+  background-color: var(--color-secondary);
+  width: 100vw;
+  height: calc(100% - 60px);
+  bottom: 30px;
+
+  @include desktop {
+    height: calc(100% - 300px);
+    bottom: 150px;
+  }
 }
 
 .wellbeing h3 {
@@ -13,20 +35,14 @@
   letter-spacing: -0.84px;
   margin: 0;
 
-  @include laptop {
-    font-size: 45px;
-  }
-
   @include desktop {
-    font-size: 45px;
-    line-height: 60px;
-    font-weight: 900;
+    font-size: 40px;
+    line-height: 44px;
   }
 
   @include desktop-l {
     font-size: 55px;
     line-height: 60px;
-    font-weight: 900;
   }
 }
 
@@ -37,12 +53,8 @@
   line-height: 22px;
   margin: 0;
 
-  @include laptop {
-    font-size: 16px;
-  }
-
-  @include desktop {
-    font-size: 16px;
+  @include desktop-l {
+    font-size: 21px;
     line-height: 28px;
     font-weight: 700;
   }
@@ -56,11 +68,7 @@
   letter-spacing: 0;
   margin: 0;
 
-  @include laptop {
-    font-size: 14px;
-  }
-
-  @include desktop {
+  @include desktop-l {
     font-size: 14px;
     line-height: 23px;
     font-weight: 400;
@@ -74,10 +82,10 @@
   text-align: center;
   padding-bottom: 40px;
 
-  @include tablet {
-    max-width: 500px;
-    margin: 0 auto;
-  }
+  // @include tablet {
+  //   max-width: 500px;
+  //   margin: 0 auto;
+  // }
 
   @include desktop {
     max-width: 1088px;
@@ -87,34 +95,29 @@
 .wellbeing__card {
   display: flex;
   flex-direction: column;
+  width: 100%;
 
-  @include laptop {
+  @include desktop {
     flex-direction: row;
-    background-color: var(--color-muted);
-    border-radius: 20px;
-    width: 100%;
-    justify-content: space-between;
+    max-width: 1323px;
   }
 }
 
 .wellbeing__card img {
   z-index: 1;
-  margin: 0 auto;
+  aspect-ratio: 1.1/1;
+  border-radius: 10px;
+  width: 100%;
 
   @include laptop {
-    width: 550px;
-    order: 2;
-    margin: 0;
-    height: 588px;
-    margin-top: -18px;
-    margin-bottom: -18px;
+    border-radius: 20px;
   }
 
   @include desktop {
-    height: 602px;
-    margin-bottom: -8px;
-    margin-top: -8px;
-    justify-content: center;
+    aspect-ratio: 1.12/1;
+    width: 50%;
+    order: 2;
+    border-radius: 20px;
   }
 }
 
@@ -125,26 +128,18 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  width: 322px;
+  width: calc(100% - 30px);
+  margin-inline: auto;
   margin: -40px auto 0 auto;
   padding: 20px;
   z-index: 2;
 
-  @include tablet {
-    margin-top: 0;
-    order: 1;
-  }
-
-  @include laptop {
-    margin: 0;
-    padding: 30px 50px 30px 50px;
-    width: 500px;
-    margin: 0 auto;
-    justify-content: center;
-  }
-
   @include desktop {
-    height: 100%;
+    padding: 30px 50px 30px 50px;
+    justify-content: center;
+    width: 50%;
+    border-radius: 20px 0 0 20px;
+    margin: 18px 0;
   }
 }
 
@@ -163,4 +158,9 @@
   font-weight: 400;
   font-size: 12px;
   line-height: 19px;
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 23px;
+  }
 }

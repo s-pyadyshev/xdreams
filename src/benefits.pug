@@ -6,12 +6,58 @@ prepend vars
 append vars
 
 block content
-  section.hero.hero--benefits
+  section.hero.hero--benefits.wave-bottom
     img(src="images/benefits.jpg" alt="benefits")
     .hero__inner
       .hero__motto
         h1 It’s not just about
         img.hero__images.hidden-desktop(src="images/benefits-header.png" alt="great beds.")
         img.hero__images.visible-desktop(src="images/benefits-header.svg" alt="great beds.")
-      p Our people get plenty of extras too – from everyday support to big perks.
-    img(src="images/white__wave.svg" alt="white__wave").wave.wave--white 
+        p Our people get plenty of extras too – from everyday support to big perks.
+
+  section.page-header
+    .container(data-scrollspy="animate__fadeInUp")
+      h2 Helping the nation sleep better
+      h3 starts with looking after our own people first.
+      h4 That’s why we’ve shaped our benefits around balance, wellbeing and growth – so you can thrive at work and outside of it.
+  section.section
+    .container
+      .section-header
+        h2 Wellbeing that works
+        h3 Sleep comes easier when you know you’re supported.
+        p.short That’s why every colleague gets free access to the Retail Trust wellness hub – including 24/7 GP services, confidential counselling, financial advice and a helpline whenever you need it.
+    .container
+      +slider-spotlight
+  section.section 
+    .container 
+      .section-header
+        h2 Colleague Wellbeing
+        h3 At Dreams, wellbeing isn’t something we sweep under the bed – it’s central to how we look after each other.
+        h4 We want every colleague to feel supported, valued and cared for, whether that’s through a quick chat with a teammate or longer-term help when it’s needed most. Our aim? To create an environment where people can truly rest easy, knowing their wellbeing always comes first.
+      .wellbeing
+        .wellbeing__background.wave-top.wave-bottom
+        .wellbeing__card
+            img(src="images/wellbeing/slide.png", alt="slide-1")
+            .wellbeing__card-body
+              h3 The four pillars of wellbeing
+              h4 Our approach covers every part of life, because true rest and balance don’t come from one thing alone:
+              ul 
+                li <b>Financial</b> – helping you feel secure about money.
+                li <b>Physical</b> – encouraging healthier lifestyles that give you more energy. 
+                li <b>Emotional</b> – providing support when things feel tough. 
+                li <b>Societal</b> – building stronger connections in our communities.
+              p Even our benefits are built around these pillars, so you can feel confident there’s support in place whenever you need it – helping you rest easy and helping us all deliver on our bigger purpose.
+        .wellbeing__card
+            img(src="images/wellbeing/slide.png", alt="slide-2")
+            .wellbeing__card-body
+              h3 Mental Health Champions
+              h4 We’ve trained a network of Mental Health Champions who are always ready to listen and lend support.
+              p Sometimes just having someone hear you out can lift a weight – and our managers are equipped with the tools and confidence to have open, honest conversations around mental health whenever they’re needed.
+        .wellbeing__card
+            img(src="images/wellbeing/slide.png", alt="slide-3")
+            .wellbeing__card-body
+              h3 Wellbeing, every day
+              h4 Wellbeing isn’t an annual initiative – it’s woven into our culture.
+              p From webinars to in-person events and activities, we make sure support is easy to find and part of everyday life, not just something that happens once in a while.
+  section.section
+    +next  
