@@ -1,0 +1,97 @@
+dialog {
+  display: none;
+}
+
+dialog[open] {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: 100%;
+  max-height: 100%;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0;
+  z-index: 1000;
+  background-color: var(--color-primary);
+
+  @include tablet {
+    width: 90vw;
+    max-width: 1200px;
+    height: fit-content;
+  }
+}
+
+.modal-close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  z-index: 1001;
+}
+
+.modal-video-container {
+  width: 100%;
+  height: 100%;
+  padding-bottom: 56.25%;
+  position: relative;
+
+  @include tablet {
+    height: 0;
+  }
+}
+
+.modal-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.modal-video-container .loader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.modal-video-container.loading .loader {
+  display: block;
+}
+
+.modal-video-container.loading iframe {
+  opacity: 0;
+}
+
+.modal-video-container iframe {
+  transition: opacity 0.3s ease;
+  opacity: 1;
+}
+
+.mobile-only {
+  display: block;
+
+  @media (min-width: 768px) {
+    display: none;
+  }
+}
+
+.desktop-only {
+  display: none;
+
+  @media (min-width: 768px) {
+    display: block;
+  }
+}

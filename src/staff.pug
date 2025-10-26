@@ -7,7 +7,7 @@ append vars
 
 block content
   section.hero.hero--staff.wave-bottom
-    img(src="images/learning.jpg" alt="staff")
+    img(src="images/learning.jpg" alt="staff." width="1920" height="1080")
     .hero__inner
       .hero__motto
         img.hero__images.hidden-desktop(src="images/staff-header.png" alt="wakeup your potential.")
@@ -39,10 +39,10 @@ block content
         p Your development journey is yours to shape and we’ll be right there with you – whether you’re taking small steps or making giant leaps.
 
   section.inclusion
-    .animation-start-top.inclusion__images
-      img(src="images/inclusion-top1.png" alt="delivery").image--1
-      img(src="images/inclusion-top2.png" alt="builder").image--2
-      img(src="images/inclusion-top3.png" alt="conversation").image--3
+    .animation-start-top.inclusion__images(data-scrollspy="animation-start-top")
+      img(src="images/inclusion-top1.png" alt="delivery.").image--1
+      img(src="images/inclusion-top2.png" alt="builder.").image--2
+      img(src="images/inclusion-top3.png" alt="conversation.").image--3
 
     .container
       .card.card--primary
@@ -67,24 +67,9 @@ block content
             p.item__desc Challenging stereotypes, promoting equity, and supporting inclusion throughout the business.
         p What makes this network special is that it’s real. We’re not here to tick boxes. We’re here to create a workplace where people feel safe to be themselves. Because when people belong, they thrive – and when they thrive, so does the whole team.
         p You don’t need to be an expert to get involved – just curious, open-minded and ready to be part of something that makes Dreams stronger.
-    .animation-start-bottom.inclusion__images
-      img(src="images/inclusion-bottom1.png" alt="conversation").image--4
-      img(src="images/inclusion-bottom2.png" alt="employee").image--5
-      img(src="images/inclusion-bottom3.png" alt="conversation").image--6
+    .animation-start-bottom.inclusion__images(data-scrollspy="animation-start-bottom")
+      img(src="images/inclusion-bottom1.png" alt="conversation.").image--4
+      img(src="images/inclusion-bottom2.png" alt="employee.").image--5
+      img(src="images/inclusion-bottom3.png" alt="conversation.").image--6
 
-block scripts
-  script.
-    document.addEventListener("scroll", () => {
-      const topSection = document.querySelector(".animation-start-top");
-      const bottomSection = document.querySelector(".animation-start-bottom");
-
-      [topSection, bottomSection].forEach(section => {
-        if (!section) return;
-        const rect = section.getBoundingClientRect();
-
-        if (rect.top < window.innerHeight * 0.8) {
-          section.classList.add("animate");
-        }
-      });
-    });
 

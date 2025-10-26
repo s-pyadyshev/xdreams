@@ -7,7 +7,7 @@ append vars
 
 block content
   section.hero.hero--jobs.wave-bottom
-    img(src="images/jobs.jpg" alt="jobs")
+    img(src="images/jobs.jpg" alt="jobs." width="1920" height="1080")
     .hero__inner
       .hero__motto
         img.hero__images.hidden-desktop(src="images/our-jobs-header.svg" alt="our jobs.")
@@ -40,7 +40,11 @@ block content
             h3 Location 
             .job-form__inputs.job-form__inputs--col
               select.select(name="distance")
+                option(value="10") Within 10 miles
+                option(value="20") Within 20 miles
                 option(value="30") Within 30 miles
+                option(value="40") Within 40 miles
+                option(value="50") Within 50 miles
               input.input(type="text" placeholder="Location or postcode" name="location")
               button(type="submit").button.button--primary.text-uppercase Update
 
@@ -63,8 +67,8 @@ block content
                     li Farnborough
                     li £30,000pa OTE
           .job-item__buttons
-            button.button.button--primary Apply
-            button.button Read more
+            button.button.button--primary.text-uppercase Apply
+            button.button.text-uppercase Read more
 
         .job-item
           .job-item__info
@@ -84,8 +88,8 @@ block content
                     li Farnborough
                     li £30,000pa OTE
           .job-item__buttons
-            button.button.button--primary Apply
-            button.button Read more
+            button.button.button--primary.text-uppercase Apply
+            button.button.text-uppercase Read more
     .container
       .jobs__pagination
         nav.pagination

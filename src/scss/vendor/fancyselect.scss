@@ -1,5 +1,5 @@
 :root {
-  --fsb-border: 1px solid var(--color-primary);
+  --fsb-border: 1px solid transparent;
   --fsb-radius: 10px;
   --fsb-color: inherit;
   --fsb-background: #fff;
@@ -56,8 +56,7 @@ select[disabled]+.fsb-select {
 .fsb-original-select {
   width: 100%;
   min-width: 0;
-  border: 1px solid var(--color-primary);
-  border: var(--fsb-border);
+  border: 0;
   border-radius: 10px;
   border-radius: var(--fsb-radius);
   box-sizing: border-box;
@@ -68,7 +67,7 @@ select[disabled]+.fsb-select {
   font-size: 1em;
   font-size: var(--fsb-font-size);
   box-shadow: none;
-  box-shadow: var(--fsb-shadow);
+  // box-shadow: var(--fsb-shadow);
 }
 
 .fsb-select svg {
@@ -94,12 +93,12 @@ select[disabled]+.fsb-select {
   width: 100% !important;
   height: 100% !important;
   margin: 0 !important;
-  padding: 14px 40px 14px 20px !important;
+  padding: 8px 40px 5px 20px !important;
   border: 0 !important;
   border-radius: inherit !important;
   color: inherit !important;
   background-color: inherit !important;
-  font-size: 16px !important;
+  font-size: 18px !important;
   font-family: inherit !important;
   font-weight: 300;
   line-height: 1.7;
@@ -109,7 +108,7 @@ select[disabled]+.fsb-select {
   overflow: hidden;
 
   @media (min-width: 768px) {
-    padding: 14px 60px 14px 30px !important;
+    padding: 14px 60px 14px 20px !important;
   }
 }
 
@@ -117,6 +116,7 @@ select[disabled]+.fsb-select {
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
+  color: var(--color-primary);
 }
 
 .fsb-button>span,
@@ -135,24 +135,24 @@ select[disabled]+.fsb-select .fsb-button[aria-expanded="true"]:after {
   display: block;
   position: absolute;
   width: 15px;
-  height: 13px;
-  right: 20px;
-  top: 50%;
-  transform: translateY(-45%) rotate(180deg);
-  border-style: solid;
-  border-width: 0 7.5px 13px 7.5px;
-  border-color: transparent transparent #000 transparent;
+  height: 15px;
+  right: 17px;
+  top: calc(50% - 3px);
+  transform: translateY(-50%) rotate(0);
   box-sizing: border-box;
   transition: transform .3s ease-in-out;
   pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15.581' height='15.581' viewBox='0 0 15.581 15.581'%3E%3Cpath fill='none' stroke='%23251163' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m1.413 7.789 6.377 6.377 6.377-6.376' data-name='Path 254'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
 
   @media (min-width: 768px) {
-    right: 30px;
+    right: 20px;
   }
 }
 
 .fsb-button[aria-expanded="true"]:after {
-  transform: translateY(-45%) rotate(0);
+  transform: translateY(calc(-50% + 3px)) rotate(180deg);
 }
 
 .fsb-list,
@@ -199,7 +199,7 @@ select[disabled]+.fsb-select .fsb-list {
 .fsb-option {
   display: flex;
   align-items: center;
-  padding: 14px 20px;
+  padding: 8px 20px 5px;
   font-weight: 300;
   font-size: 16px;
   white-space: nowrap;
@@ -207,11 +207,12 @@ select[disabled]+.fsb-select .fsb-list {
   overflow: hidden;
 
   @media (min-width: 768px) {
-    padding: 14px 30px;
+    padding: 14px 20px;
   }
 }
 
-.fsb-option:not([aria-disabled="true"]):focus {
+.fsb-option:not([aria-disabled="true"]):focus,
+.fsb-option:hover {
   outline: none;
   color: var(--fsb-hover-color);
   background-color: var(--fsb-hover-background);

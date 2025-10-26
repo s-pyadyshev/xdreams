@@ -11,13 +11,12 @@
     margin-inline: auto;
     padding: 10px 20px;
     border-radius: 80px;
-    flex-wrap: nowrap;
     column-gap: 20px;
     background: var(--color-muted);
   }
 }
 
-.tabs > button {
+.tabs>button {
   padding: 14px 20px;
   border-radius: 28px;
   background: var(--color-muted);
@@ -33,7 +32,7 @@
   }
 }
 
-.tabs > button.is-active {
+.tabs>button.is-active {
   color: white;
   background: var(--color-primary);
 }

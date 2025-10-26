@@ -9,7 +9,7 @@
 
 .slider-values__progress {
   width: 100%;
-  margin-bottom: 24px;
+  margin-bottom: 32px;
 
   @include tablet {
     display: none;
@@ -49,9 +49,11 @@
 
 .slider-values__pagination .swiper-pagination-bullet {
   margin: 0 !important;
-  height: 10px;
-  width: 10px;
+  height: 12px;
+  width: 12px;
   padding: 0;
+  position: relative;
+  z-index: 1;
 }
 
 .slider-values__pagination .swiper-pagination-bullet-active {

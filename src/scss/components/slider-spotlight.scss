@@ -3,6 +3,8 @@
 }
 
 .slider-spotlight__thumbs .swiper-slide {
+  display: flex;
+  flex-direction: column;
   border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s ease;
@@ -26,7 +28,7 @@
 
 .slider-spotlight__thumbs .swiper-slide h4 {
   font-family: var(--font-primary);
-  margin-bottom: 10px;
+  margin-bottom: 0;
   color: #d3cfe0;
   font-size: 12px;
   font-weight: 900;
@@ -37,6 +39,7 @@
     text-align: left;
     font-size: 18px;
     line-height: 20px;
+    margin-bottom: 10px;
   }
 
   @include desktop-l {
@@ -61,10 +64,16 @@
   font-size: 14px;
 }
 
+.slider-spotlight__thumb-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
 .slider-spotlight__progress {
   height: 6px;
   border-radius: 2px;
-  margin-top: 12px;
+  margin-top: 10px;
   overflow: hidden;
   background-color: #e0e0e0;
 }

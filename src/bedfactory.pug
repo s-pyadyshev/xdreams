@@ -7,9 +7,60 @@ append vars
 
 block content
   section.hero.hero--bedfactory.wave-bottom
-    img(src="images/bedfactory.jpg" alt="bed factory")
+    img(src="images/bedfactory.jpg" alt="bed factory." width="1920" height="1080")
     .hero__inner
       .hero__motto
         img.hero__images.hidden-desktop(src="images/bedfactory-header.png" alt="beds don't make themselves.")
         img.hero__images.visible-desktop(src="images/bedfactory-header.svg" alt="beds don't make themselves.")
       p From fabric cutting to mattress building, the Bed Factory is where raw materials transform into the stuff sweet dreams are made of.
+
+  section.section.intro
+    .container.intro__inner
+      .intro__text 
+        h2 As a proudly British business
+        h3 We’re big on making things close to home. In our West Midlands Bed Factory, over 200 talented colleagues produce more than 7,000 mattresses, divans and headboards every single week – proof that a good night’s sleep really is handmade.
+        p We’re big on making things close to home. In our West Midlands Bed Factory, over 200 talented colleagues produce more than 7,000 mattresses, divans and headboards every single week – proof that a good night’s sleep really is handmade.
+        p Our Bed Factory team includes:
+        ul 
+          li <b>General Production Operatives</b> across sewing, mattress building and divan assembly
+          li <b>Production Supervisors</b> keeping quality top-notch
+          li <b>LGV and FLT Drivers</b> moving materials and products where they need to be
+          li <b>Administrators, planners and procurement specialists</b> making sure everything runs like clockwork
+      img(src="images/retail-bed.png" alt="bed." width="418" height="306").intro__image
+
+  section.section.section-features
+    .container
+      .section-header
+        h2 Real people. Real jobs. Really into beds.
+      +slider-features
+
+  section.section
+    .container
+      .section-header
+        h2 We can’t promise <br> breakfast in bed
+        h3 But, we can promise these:
+    .container
+      +slider-spotlight-bedquarters
+
+  section.section.map
+    .map__image.wave-top.wave-bottom
+      img(src="images/map-bedquarters.jpg" alt="map.")
+    .map__inner
+      .map__card
+        .card.card--primary
+          h3 Where every bed begins
+          h4 At Dreams, our Bed Factory is much more than a manufacturing site—it’s where craftsmanship, innovation, and care come together to create the beds our customers love. From the first stitch to the final frame, every product starts its journey here before reaching homes across the UK.
+          p Our Bed Factory is a centre of skill and dedication, with a wide range of specialist roles. From Production Operatives who handcraft mattresses with precision and attention to detail, to Engineers and Technicians who keep our machinery running smoothly, through to Team Leaders and Managers who oversee quality and efficiency. Every role plays a vital part in shaping the comfort, quality, and durability that Dreams is known for.
+
+  section.section
+    .container 
+      include ./pug/components/quiz.pug
+
+  section.section
+    .container
+      .section-header
+        h2 Find your perfect job
+    +slider-jobs(jobs)
+    
+  section.section
+    +next

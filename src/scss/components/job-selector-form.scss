@@ -27,10 +27,14 @@
 .job-form form {
   display: flex;
   flex-direction: column;
-  gap: 30px;
+  gap: 34px;
   background-color: #EDEDED;
   border-radius: 10px;
   padding: 30px 20px 30px 20px;
+
+  @include desktop {
+    padding: 40px 40px 60px 40px;
+  }
 }
 
 .job-form h3 {

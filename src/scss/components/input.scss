@@ -17,16 +17,16 @@
 
   &:focus,
   &:focus-visible {
-    border-color: var(--color-secondary);
+    border-color: var(--color-primary);
     outline: none;
   }
 
   &:hover {
-    border-color: var(--color-secondary);
+    border-color: var(--color-primary);
   }
 
   &:active {
-    border-color: var(--color-secondary);
+    border-color: var(--color-primary);
   }
 
   &[disabled] {

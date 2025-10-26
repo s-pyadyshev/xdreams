@@ -197,3 +197,13 @@
   font-style: normal;
   margin-bottom: 0;
 }
+
+.card ul {
+  font-size: 12px;
+  padding-left: 16px;
+
+  @include desktop {
+    font-size: 14px;
+    line-height: 23px;
+  }
+}

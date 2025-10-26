@@ -152,7 +152,8 @@
 }
 
 .footer__links {
-  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .footer__links li {
@@ -162,7 +163,7 @@
 
 .footer__links li:not(:last-child)::after {
   content: "|";
-  margin: 0 1px;
+  margin: 0 5px;
   color: rgb(255, 255, 255);
 }
 

@@ -6,23 +6,26 @@ prepend vars
 append vars
 
 block content
-  section.hero.wave-bottom
-    .hero__video
-      <iframe src="https://player.vimeo.com/video/846650495?background=1&autoplay=1&loop=1&byline=0&title=0" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  section.section.hero.hero--video.wave-bottom
+    img(src="images/about.jpg" alt="about us." width="1920" height="1080")
     .hero__inner
       .hero__motto
-        h1 Here at Dreams we’re
-          img(src="images/about-header.svg" alt="Happens every day.")
-          img(src="images/about-header-desktop.svg" alt="Happens every day.")
-        p In store is where customers meet our Bed Experts and leave one step closer to their perfect night’s sleep.
-  section.page-header
+        h2 Here at Dreams we’re
+          img.hero__images.hidden-desktop(src="images/about-header.png" alt="Happens every day.")
+          img.hero__images.visible-desktop(src="images/about-header-desktop.svg" alt="Happens every day.")
+        button#openVideoBtn.button.button--primary.text-uppercase(data-vimeo-id="846650495") Watch about us video
+    dialog#videoModal
+      .modal-video-container
+        .loader
+      button#closeModalBtn.modal-close &times;
+  section.section.page-header
     .container(data-scrollspy="animate__fadeInUp")
       h2 We’ve been helping the nation
       h3 find a bed to love for almost 40 years.
       h4 We’ve been helping the nation find a bed to love for almost 40 years. And in that time, we’ve become the UK’s most loved (and most recommended) bed retailer. Which is a fancy way of saying: people trust us to help them sleep better — and that’s something we’re proud of.
       p Behind the scenes, we’ve got Bedquarters in High Wycombe, our very own Bed Factory in Oldbury, more than 220 stores and 12 delivery centres dotted around the country. Together, our 2,500+ colleagues make sure over 14,000 mattresses, bases and headboards find happy homes every week. (Yes, we counted. And yes, it’s a lot.)
 
-  section.about
+  section.section.about
     .container
       img.about__img(src="images/about1.png" alt="Mattress." data-scrollspy="animate__fadeInUp")
       .about__text(data-scrollspy="animate__fadeInUp")
@@ -40,16 +43,14 @@ block content
         h4 We’re proudly backed by Somnigroup (formerly Tempur Sealy)
         p The world’s largest bedding provider and a global leader in design and manufacturing. We’re part of a global family obsessed with helping people sleep better.
 
-  section.partners
+  section.section.partners
     .container
       .partners__img
         img(src="images/partner.jpg" alt="sleep official partner." data-scrollspy="animate__fadeInUp" data-delayTime="250")
-
       .partners__info(data-scrollspy="animate__fadeInUp")
-        h3 partners that matter
+        h3 Partnerships that matter
         h4 We’re the Official Sleep Partner for Team GB and ParalympicsGB (because you can’t smash world records without a good night’s kip).
         p And we partner with Shelter, raising vital funds and awareness to tackle the housing emergency — because we believe dreams really do start at home.
-
       .partners__bottom(data-scrollspy="animate__fadeInUp" data-delayTime="500")
         img(src="images/shelter.png" alt="Shelter.")
         img(src="images/shelter.svg" alt="Shelter.")

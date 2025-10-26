@@ -7,7 +7,7 @@ append vars
 
 block content
   section.section.hero.hero--bedquarters.wave-bottom
-    img(src="images/bedquarters.jpg" alt="bedquarters")
+    img(src="images/bedquarters.jpg" alt="bedquarters." width="1920" height="1080")
     .hero__inner
       h1 Where big
       .hero__motto
@@ -27,35 +27,45 @@ block content
           li <b>The Fixers</b> – IT, Customer Services, Risk. (No drama too big, no laptop too slow.)
           li <b>The Planners</b> – Supply Chain, Property, People. (The unsung heroes making it all work.)
       img(src="images/retail-bed.png" alt="bed." width="418" height="306").intro__image
-  section.section
+
+  section.section.section-features
     .container
       .section-header
         h2 Real people. Real jobs. Really into beds.
       +slider-features
+
   section.section
     .container
       .section-header
         h2 We can’t promise <br> breakfast in bed
         h3 But, we can promise these:
     .container
-      +slider-spotlight
+      +slider-spotlight-bedquarters
+
   section.section.map
     .map__image.wave-top.wave-bottom
       img(src="images/map-bedquarters.jpg" alt="map.")
     .map__inner
       .map__card
         .card.card--primary
-          h3 The beating heart of our business.
-          h4 It’s where big ideas take shape, where innovation meets collaboration, and where every department works together to make the nation’s dreams come true.
-          p From our digital, marketing, and merchandising teams who bring our products and brand to life, to our supply chain, finance, and people teams who keep everything running smoothly, Bedquarters is home to a diverse mix of talent.
-          p It’s a place full of energy, creativity, and teamwork, where every colleague plays a part in delivering exceptional experiences for our customers—whether they’re shopping in-store, online, or waiting for a delivery at their front door.
+          h3 Over 200 stores nationwide
+          h4 At Dreams, our retail stores are much more than showrooms—they’re where we turn the art of restful sleep into a joyful, friendly experience. Our network of stores truly stretches from Aberdeen to Truro.
+          p Our regional stores are dynamic hubs that welcome a diverse range of roles, From Retail Sales Assistants who guide customers to their dream bed using our unique Sleepmatch technology, creating a memorable and personalised experience. To our Retail Store Managers who lead their in store team, deliver exceptional customer experiences.
+          form(action="" method="post")
+            .control
+              input.input.input--round(type="search" name="store" placeholder="Find your local store")
+              button(type="submit").input__icon
+                +svg('search')
+
   section.section
     .container 
       include ./pug/components/quiz.pug
+
   section.section
     .container
       .section-header
         h2 Find your perfect job
     +slider-jobs(jobs)
+
   section.section
     +next

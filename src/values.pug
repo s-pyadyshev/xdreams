@@ -7,7 +7,7 @@ append vars
 
 block content 
   section.hero.wave-bottom
-    img(src="images/values/hero-background.png" alt="retail.")
+    img(src="images/values/hero-background.png" alt="retail." width="1920" height="1080")
     .hero__inner
       .hero__motto 
         h1 The rules
@@ -18,8 +18,8 @@ block content
   section
     .container
       .container__title
-        img(src="images/values/value-svg/our.svg" alt="our values stronger together.")
-        img(src="images/values/value-svg/title-desktop.svg" alt="our values stronger together.")
+        img(src="images/values-slider-header.png" alt="our values stronger together." width="218" height="187")
+        img(src="images/values-header-desktop.svg" alt="our values stronger together." width="1360" height="117")
       .swiper.slider-values
           .swiper-wrapper
             .swiper-slide
@@ -96,11 +96,11 @@ block content
                 +svg('chevron-circle-left')
               button.swiper-button-next.slider-values__nav-btn.slider-values__nav-btn--next
                 +svg('chevron-circle-right')
-  section.section
+  section.section.section-features
     .container
       .section-header
         h2 Behind every bed is a story.
         h3 Here are a few of ours.
       +slider-features
-  section.section
+  section.section.section-next
     +next

@@ -7,10 +7,66 @@ append vars
 
 block content
   section.hero.hero--distribution.wave-bottom
-    img(src="images/distribution.jpg" alt="distribution")
+    img(src="images/distribution.jpg" alt="distribution." width="1920" height="1080")
     .hero__inner
       .hero__motto
         h1 Where sweet dreams
         img.hero__images.hidden-desktop(src="images/distribution-header.png" alt="hit the road.")
         img.hero__images.visible-desktop(src="images/distribution-header.svg" alt="hit the road.")
       p From warehouse floors to front doors, Distribution is where teamwork, graft and a lot of heavy lifting keep the nation sleeping soundly.
+
+  section.section.intro
+    .container.intro__inner
+      .intro__text 
+        h2 We’re incredibly proud
+        h3 Our state-of-the-art 260,000 square foot Central Service Centre in Willenhall, West Midlands – is the beating heart of a network that stretches across six central hubs and 12 Delivery Service Centres nationwide.
+        p Together, this team makes sure around 490,000 orders reach our customers every year. That’s a lot of mattresses, a lot of stairs and a lot of Zzzs delivered.
+        p Our Distribution family is made up of:
+        ul
+          li <b>Warehouse Managers, Supervisors and Operatives</b> keeping everything moving
+          li <b>Administrators</b> who know where every order needs to be 
+          li <b>Drivers and Delivery Assistants</b> who get the job done with skill (and a smile)
+      img(src="images/retail-bed.png" alt="bed." width="418" height="306").intro__image
+
+  section.section.section-features
+    .container
+      .section-header
+        h2 Behind every bed is a story.
+        h3 Here are a few of ours.
+      +slider-features
+
+  section.section
+    .container
+      .section-header
+        h2 We can’t promise <br> breakfast in bed
+        h3 But, we can promise these:
+    .container
+      +slider-spotlight-bedquarters
+
+  section.section.map
+    .map__image.wave-top.wave-bottom
+      img(src="images/map-bedquarters.jpg" alt="map.")
+    .map__inner
+      .map__card
+        .card.card--primary
+          h3 Distribution that reaches nationwide
+          h4 At Dreams, our distribution centres are much more than warehouses—they’re the beating heart of how we deliver restful sleep to customers across the UK. From the moment a bed leaves our facility, it’s on its way to becoming part of someone’s dream home.
+          p Our warehouses are fast-moving, collaborative environments that support a wide range of roles. From Warehouse Operatives who carefully pick, pack, and prepare customer orders, ensuring everything arrives in perfect condition, to Team Leaders and Managers who coordinate operations and keep everything running smoothly. Together, our warehouse teams make sure that every product is handled with care and efficiency, so customers can enjoy the comfort they deserve.
+          form(action="" method="post")
+            .control
+              input.input.input--round(type="search" name="store" placeholder="Find your local store")
+              button(type="submit").input__icon
+                +svg('search')
+
+  section.section
+    .container 
+      include ./pug/components/quiz.pug
+
+  section.section
+    .container
+      .section-header
+        h2 Find your perfect job
+    +slider-jobs(jobs)
+    
+  section.section
+    +next

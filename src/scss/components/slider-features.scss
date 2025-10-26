@@ -94,17 +94,17 @@
   border: 0;
   padding: 0;
   flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+
+  @include desktop {
+    width: 60px;
+    height: 60px;
+  }
 }
 
 .slider-features__nav-btn svg {
-  width: 34px;
-  height: 34px;
   stroke: var(--color-primary);
-
-  @include desktop {
-    width: 40px;
-    height: 40px;
-  }
 }
 
 .slider-feature-slide {
