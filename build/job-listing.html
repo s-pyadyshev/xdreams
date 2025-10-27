@@ -1,508 +1,652 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta color-scheme="dark light">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width">
-		<meta property="og:type" content="website">
-		<meta property="og:locale" content="en_GB">
-		<meta property="og:title" content="Job Listing">
-		<meta name="twitter:card" content="summary_large_image">
-		<meta name="twitter:title" content="Job Listing">
-		<title>Job Listing</title><link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-<link rel="shortcut icon" href="/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="KEIM" />
-<link rel="manifest" href="/site.webmanifest" />
-		<link rel="stylesheet" href="./css/main.css?v=1761509488987">
-	</head>
-	<body>
-		<div class="page-wrapper">
-			<header class="header">
-				<div class="header__inner"><a class="header__logo" href="/"><img src="images/logo.svg" alt="logo Dreams." width="187" height="67"></a>
-					<div class="header__menu">
-						<nav class="menu">
-							<ul class="menu__list">
-								<li class="menu__item">
-									<button class="menu__link" data-collapse-target="menu1" data-collapse-group="menu">Our teams</button>
-									<ul class="menu__content"> 
-										<li data-collapse-content="menu1">
-											<div class="swiper slider-menu slider-menu1">
-												<div class="swiper-wrapper">
-													<div class="swiper-slide"><a class="menu__content-link" href="/"><img src="images/retail.jpg" alt="Retail."/>
-															<h3>Retail</h3></a></div>
-													<div class="swiper-slide"><a class="menu__content-link" href="/"><img src="images/retail.jpg" alt="Bedquarters."/>
-															<h3>Bedquarters</h3></a></div>
-													<div class="swiper-slide"><a class="menu__content-link" href="/"><img src="images/retail.jpg" alt="Distribution."/>
-															<h3>Distribution</h3></a></div>
-													<div class="swiper-slide"><a class="menu__content-link" href="/"><img src="images/retail.jpg" alt="Bed Factory."/>
-															<h3>Bed Factory</h3></a></div>
-												</div>
-												<div class="swiper-pagination"></div>
-												<div class="swiper-navigation">
-													<button class="swiper-button-prev">
-														<svg>
-															<use xlink:href="./images/sprites.svg#chevron-left"></use>
-														</svg>
-													</button>
-													<button class="swiper-button-next">
-														<svg>
-															<use xlink:href="./images/sprites.svg#chevron-right"></use>
-														</svg>
-													</button>
-												</div>
-											</div>
-										</li>
-									</ul>
-								</li>
-								<li class="menu__item">
-									<button class="menu__link" data-collapse-target="menu2" data-collapse-group="menu">About us</button>
-									<ul class="menu__content">
-										<li data-collapse-content="menu2">
-											<div class="swiper slider-menu slider-menu2">
-												<div class="swiper-wrapper">
-													<div class="swiper-slide"><a class="menu__content-link" href="/"><img src="images/retail.jpg" alt="Retail."/>
-															<h3>About us & History</h3></a></div>
-													<div class="swiper-slide"><a class="menu__content-link" href="/"><img src="images/retail.jpg" alt="Bedquarters."/>
-															<h3>Values</h3></a></div>
-													<div class="swiper-slide"><a class="menu__content-link" href="/"><img src="images/retail.jpg" alt="Distribution."/>
-															<h3>L&D Staff Networks</h3></a></div>
-													<div class="swiper-slide"><a class="menu__content-link" href="/"><img src="images/retail.jpg" alt="Distribution."/>
-															<h3>Benefits & Wellbeing</h3></a></div>
-												</div>
-												<div class="swiper-pagination"></div>
-												<div class="swiper-navigation">
-													<button class="swiper-button-prev">
-														<svg>
-															<use xlink:href="./images/sprites.svg#chevron-left"></use>
-														</svg>
-													</button>
-													<button class="swiper-button-next">
-														<svg>
-															<use xlink:href="./images/sprites.svg#chevron-right"></use>
-														</svg>
-													</button>
-												</div>
-											</div>
-										</li>
-									</ul>
-								</li>
-								<li class="menu__item">
-									<button class="menu__link" data-collapse-target="menu3" data-collapse-group="menu">How to apply</button>
-									<ul class="menu__content"> 
-										<li data-collapse-content="menu3">
-											<div class="swiper slider-menu slider-menu3">
-												<div class="swiper-wrapper">
-													<div class="swiper-slide"><a class="menu__content-link" href="/"><img src="images/retail.jpg" alt="Retail."/>
-															<h3>Application Process</h3></a></div>
-													<div class="swiper-slide"><a class="menu__content-link" href="/"><img src="images/retail.jpg" alt="Bedquarters."/>
-															<h3>FAQs</h3></a></div>
-												</div>
-												<div class="swiper-pagination"></div>
-												<div class="swiper-navigation">
-													<button class="swiper-button-prev">
-														<svg>
-															<use xlink:href="./images/sprites.svg#chevron-left"></use>
-														</svg>
-													</button>
-													<button class="swiper-button-next">
-														<svg>
-															<use xlink:href="./images/sprites.svg#chevron-right"></use>
-														</svg>
-													</button>
-												</div>
-											</div>
-										</li>
-									</ul>
-								</li>
-							</ul>
-						</nav>
-					</div>
-					<div class="header__links"> <a class="header__link" href="/">View jobs</a><a class="header__link" href="">
-							<svg>
-								<use xlink:href="./images/sprites.svg#search"></use>
-							</svg></a></div><a class="header__login" href="/">Login</a>
-					<div class="header__menu-toggle">
-						<button class="menu-toggle js-toggle-menu" type="button">
-							<div class="menu-icon">
-								<div class="menu-icon__line"></div>
-								<div class="menu-icon__line"></div>
-								<div class="menu-icon__line"></div>
-							</div>
-						</button>
-					</div>
-				</div>
-			</header>
-			<main class="main">
-				<section class="hero hero--jobs__listing wave-bottom"><img src="images/jobs__listing.jpg" alt="Jobs listing." width="1920" height="1080">
-					<div class="hero__inner">
-						<div class="hero__motto">
-							<h1>Retail Sales Assistant</h1>
-						</div>
-						<div class="hero__tags">
-							<div class="button button--gray">Retail</div>
-							<div class="button button--gray">Permanent</div>
-							<div class="button button--gray">Full-time</div>
-							<div class="button button--gray">Farnborough</div>
-							<div class="button button--gray">£30,000pa OTE</div>
-						</div>
-					</div>
-				</section>
-				<section class="section">
-					<div class="container container-sm">
-						<article class="card">
-							<h4>Overview</h4>
-							<h5>Lorem ipsum dolor sit amet consectetur adipiscing elit. Leo eu aenean sed diam urna tempor pulvinar. Semper vel class aptent taciti sociosqu ad litora. Mus donec rhoncus eros lobortis nulla molestie mattis. Blandit quis suspendisse aliquet nisi sodales consequat magna. Ac tincidunt nam porta elementum a enim euismod.</h5>
-							<p>Cras eleifend turpis fames primis vulputate ornare sagittis. Netus suscipit auctor curabitur facilisi cubilia curae hac. Sem placerat in id cursus mi pretium tellus. Egestas iaculis massa nisl malesuada lacinia integer nunc. Orci varius natoque penatibus et magnis dis parturient.</p>
-							<p>Non purus est efficitur laoreet mauris pharetra vestibulum. Finibus facilisis dapibus etiam interdum tortor ligula congue. Dignissim velit aliquam imperdiet mollis nullam volutpat porttitor. Proin libero feugiat tristique accumsan maecenas potenti ultricies.</p>
-							<p>Sit amet consectetur adipiscing elit quisque faucibus ex. Sed diam urna tempor pulvinar vivamus fringilla lacus. Aptent taciti sociosqu ad litora torquent per conubia.</p>
-							<h4>What’ll be doing</h4>
-							<h5>Lorem ipsum dolor sit amet consectetur adipiscing elit. Leo eu aenean sed diam urna tempor pulvinar. Semper vel class aptent taciti sociosqu ad litora. Mus donec rhoncus eros lobortis nulla molestie mattis. Blandit quis suspendisse aliquet nisi sodales consequat magna. Ac tincidunt nam porta elementum a enim euismod.</h5>
-							<p>Cras eleifend turpis fames primis vulputate ornare sagittis. Netus suscipit auctor curabitur facilisi cubilia curae hac:</p>
-							<ul> 
-								<li>Sem placerat in id cursus mi pretium tellus. </li>
-								<li>Egestas iaculis massa nisl malesuada lacinia integer nunc. </li>
-								<li>Orci varius natoque penatibus et magnis dis parturient.</li>
-							</ul>
-							<p>Non purus est efficitur laoreet mauris pharetra vestibulum. Finibus facilisis dapibus etiam interdum tortor ligula congue. Dignissim velit aliquam imperdiet mollis nullam volutpat porttitor. Proin libero feugiat tristique accumsan maecenas potenti ultricies.</p>
-							<ul> 
-								<li>Sem placerat in id cursus mi pretium tellus. </li>
-								<li>Egestas iaculis massa nisl malesuada lacinia integer nunc. </li>
-								<li>Orci varius natoque penatibus et magnis dis parturient.</li>
-							</ul>
-							<h4>Who we’re looking for</h4>
-							<p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Leo eu aenean sed diam urna tempor pulvinar. Semper vel class aptent taciti sociosqu ad litora. Mus donec rhoncus eros lobortis nulla molestie mattis. Blandit quis suspendisse aliquet nisi sodales consequat magna. Ac tincidunt nam porta elementum a enim euismod.</p>
-							<p>Cras eleifend turpis fames primis vulputate ornare sagittis. Netus suscipit auctor curabitur facilisi cubilia curae hac. Sem placerat in id cursus mi pretium tellus. Egestas iaculis massa nisl malesuada lacinia integer nunc. Orci varius natoque penatibus et magnis dis parturient. </p>
-							<p>Non purus est efficitur laoreet mauris pharetra vestibulum. Finibus facilisis dapibus etiam interdum tortor ligula congue. Dignissim velit aliquam imperdiet mollis nullam volutpat porttitor. Proin libero feugiat tristique accumsan maecenas potenti ultricies.</p>
-							<p>Sit amet consectetur adipiscing elit quisque faucibus ex. Sed diam urna tempor pulvinar vivamus fringilla lacus. Aptent taciti sociosqu ad litora torquent per conubia.</p>
-						</article>
-					</div>
-				</section>
-				<section class="section">
-					<div class="container">
-						<div class="section-header">
-							<h2>We can’t promise <br> breakfast in bed</h2>
-							<h3>But, we can promise these:</h3>
-						</div>
-					</div>
-					<div class="container">
-						<div class="slider-spotlight">
-							<div class="swiper slider-spotlight__thumbs">
-								<div class="swiper-wrapper">
-									<div class="swiper-slide slider-spotlight__thumb-slide" data-duration="5">
-										<div class="slider-spotlight__thumb-content">
-											<h4>Wellbeing that works</h4>
-											<p>It’s not something we sweep under the bed – it’s central to how we look after each other. It’s not something we sweep under the bed – it’s central to how we look after each other.</p>
-										</div>
-										<div class="slider-spotlight__progress">
-											<div class="slider-spotlight__progress-fill"></div>
-										</div>
-									</div>
-									<div class="swiper-slide slider-spotlight__thumb-slide" data-duration="5">
-										<div class="slider-spotlight__thumb-content">
-											<h4>Perks you can pick</h4>
-											<p>Life looks different for everyone, so we give you options.</p>
-										</div>
-										<div class="slider-spotlight__progress">
-											<div class="slider-spotlight__progress-fill"></div>
-										</div>
-									</div>
-									<div class="swiper-slide slider-spotlight__thumb-slide" data-duration="5">
-										<div class="slider-spotlight__thumb-content">
-											<h4>Room to grow</h4>
-											<p>Your career should feel as supportive as one of our mattresses.</p>
-										</div>
-										<div class="slider-spotlight__progress">
-											<div class="slider-spotlight__progress-fill"></div>
-										</div>
-									</div>
-									<div class="swiper-slide slider-spotlight__thumb-slide" data-duration="5">
-										<div class="slider-spotlight__thumb-content">
-											<h4>Extra goodies</h4>
-											<p>Perks just for our Retail teams – from unique incentives to role-specific rewards.</p>
-										</div>
-										<div class="slider-spotlight__progress">
-											<div class="slider-spotlight__progress-fill"></div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="swiper slider-spotlight__main">
-								<div class="swiper-wrapper">
-									<div class="swiper-slide slider-spotlight__slide">
-										<div class="card card--image"><img src="images/work.png" alt="work." width="543" height="459"/>
-											<div class="card__body">
-												<h3>Perks you can pick</h3>
-												<h4>Life looks different for everyone, so we give you options.</h4>
-												<h5>Buy extra holiday when you need more time off, opt into private healthcare or make use of our savings and loans schemes.</h5>
-												<p>Are you a sun seeker who wants an extra week to drink pina coladas somewhere tropical, maybe you’d like a few extra days to spend time with your little ones or perhaps you’ve just got a bit of DIY or a home project you can’t seem to find the time to finish off… Well, good news, we have an amazing scheme where you can buy up to five extra days holiday per year. </p>
-												<p>Take advantage of fantastic discounts on everyday products and services offered to you just for being a Dreams colleague. From discounted gym memberships, days out, supermarket vouchers to cinema trips, there’s great discounts to benefit everyone. There are also loads of great resources to help support your health & wellbeing.</p>
-											</div>
-										</div>
-									</div>
-									<div class="swiper-slide slider-spotlight__slide">
-										<div class="card card--image"><img src="images/work.png" alt="work." width="543" height="459"/>
-											<div class="card__body">
-												<h3>Perks you can pick</h3>
-												<h4>Life looks different for everyone, so we give you options.</h4>
-												<h5>Buy extra holiday when you need more time off, opt into private healthcare or make use of our savings and loans schemes.</h5>
-												<p>Are you a sun seeker who wants an extra week to drink pina coladas somewhere tropical, maybe you’d like a few extra days to spend time with your little ones or perhaps you’ve just got a bit of DIY or a home project you can’t seem to find the time to finish off… Well, good news, we have an amazing scheme where you can buy up to five extra days holiday per year. </p>
-												<p>Take advantage of fantastic discounts on everyday products and services offered to you just for being a Dreams colleague. From discounted gym memberships, days out, supermarket vouchers to cinema trips, there’s great discounts to benefit everyone. There are also loads of great resources to help support your health & wellbeing.</p>
-											</div>
-										</div>
-									</div>
-									<div class="swiper-slide slider-spotlight__slide">
-										<div class="card card--image"><img src="images/work.png" alt="work." width="543" height="459"/>
-											<div class="card__body">
-												<h3>Perks you can pick</h3>
-												<h4>Life looks different for everyone, so we give you options.</h4>
-												<h5>Buy extra holiday when you need more time off, opt into private healthcare or make use of our savings and loans schemes.</h5>
-												<p>Are you a sun seeker who wants an extra week to drink pina coladas somewhere tropical, maybe you’d like a few extra days to spend time with your little ones or perhaps you’ve just got a bit of DIY or a home project you can’t seem to find the time to finish off… Well, good news, we have an amazing scheme where you can buy up to five extra days holiday per year. </p>
-												<p>Take advantage of fantastic discounts on everyday products and services offered to you just for being a Dreams colleague. From discounted gym memberships, days out, supermarket vouchers to cinema trips, there’s great discounts to benefit everyone. There are also loads of great resources to help support your health & wellbeing.</p>
-											</div>
-										</div>
-									</div>
-									<div class="swiper-slide slider-spotlight__slide">
-										<div class="card card--image"><img src="images/work.png" alt="work." width="543" height="459"/>
-											<div class="card__body">
-												<h3>Perks you can pick</h3>
-												<h4>Life looks different for everyone, so we give you options.</h4>
-												<h5>Buy extra holiday when you need more time off, opt into private healthcare or make use of our savings and loans schemes.</h5>
-												<p>Are you a sun seeker who wants an extra week to drink pina coladas somewhere tropical, maybe you’d like a few extra days to spend time with your little ones or perhaps you’ve just got a bit of DIY or a home project you can’t seem to find the time to finish off… Well, good news, we have an amazing scheme where you can buy up to five extra days holiday per year. </p>
-												<p>Take advantage of fantastic discounts on everyday products and services offered to you just for being a Dreams colleague. From discounted gym memberships, days out, supermarket vouchers to cinema trips, there’s great discounts to benefit everyone. There are also loads of great resources to help support your health & wellbeing.</p>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="section map">
-					<div class="map__image wave-top wave-bottom"><img src="images/retail-map.jpg" alt="map." width="1920" height="1240"></div>
-					<div class="map__inner">
-						<div class="map__card">
-							<div class="card card--primary">
-								<h3>Where you’ll be working</h3>
-								<h4>Here is where you’ll be based, whether that’s Bedquarters, or our Bed Factory or one of our stores.</h4>
-								<address><b>Dreams Farnborough,</b>
-									<p>Solartron Retail Park,</p>
-									<p>Solartron Rd,</p>
-									<p>Farnborough</p>
-									<p>GU14 7QJ</p>
-								</address>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="section section-features">
-					<div class="container">
-						<div class="section-header">
-							<h2>Don’t just take <br> our word for it</h2>
-							<h3>Meet your Dreams team.</h3>
-						</div>
-						<div class="slider-features">
-							<div class="slider-features__left">
-								<div class="swiper slider-features__thumbs">
-									<div class="swiper-wrapper">
-										<div class="swiper-slide">
-											<div class="slider-feature-slide">
-												<div class="slider-feature-slide__header">
-													<h3>“I’ve learned so much .”</h3>
-												</div>
-												<div class="slider-feature-slide__body">
-													<div class="slider-features__imageSmall"><img src="images/real-people-1.jpg" alt="alt." width="1007" height="864"/></div>
-													<p class="slider-feature-slide__description">“Everyone helps each other — whether it’s lifting heavy frames or sharing tips on how to guide customers through our SleepMatch process.  I’ve learned so much about product knowledge, customer care, and teamwork. <br/><br/>It feels like being part of something bigger.”</p>
-												</div>
-												<div class="slider-feature-slide__bottom"><span>Kacey Phelps</span><span>Store Team Leader</span></div>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="slider-feature-slide">
-												<div class="slider-feature-slide__header">
-													<h3>“Such a positive experience…”</h3>
-												</div>
-												<div class="slider-feature-slide__body">
-													<div class="slider-features__imageSmall"><img src="images/real-people-1.jpg" alt="alt." width="1007" height="864"/></div>
-													<p class="slider-feature-slide__description">“Working in store at Dreams has been such a positive experience. <br/><br/>I love helping someone choose the perfect mattress or bed — there’s something really rewarding about knowing you’ve helped someone sleep better. The team’s supportive, and there’s a real focus on learning and growing.”</p>
-												</div>
-												<div class="slider-feature-slide__bottom"><span>Sophie McDonald</span><span>Sleep Expert </span></div>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="slider-feature-slide">
-												<div class="slider-feature-slide__header">
-													<h3>“I’ve learned so much .”</h3>
-												</div>
-												<div class="slider-feature-slide__body">
-													<div class="slider-features__imageSmall"><img src="images/real-people-1.jpg" alt="alt." width="1007" height="864"/></div>
-													<p class="slider-feature-slide__description">“Everyone helps each other — whether it’s lifting heavy frames or sharing tips on how to guide customers through our SleepMatch process.  I’ve learned so much about product knowledge, customer care, and teamwork. <br/><br/>It feels like being part of something bigger.”</p>
-												</div>
-												<div class="slider-feature-slide__bottom"><span>Kacey Phelps</span><span>Store Team Leader</span></div>
-											</div>
-										</div>
-										<div class="swiper-slide">
-											<div class="slider-feature-slide">
-												<div class="slider-feature-slide__header">
-													<h3>“I’ve learned so much .”</h3>
-												</div>
-												<div class="slider-feature-slide__body">
-													<div class="slider-features__imageSmall"><img src="images/real-people-1.jpg" alt="alt." width="1007" height="864"/></div>
-													<p class="slider-feature-slide__description">“Everyone helps each other — whether it’s lifting heavy frames or sharing tips on how to guide customers through our SleepMatch process.  I’ve learned so much about product knowledge, customer care, and teamwork. <br/><br/>It feels like being part of something bigger.”</p>
-												</div>
-												<div class="slider-feature-slide__bottom"><span>Kacey Phelps</span><span>Store Team Leader</span></div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-							<div class="slider-features__right">
-								<div class="swiper slider-features__main">
-									<div class="swiper-wrapper">
-										<div class="swiper-slide">
-											<div class="slider-features__image"><img src="images/real-people-1.jpg" alt="alt." width="1007" height="864"/></div>
-										</div>
-										<div class="swiper-slide">
-											<div class="slider-features__image"><img src="images/real-people-1.jpg" alt="alt." width="1007" height="864"/></div>
-										</div>
-										<div class="swiper-slide">
-											<div class="slider-features__image"><img src="images/real-people-1.jpg" alt="alt." width="1007" height="864"/></div>
-										</div>
-										<div class="swiper-slide">
-											<div class="slider-features__image"><img src="images/real-people-1.jpg" alt="alt." width="1007" height="864"/></div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-						<div class="slider-features__controls">
-							<div class="slider-features__progress">
-								<div class="slider-features__progress-bar">
-									<div class="slider-features__progress-fill"></div>
-								</div>
-							</div>
-							<div class="slider-features__navigation">
-								<button class="swiper-button-prev slider-features__nav-btn slider-features__nav-btn--prev">
-									<svg>
-										<use xlink:href="./images/sprites.svg#chevron-circle-left"></use>
-									</svg>
-								</button>
-								<button class="swiper-button-next slider-features__nav-btn slider-features__nav-btn--next">
-									<svg>
-										<use xlink:href="./images/sprites.svg#chevron-circle-right"></use>
-									</svg>
-								</button>
-							</div>
-						</div>
-					</div>
-				</section>
-				<section class="section">
-					<div class="next">
-						<div class="next__inner">
-							<div class="next__body">
-								<h3>Where to next?</h3>
-								<h4>We’re hiring now</h4>
-								<p>Dream roles don’t wait — and neither should you.</p>
-								<div class="next__actions"><a class="button button--primary" href="/">FAQs</a><a class="button button--primary" href="/">About us</a><a class="button button--primary" href="/">How to apply</a></div>
-							</div><img class="next__image" src="images/mattress.png" alt="mattress" width="393px" height="333px"/>
-						</div>
-					</div>
-				</section>
-			</main>
-			<footer class="footer background-primary">
-				<div class="footer__inner">
-					<div class="footer__search"> 
-						<form action="" method="post">
-							<div class="control"> 
-								<input class="input input--round" type="search" name="search" placeholder="Search roles">
-								<button class="input__icon" type="submit">
-									<svg>
-										<use xlink:href="./images/sprites.svg#search"></use>
-									</svg>
-								</button>
-							</div>
-						</form>
-					</div>
-					<div class="footer__social"> 
-						<ul class="social-links">
-							<li> <a href="#">
-									<svg>
-										<use xlink:href="./images/sprites.svg#facebook"></use>
-									</svg></a></li>
-							<li> <a href="#">
-									<svg>
-										<use xlink:href="./images/sprites.svg#twitter"></use>
-									</svg></a></li>
-							<li> <a href="#">
-									<svg>
-										<use xlink:href="./images/sprites.svg#pinterest"></use>
-									</svg></a></li>
-							<li> <a href="#">
-									<svg>
-										<use xlink:href="./images/sprites.svg#instagram"></use>
-									</svg></a></li>
-							<li> <a href="#">
-									<svg>
-										<use xlink:href="./images/sprites.svg#youtube"></use>
-									</svg></a></li>
-							<li> <a href="#">
-									<svg>
-										<use xlink:href="./images/sprites.svg#linkedin"></use>
-									</svg></a></li>
-						</ul>
-					</div>
-					<div class="footer__middle"> <img class="footer__logo" src="images/logo.svg" alt="logo Dreams." width="187" height="67">
-						<ul class="footer__nav">
-							<li class="footer__col"><a class="footer__title" href="#"> 
-									<h4>Our teams</h4></a>
-								<ul class="footer__list"> 
-									<li><a href="#">Retail </a></li>
-									<li><a href="#">Distribution </a></li>
-									<li><a href="#">Bed Factory </a></li>
-									<li><a href="#">Bedquarters </a></li>
-								</ul>
-							</li>
-							<li class="footer__col"><a class="footer__title" href="#">
-									<h4>About us</h4></a>
-								<ul class="footer__list">
-									<li><a href="#">About us & History </a></li>
-									<li><a href="#">Values </a></li>
-									<li><a href="#">L&D & Staff Networks</a></li>
-									<li><a href="#">Benefits & Wellbeing</a></li>
-								</ul>
-							</li>
-							<li class="footer__col"><a class="footer__title" href="#">
-									<h4>How to apply</h4></a>
-								<ul class="footer__list"> 
-									<li><a href="#">Application process</a></li>
-									<li><a href="#">FAQs </a></li>
-								</ul>
-							</li>
-							<li class="footer__col"><a class="footer__title" href="#">
-									<h4>View jobs</h4></a>
-								<ul class="footer__list"> 
-									<li><a href="#">Login </a></li>
-								</ul>
-							</li>
-						</ul>
-					</div>
-					<div class="footer__bottom"> 
-						<ul class="footer__links">
-							<li> <a href="#">Terms and conditions</a></li>
-							<li> <a href="#">Cookies</a></li>
-							<li> <a href="#">Privacy and security</a></li>
-							<li> <a href="#">Modern slavery statement Gender pay gap </a></li>
-						</ul><span class="footer__text">Dreams Limited is registered in England and Wales | Company registration number: 08428347 | Registered Office: Knaves Beech, High Wycombe, Bucks. HP10 9YU.</span>
-					</div>
-				</div>
-			</footer>
-		</div><script src="https://cdn.jsdelivr.net/gh/mdbassit/FancySelect@latest/dist/fancyselect.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/ScrollToPlugin.min.js"></script>
-		<script src="./js/vendor.js?v=1761509488988"></script>
-		<script src="./js/main.js?v=1761509488988"></script>
-	</body>
+
+<head>
+    <meta charset="utf-8">
+    <meta color-scheme="dark light">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:title" content="Job Listing">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Job Listing">
+    <title>Job Listing</title>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="KEIM" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <link rel="stylesheet" href="./css/main.css?v=1761546052286">
+</head>
+
+<body>
+    <div class="page-wrapper">
+        <header class="header">
+            <div class="header__inner">
+                <a class="header__logo" href="/">
+                    <img src="images/logo.svg" alt="logo Dreams." width="187" height="67">
+                </a>
+                <div class="header__menu">
+                    <nav class="menu">
+                        <ul class="menu__list">
+                            <li class="menu__item">
+                                <button class="menu__link" data-collapse-target="menu1" data-collapse-group="menu">Our teams</button>
+                                <ul class="menu__content">
+                                    <li data-collapse-content="menu1">
+                                        <div class="swiper slider-menu slider-menu1">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <a class="menu__content-link" href="/">
+                                                        <img src="images/retail.jpg" alt="Retail." />
+                                                        <h3>Retail</h3>
+                                                    </a>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <a class="menu__content-link" href="/">
+                                                        <img src="images/retail.jpg" alt="Bedquarters." />
+                                                        <h3>Bedquarters</h3>
+                                                    </a>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <a class="menu__content-link" href="/">
+                                                        <img src="images/retail.jpg" alt="Distribution." />
+                                                        <h3>Distribution</h3>
+                                                    </a>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <a class="menu__content-link" href="/">
+                                                        <img src="images/retail.jpg" alt="Bed Factory." />
+                                                        <h3>Bed Factory</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-pagination"></div>
+                                            <div class="swiper-navigation">
+                                                <button class="swiper-button-prev">
+                                                    <svg>
+                                                        <use xlink:href="./images/sprites.svg#chevron-left"></use>
+                                                    </svg>
+                                                </button>
+                                                <button class="swiper-button-next">
+                                                    <svg>
+                                                        <use xlink:href="./images/sprites.svg#chevron-right"></use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu__item">
+                                <button class="menu__link" data-collapse-target="menu2" data-collapse-group="menu">About us</button>
+                                <ul class="menu__content">
+                                    <li data-collapse-content="menu2">
+                                        <div class="swiper slider-menu slider-menu2">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <a class="menu__content-link" href="/">
+                                                        <img src="images/retail.jpg" alt="Retail." />
+                                                        <h3>About us & History</h3>
+                                                    </a>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <a class="menu__content-link" href="/">
+                                                        <img src="images/retail.jpg" alt="Bedquarters." />
+                                                        <h3>Values</h3>
+                                                    </a>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <a class="menu__content-link" href="/">
+                                                        <img src="images/retail.jpg" alt="Distribution." />
+                                                        <h3>L&D Staff Networks</h3>
+                                                    </a>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <a class="menu__content-link" href="/">
+                                                        <img src="images/retail.jpg" alt="Distribution." />
+                                                        <h3>Benefits & Wellbeing</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-pagination"></div>
+                                            <div class="swiper-navigation">
+                                                <button class="swiper-button-prev">
+                                                    <svg>
+                                                        <use xlink:href="./images/sprites.svg#chevron-left"></use>
+                                                    </svg>
+                                                </button>
+                                                <button class="swiper-button-next">
+                                                    <svg>
+                                                        <use xlink:href="./images/sprites.svg#chevron-right"></use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="menu__item">
+                                <button class="menu__link" data-collapse-target="menu3" data-collapse-group="menu">How to apply</button>
+                                <ul class="menu__content">
+                                    <li data-collapse-content="menu3">
+                                        <div class="swiper slider-menu slider-menu3">
+                                            <div class="swiper-wrapper">
+                                                <div class="swiper-slide">
+                                                    <a class="menu__content-link" href="/">
+                                                        <img src="images/retail.jpg" alt="Retail." />
+                                                        <h3>Application Process</h3>
+                                                    </a>
+                                                </div>
+                                                <div class="swiper-slide">
+                                                    <a class="menu__content-link" href="/">
+                                                        <img src="images/retail.jpg" alt="Bedquarters." />
+                                                        <h3>FAQs</h3>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <div class="swiper-pagination"></div>
+                                            <div class="swiper-navigation">
+                                                <button class="swiper-button-prev">
+                                                    <svg>
+                                                        <use xlink:href="./images/sprites.svg#chevron-left"></use>
+                                                    </svg>
+                                                </button>
+                                                <button class="swiper-button-next">
+                                                    <svg>
+                                                        <use xlink:href="./images/sprites.svg#chevron-right"></use>
+                                                    </svg>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="header__links">
+                    <a class="header__link" href="/">View jobs</a>
+                    <a class="header__link" href="">
+                        <svg>
+                            <use xlink:href="./images/sprites.svg#search"></use>
+                        </svg>
+                    </a>
+                </div>
+                <a class="header__login" href="/">Login</a>
+                <div class="header__menu-toggle">
+                    <button class="menu-toggle js-toggle-menu" type="button">
+                        <div class="menu-icon">
+                            <div class="menu-icon__line"></div>
+                            <div class="menu-icon__line"></div>
+                            <div class="menu-icon__line"></div>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main">
+
+            <section class="hero hero--jobs__listing wave-bottom">
+                <img src="images/jobs__listing.jpg" alt="Jobs listing." width="1920" height="1080">
+                <div class="hero__inner">
+                    <div class="hero__motto">
+                        <h1>Retail Sales Assistant</h1>
+                    </div>
+                    <div class="hero__tags">
+                        <div class="button button--gray">Retail</div>
+                        <div class="button button--gray">Permanent</div>
+                        <div class="button button--gray">Full-time</div>
+                        <div class="button button--gray">Farnborough</div>
+                        <div class="button button--gray">£30,000pa OTE</div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container container-sm">
+                    <article class="card">
+                        <h4>Overview</h4>
+                        <h5>Lorem ipsum dolor sit amet consectetur adipiscing elit. Leo eu aenean sed diam urna tempor pulvinar. Semper vel class aptent taciti sociosqu ad litora. Mus donec rhoncus eros lobortis nulla molestie mattis. Blandit quis suspendisse aliquet nisi sodales consequat magna. Ac tincidunt nam porta elementum a enim euismod.</h5>
+                        <p>Cras eleifend turpis fames primis vulputate ornare sagittis. Netus suscipit auctor curabitur facilisi cubilia curae hac. Sem placerat in id cursus mi pretium tellus. Egestas iaculis massa nisl malesuada lacinia integer nunc. Orci varius natoque penatibus et magnis dis parturient.</p>
+                        <p>Non purus est efficitur laoreet mauris pharetra vestibulum. Finibus facilisis dapibus etiam interdum tortor ligula congue. Dignissim velit aliquam imperdiet mollis nullam volutpat porttitor. Proin libero feugiat tristique accumsan maecenas potenti ultricies.</p>
+                        <p>Sit amet consectetur adipiscing elit quisque faucibus ex. Sed diam urna tempor pulvinar vivamus fringilla lacus. Aptent taciti sociosqu ad litora torquent per conubia.</p>
+                        <h4>What’ll be doing</h4>
+                        <h5>Lorem ipsum dolor sit amet consectetur adipiscing elit. Leo eu aenean sed diam urna tempor pulvinar. Semper vel class aptent taciti sociosqu ad litora. Mus donec rhoncus eros lobortis nulla molestie mattis. Blandit quis suspendisse aliquet nisi sodales consequat magna. Ac tincidunt nam porta elementum a enim euismod.</h5>
+                        <p>Cras eleifend turpis fames primis vulputate ornare sagittis. Netus suscipit auctor curabitur facilisi cubilia curae hac:</p>
+                        <ul>
+                            <li>Sem placerat in id cursus mi pretium tellus. </li>
+                            <li>Egestas iaculis massa nisl malesuada lacinia integer nunc. </li>
+                            <li>Orci varius natoque penatibus et magnis dis parturient.</li>
+                        </ul>
+                        <p>Non purus est efficitur laoreet mauris pharetra vestibulum. Finibus facilisis dapibus etiam interdum tortor ligula congue. Dignissim velit aliquam imperdiet mollis nullam volutpat porttitor. Proin libero feugiat tristique accumsan maecenas potenti ultricies.</p>
+                        <ul>
+                            <li>Sem placerat in id cursus mi pretium tellus. </li>
+                            <li>Egestas iaculis massa nisl malesuada lacinia integer nunc. </li>
+                            <li>Orci varius natoque penatibus et magnis dis parturient.</li>
+                        </ul>
+                        <h4>Who we’re looking for</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Leo eu aenean sed diam urna tempor pulvinar. Semper vel class aptent taciti sociosqu ad litora. Mus donec rhoncus eros lobortis nulla molestie mattis. Blandit quis suspendisse aliquet nisi sodales consequat magna. Ac tincidunt nam porta elementum a enim euismod.</p>
+                        <p>Cras eleifend turpis fames primis vulputate ornare sagittis. Netus suscipit auctor curabitur facilisi cubilia curae hac. Sem placerat in id cursus mi pretium tellus. Egestas iaculis massa nisl malesuada lacinia integer nunc. Orci varius natoque penatibus et magnis dis parturient. </p>
+                        <p>Non purus est efficitur laoreet mauris pharetra vestibulum. Finibus facilisis dapibus etiam interdum tortor ligula congue. Dignissim velit aliquam imperdiet mollis nullam volutpat porttitor. Proin libero feugiat tristique accumsan maecenas potenti ultricies.</p>
+                        <p>Sit amet consectetur adipiscing elit quisque faucibus ex. Sed diam urna tempor pulvinar vivamus fringilla lacus. Aptent taciti sociosqu ad litora torquent per conubia.</p>
+                    </article>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>We can’t promise <br> breakfast in bed</h2>
+                        <h3>But, we can promise these:</h3>
+                    </div>
+                </div>
+                <div class="container">
+                    <div class="slider-spotlight">
+                        <div class="swiper slider-spotlight__thumbs">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide slider-spotlight__thumb-slide" data-duration="5">
+                                    <div class="slider-spotlight__thumb-content">
+                                        <h4>Wellbeing that works</h4>
+                                        <p>It’s not something we sweep under the bed – it’s central to how we look after each other. It’s not something we sweep under the bed – it’s central to how we look after each other.</p>
+                                    </div>
+                                    <div class="slider-spotlight__progress">
+                                        <div class="slider-spotlight__progress-fill"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slider-spotlight__thumb-slide" data-duration="5">
+                                    <div class="slider-spotlight__thumb-content">
+                                        <h4>Perks you can pick</h4>
+                                        <p>Life looks different for everyone, so we give you options.</p>
+                                    </div>
+                                    <div class="slider-spotlight__progress">
+                                        <div class="slider-spotlight__progress-fill"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slider-spotlight__thumb-slide" data-duration="5">
+                                    <div class="slider-spotlight__thumb-content">
+                                        <h4>Room to grow</h4>
+                                        <p>Your career should feel as supportive as one of our mattresses.</p>
+                                    </div>
+                                    <div class="slider-spotlight__progress">
+                                        <div class="slider-spotlight__progress-fill"></div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slider-spotlight__thumb-slide" data-duration="5">
+                                    <div class="slider-spotlight__thumb-content">
+                                        <h4>Extra goodies</h4>
+                                        <p>Perks just for our Retail teams – from unique incentives to role-specific rewards.</p>
+                                    </div>
+                                    <div class="slider-spotlight__progress">
+                                        <div class="slider-spotlight__progress-fill"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper slider-spotlight__main">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide slider-spotlight__slide">
+                                    <div class="card card--image">
+                                        <img src="images/work.png" alt="work." width="543" height="459" />
+                                        <div class="card__body">
+                                            <h3>Perks you can pick</h3>
+                                            <h4>Life looks different for everyone, so we give you options.</h4>
+                                            <h5>Buy extra holiday when you need more time off, opt into private healthcare or make use of our savings and loans schemes.</h5>
+                                            <p>Are you a sun seeker who wants an extra week to drink pina coladas somewhere tropical, maybe you’d like a few extra days to spend time with your little ones or perhaps you’ve just got a bit of DIY or a home project you can’t seem to find the time to finish off… Well, good news, we have an amazing scheme where you can buy up to five extra days holiday per year. </p>
+                                            <p>Take advantage of fantastic discounts on everyday products and services offered to you just for being a Dreams colleague. From discounted gym memberships, days out, supermarket vouchers to cinema trips, there’s great discounts to benefit everyone. There are also loads of great resources to help support your health & wellbeing.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slider-spotlight__slide">
+                                    <div class="card card--image">
+                                        <img src="images/work.png" alt="work." width="543" height="459" />
+                                        <div class="card__body">
+                                            <h3>Perks you can pick</h3>
+                                            <h4>Life looks different for everyone, so we give you options.</h4>
+                                            <h5>Buy extra holiday when you need more time off, opt into private healthcare or make use of our savings and loans schemes.</h5>
+                                            <p>Are you a sun seeker who wants an extra week to drink pina coladas somewhere tropical, maybe you’d like a few extra days to spend time with your little ones or perhaps you’ve just got a bit of DIY or a home project you can’t seem to find the time to finish off… Well, good news, we have an amazing scheme where you can buy up to five extra days holiday per year. </p>
+                                            <p>Take advantage of fantastic discounts on everyday products and services offered to you just for being a Dreams colleague. From discounted gym memberships, days out, supermarket vouchers to cinema trips, there’s great discounts to benefit everyone. There are also loads of great resources to help support your health & wellbeing.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slider-spotlight__slide">
+                                    <div class="card card--image">
+                                        <img src="images/work.png" alt="work." width="543" height="459" />
+                                        <div class="card__body">
+                                            <h3>Perks you can pick</h3>
+                                            <h4>Life looks different for everyone, so we give you options.</h4>
+                                            <h5>Buy extra holiday when you need more time off, opt into private healthcare or make use of our savings and loans schemes.</h5>
+                                            <p>Are you a sun seeker who wants an extra week to drink pina coladas somewhere tropical, maybe you’d like a few extra days to spend time with your little ones or perhaps you’ve just got a bit of DIY or a home project you can’t seem to find the time to finish off… Well, good news, we have an amazing scheme where you can buy up to five extra days holiday per year. </p>
+                                            <p>Take advantage of fantastic discounts on everyday products and services offered to you just for being a Dreams colleague. From discounted gym memberships, days out, supermarket vouchers to cinema trips, there’s great discounts to benefit everyone. There are also loads of great resources to help support your health & wellbeing.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide slider-spotlight__slide">
+                                    <div class="card card--image">
+                                        <img src="images/work.png" alt="work." width="543" height="459" />
+                                        <div class="card__body">
+                                            <h3>Perks you can pick</h3>
+                                            <h4>Life looks different for everyone, so we give you options.</h4>
+                                            <h5>Buy extra holiday when you need more time off, opt into private healthcare or make use of our savings and loans schemes.</h5>
+                                            <p>Are you a sun seeker who wants an extra week to drink pina coladas somewhere tropical, maybe you’d like a few extra days to spend time with your little ones or perhaps you’ve just got a bit of DIY or a home project you can’t seem to find the time to finish off… Well, good news, we have an amazing scheme where you can buy up to five extra days holiday per year. </p>
+                                            <p>Take advantage of fantastic discounts on everyday products and services offered to you just for being a Dreams colleague. From discounted gym memberships, days out, supermarket vouchers to cinema trips, there’s great discounts to benefit everyone. There are also loads of great resources to help support your health & wellbeing.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section map">
+                <div class="map__image wave-top wave-bottom">
+                    <img src="images/retail-map.jpg" alt="map." width="1920" height="1240">
+                </div>
+                <div class="map__inner">
+                    <div class="map__card">
+                        <div class="card card--primary">
+                            <h3>Where you’ll be working</h3>
+                            <h4>Here is where you’ll be based, whether that’s Bedquarters, or our Bed Factory or one of our stores.</h4>
+                            <address><b>Dreams Farnborough,</b>
+                                <p>Solartron Retail Park,</p>
+                                <p>Solartron Rd,</p>
+                                <p>Farnborough</p>
+                                <p>GU14 7QJ</p>
+                            </address>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section section-features">
+                <div class="container">
+                    <div class="section-header">
+                        <h2>Don’t just take <br> our word for it</h2>
+                        <h3>Meet your Dreams team.</h3>
+                    </div>
+                    <div class="slider-features">
+                        <div class="slider-features__left">
+                            <div class="swiper slider-features__thumbs">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="slider-feature-slide">
+                                            <div class="slider-feature-slide__header">
+                                                <h3>“I’ve learned so much .”</h3>
+                                            </div>
+                                            <div class="slider-feature-slide__body">
+                                                <div class="slider-features__imageSmall">
+                                                    <img src="images/real-people-1.jpg" alt="alt." width="1007" height="864" />
+                                                </div>
+                                                <p class="slider-feature-slide__description">“Everyone helps each other — whether it’s lifting heavy frames or sharing tips on how to guide customers through our SleepMatch process. I’ve learned so much about product knowledge, customer care, and teamwork. <br /><br />It feels like being part of something bigger.”</p>
+                                            </div>
+                                            <div class="slider-feature-slide__bottom"><span>Kacey Phelps</span><span>Store Team Leader</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slider-feature-slide">
+                                            <div class="slider-feature-slide__header">
+                                                <h3>“Such a positive experience…”</h3>
+                                            </div>
+                                            <div class="slider-feature-slide__body">
+                                                <div class="slider-features__imageSmall">
+                                                    <img src="images/real-people-1.jpg" alt="alt." width="1007" height="864" />
+                                                </div>
+                                                <p class="slider-feature-slide__description">“Working in store at Dreams has been such a positive experience. <br /><br />I love helping someone choose the perfect mattress or bed — there’s something really rewarding about knowing you’ve helped someone sleep better. The team’s supportive, and there’s a real focus on learning and growing.”</p>
+                                            </div>
+                                            <div class="slider-feature-slide__bottom"><span>Sophie McDonald</span><span>Sleep Expert </span></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slider-feature-slide">
+                                            <div class="slider-feature-slide__header">
+                                                <h3>“I’ve learned so much .”</h3>
+                                            </div>
+                                            <div class="slider-feature-slide__body">
+                                                <div class="slider-features__imageSmall">
+                                                    <img src="images/real-people-1.jpg" alt="alt." width="1007" height="864" />
+                                                </div>
+                                                <p class="slider-feature-slide__description">“Everyone helps each other — whether it’s lifting heavy frames or sharing tips on how to guide customers through our SleepMatch process. I’ve learned so much about product knowledge, customer care, and teamwork. <br /><br />It feels like being part of something bigger.”</p>
+                                            </div>
+                                            <div class="slider-feature-slide__bottom"><span>Kacey Phelps</span><span>Store Team Leader</span></div>
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slider-feature-slide">
+                                            <div class="slider-feature-slide__header">
+                                                <h3>“I’ve learned so much .”</h3>
+                                            </div>
+                                            <div class="slider-feature-slide__body">
+                                                <div class="slider-features__imageSmall">
+                                                    <img src="images/real-people-1.jpg" alt="alt." width="1007" height="864" />
+                                                </div>
+                                                <p class="slider-feature-slide__description">“Everyone helps each other — whether it’s lifting heavy frames or sharing tips on how to guide customers through our SleepMatch process. I’ve learned so much about product knowledge, customer care, and teamwork. <br /><br />It feels like being part of something bigger.”</p>
+                                            </div>
+                                            <div class="slider-feature-slide__bottom"><span>Kacey Phelps</span><span>Store Team Leader</span></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="slider-features__right">
+                            <div class="swiper slider-features__main">
+                                <div class="swiper-wrapper">
+                                    <div class="swiper-slide">
+                                        <div class="slider-features__image">
+                                            <img src="images/real-people-1.jpg" alt="alt." width="1007" height="864" />
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slider-features__image">
+                                            <img src="images/real-people-1.jpg" alt="alt." width="1007" height="864" />
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slider-features__image">
+                                            <img src="images/real-people-1.jpg" alt="alt." width="1007" height="864" />
+                                        </div>
+                                    </div>
+                                    <div class="swiper-slide">
+                                        <div class="slider-features__image">
+                                            <img src="images/real-people-1.jpg" alt="alt." width="1007" height="864" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-features__controls">
+                        <div class="slider-features__progress">
+                            <div class="slider-features__progress-bar">
+                                <div class="slider-features__progress-fill"></div>
+                            </div>
+                        </div>
+                        <div class="slider-features__navigation">
+                            <button class="swiper-button-prev slider-features__nav-btn slider-features__nav-btn--prev">
+                                <svg>
+                                    <use xlink:href="./images/sprites.svg#chevron-circle-left"></use>
+                                </svg>
+                            </button>
+                            <button class="swiper-button-next slider-features__nav-btn slider-features__nav-btn--next">
+                                <svg>
+                                    <use xlink:href="./images/sprites.svg#chevron-circle-right"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section">
+                <div class="next">
+                    <div class="next__inner">
+                        <div class="next__body">
+                            <h3>Where to next?</h3>
+                            <h4>We’re hiring now</h4>
+                            <p>Dream roles don’t wait — and neither should you.</p>
+                            <div class="next__actions">
+                                <a class="button button--primary" href="/">FAQs</a>
+                                <a class="button button--primary" href="/">About us</a>
+                                <a class="button button--primary" href="/">How to apply</a>
+                            </div>
+                        </div>
+                        <img class="next__image" src="images/mattress.png" alt="mattress" width="393px" height="333px" />
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer background-primary">
+            <div class="footer__inner">
+                <div class="footer__search">
+                    <form action="" method="post">
+                        <div class="control">
+                            <input class="input input--round" type="search" name="search" placeholder="Search roles">
+                            <button class="input__icon" type="submit">
+                                <svg>
+                                    <use xlink:href="./images/sprites.svg#search"></use>
+                                </svg>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="footer__social">
+                    <ul class="social-links">
+                        <li>
+                            <a href="#">
+                                <svg>
+                                    <use xlink:href="./images/sprites.svg#facebook"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <svg>
+                                    <use xlink:href="./images/sprites.svg#twitter"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <svg>
+                                    <use xlink:href="./images/sprites.svg#pinterest"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <svg>
+                                    <use xlink:href="./images/sprites.svg#instagram"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <svg>
+                                    <use xlink:href="./images/sprites.svg#youtube"></use>
+                                </svg>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <svg>
+                                    <use xlink:href="./images/sprites.svg#linkedin"></use>
+                                </svg>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__middle">
+                    <img class="footer__logo" src="images/logo.svg" alt="logo Dreams." width="187" height="67">
+                    <ul class="footer__nav">
+                        <li class="footer__col">
+                            <a class="footer__title" href="#">
+                                <h4>Our teams</h4>
+                            </a>
+                            <ul class="footer__list">
+                                <li>
+                                    <a href="#">Retail </a>
+                                </li>
+                                <li>
+                                    <a href="#">Distribution </a>
+                                </li>
+                                <li>
+                                    <a href="#">Bed Factory </a>
+                                </li>
+                                <li>
+                                    <a href="#">Bedquarters </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer__col">
+                            <a class="footer__title" href="#">
+                                <h4>About us</h4>
+                            </a>
+                            <ul class="footer__list">
+                                <li>
+                                    <a href="#">About us & History </a>
+                                </li>
+                                <li>
+                                    <a href="#">Values </a>
+                                </li>
+                                <li>
+                                    <a href="#">L&D & Staff Networks</a>
+                                </li>
+                                <li>
+                                    <a href="#">Benefits & Wellbeing</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer__col">
+                            <a class="footer__title" href="#">
+                                <h4>How to apply</h4>
+                            </a>
+                            <ul class="footer__list">
+                                <li>
+                                    <a href="#">Application process</a>
+                                </li>
+                                <li>
+                                    <a href="#">FAQs </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="footer__col">
+                            <a class="footer__title" href="#">
+                                <h4>View jobs</h4>
+                            </a>
+                            <ul class="footer__list">
+                                <li>
+                                    <a href="#">Login </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+                <div class="footer__bottom">
+                    <ul class="footer__links">
+                        <li>
+                            <a href="#">Terms and conditions</a>
+                        </li>
+                        <li>
+                            <a href="#">Cookies</a>
+                        </li>
+                        <li>
+                            <a href="#">Privacy and security</a>
+                        </li>
+                        <li>
+                            <a href="#">Modern slavery statement Gender pay gap </a>
+                        </li>
+                    </ul><span class="footer__text">Dreams Limited is registered in England and Wales | Company registration number: 08428347 | Registered Office: Knaves Beech, High Wycombe, Bucks. HP10 9YU.</span>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdn.jsdelivr.net/gh/mdbassit/FancySelect@latest/dist/fancyselect.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13/dist/ScrollToPlugin.min.js"></script>
+    <script src="./js/vendor.js?v=1761546052287"></script>
+    <script src="./js/main.js?v=1761546052287"></script>
+</body>
 </html>

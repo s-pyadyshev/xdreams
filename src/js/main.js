@@ -33,9 +33,13 @@ window.addEventListener(
       gsap.registerPlugin(ScrollTrigger);
 
       const sections = gsap.utils.toArray(".pin-section");
+      const imageSequenceScrollText = document.querySelector(
+        ".image-sequece-wrapper__scroll"
+      );
 
       let lastScrollTop = window.scrollY;
       let isSnapping = false;
+      let isLastSectionGlobal = false;
       // let lastSectionActivated = false;
 
       loaderContainer.classList.add("show");
@@ -76,6 +80,16 @@ window.addEventListener(
       window.addEventListener("scroll", () => {
         if (!isSnapping) {
           lastScrollTop = window.scrollY;
+        }
+        if (isLastSectionGlobal) {
+          const menuLinkFirst = document
+            .querySelectorAll(".menu__item")[0]
+            ?.querySelector(".menu__link");
+          const menuContentFirst =
+            menuLinkFirst?.nextElementSibling?.querySelector("li");
+
+          menuLinkFirst?.classList.remove("active");
+          menuContentFirst?.classList.remove("active");
         }
       });
 
@@ -247,11 +261,15 @@ window.addEventListener(
               duration: 1,
               scrollTo: nextSection,
               overwrite: "auto",
-              onComplete: () => {
-                // TODO (if desktop)
-                nextSection.classList.remove("pin-section-in-transition");
-                console.log(isLastSection);
+              onStart: () => {
                 if (isLastSection) {
+                  imageSequenceScrollText.classList.add("hidden");
+                }
+              },
+              onComplete: () => {
+                nextSection.classList.remove("pin-section-in-transition");
+                if (isLastSection) {
+                  isLastSectionGlobal = true;
                   setTimeout(() => {
                     const menuLinkFirst = document
                       .querySelectorAll(".menu__item")[0]
@@ -262,6 +280,8 @@ window.addEventListener(
                     menuLinkFirst?.classList.toggle("active");
                     menuContentFirst?.classList.toggle("active");
                   }, 2000);
+                } else {
+                  isLastSectionGlobal = false;
                 }
               },
             });

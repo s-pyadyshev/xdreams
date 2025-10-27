@@ -4475,6 +4475,7 @@ label.button:has(input[type=checkbox]:checked) {
   opacity: 1;
   visibility: visible;
   margin-top: 0;
+  transition: all 1s;
 }
 
 .swiper-slide-thumb-active .slider-feature-slide__bottom span {
@@ -4776,6 +4777,21 @@ label.button:has(input[type=checkbox]:checked) {
   background-color: #000;
 }
 
+.image-sequece-wrapper__scroll {
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-white);
+  position: fixed;
+  bottom: 50px;
+  z-index: 10;
+  right: 0;
+  left: 0;
+  text-align: center;
+  letter-spacing: 1.8px;
+}
+
 .quiz {
   display: flex;
   flex-direction: column;
@@ -4835,7 +4851,8 @@ label.button:has(input[type=checkbox]:checked) {
   margin-top: 30px;
 }
 
-.quiz__result-actions button {
+.quiz__result-actions button,
+.quiz__result-actions .button {
   text-transform: uppercase;
 }
 
@@ -6734,7 +6751,7 @@ dialog[open] {
   }
 
   .button {
-    padding: 20px 30px 17px 30px;
+    padding: 15px 30px 13px 30px;
     font-size: 16px;
   }
 
@@ -7740,6 +7757,17 @@ dialog[open] {
   .about p {
     font-size: 14px;
     line-height: 23px;
+  }
+
+  .pin-section__title {
+    padding: 20px 60px;
+  }
+
+  .image-sequece-wrapper__scroll {
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 1.6px;
+    bottom: 40px;
   }
 
   .quiz {

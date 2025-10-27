@@ -41,6 +41,10 @@
   justify-content: center;
   align-items: center;
   background: linear-gradient(180deg, #0A0415 0%, transparent 50%, #0A0415 100%);
+
+  @include desktop {
+    padding: 20px 60px;
+  }
 }
 
 .pin-section__title>img {
@@ -55,4 +59,26 @@
 #section-6 .pin-section__title {
   flex-direction: column;
   background-color: #000;
+}
+
+.image-sequece-wrapper__scroll {
+  font-size: 12px;
+  line-height: 22px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--color-white);
+  position: fixed;
+  bottom: 50px;
+  z-index: 10;
+  right: 0;
+  left: 0;
+  text-align: center;
+  letter-spacing: 1.8px;
+
+  @include desktop {
+    font-size: 16px;
+    line-height: 23px;
+    letter-spacing: 1.6px;
+    bottom: 40px;
+  }
 }
