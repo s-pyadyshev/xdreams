@@ -30,9 +30,9 @@
 .wellbeing h3 {
   font-family: var(--font-primary);
   font-size: 28px;
-  font-weight: 900;
+  font-weight: 700;
   line-height: 31px;
-  letter-spacing: -0.84px;
+  letter-spacing: 0;
   margin: 0;
 
   @include desktop {
@@ -82,11 +82,6 @@
   text-align: center;
   padding-bottom: 40px;
 
-  // @include tablet {
-  //   max-width: 500px;
-  //   margin: 0 auto;
-  // }
-
   @include desktop {
     max-width: 1088px;
   }
@@ -96,6 +91,8 @@
   display: flex;
   flex-direction: column;
   width: 100%;
+  z-index: 1;
+  border-radius: 20px;
 
   @include desktop {
     flex-direction: row;
@@ -105,7 +102,7 @@
 
 .wellbeing__card img {
   z-index: 1;
-  aspect-ratio: 1.1/1;
+  object-fit: cover;
   border-radius: 10px;
   width: 100%;
 
@@ -114,7 +111,6 @@
   }
 
   @include desktop {
-    aspect-ratio: 1.12/1;
     width: 50%;
     order: 2;
     border-radius: 20px;
@@ -127,15 +123,16 @@
   border-radius: 10px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 25px;
   width: calc(100% - 30px);
   margin-inline: auto;
   margin: -40px auto 0 auto;
   padding: 20px;
   z-index: 2;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .2);
 
   @include desktop {
-    padding: 30px 50px 30px 50px;
+    padding: 60px;
     justify-content: center;
     width: 50%;
     border-radius: 20px 0 0 20px;

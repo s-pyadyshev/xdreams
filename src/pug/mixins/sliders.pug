@@ -292,3 +292,8 @@ mixin slider-jobs(jobsData)
         each job in jobs
           .swiper-slide
             +card-job(job)
+      .slider-jobs__navigation
+        button.swiper-button-prev.slider-jobs__nav-btn.slider-jobs__nav-btn--prev
+          +svg('chevron-circle-left')
+        button.swiper-button-next.slider-jobs__nav-btn.slider-jobs__nav-btn--next
+          +svg('chevron-circle-right')

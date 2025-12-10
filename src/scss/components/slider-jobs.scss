@@ -14,3 +14,28 @@
 .slider-jobs .swiper-slide>* {
   height: 100%;
 }
+
+.slider-jobs__navigation {
+  justify-content: center;
+  display: flex;
+  gap: 60px;
+  margin-left: -20px;
+  margin-top: 40px;
+
+  @include laptop {
+    margin-left: -40px;
+  }
+
+  @include desktop-l {
+    margin-left: -200px;
+  }
+}
+
+.slider-jobs .swiper-button-prev,
+.swiper-button-next {
+  stroke: var(--color-primary);
+}
+
+.slider-jobs .swiper-button-prev {
+  left: 0;
+}

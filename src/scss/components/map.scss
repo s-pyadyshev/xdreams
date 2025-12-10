@@ -41,6 +41,15 @@
   }
 }
 
+.map__card .control {
+  width: 100%;
+  max-width: 350px;
+}
+
+.map__card .control input {
+  width: 100%;
+}
+
 .map__inner {
   position: absolute;
   top: 0;

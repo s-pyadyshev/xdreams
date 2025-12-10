@@ -14,12 +14,22 @@ export const toggle = (() => {
         const target = document.querySelector(
           `[data-collapse-content="${collapseTarget}"]`
         );
-        const associatedLinks = document.querySelectorAll(
+        const collapseTargets = document.querySelectorAll(
           `[data-collapse-target="${collapseTarget}"]`
         );
 
+        if (
+          link.classList.contains("menu__link") &&
+          link.classList.contains("active")
+        ) {
+          document.querySelector(".menu").classList.remove("active");
+        } else {
+          document.querySelector(".menu").classList.add("active");
+        }
+
         target.classList.toggle("active");
-        associatedLinks.forEach((el) => el.classList.toggle("active"));
+
+        collapseTargets.forEach((el) => el.classList.toggle("active"));
 
         if (collapseGroup) {
           const otherGroupToggles = document.querySelectorAll(

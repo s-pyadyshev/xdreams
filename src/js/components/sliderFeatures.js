@@ -35,6 +35,8 @@ export const sliderFeatures = (function () {
       slideToClickedSlide: true,
       slideThumbActiveClass: "swiper-slide-thumb-active",
       multipleActiveThumbs: false,
+      touchMoveStopPropagation: false,
+      touchReleaseOnEdges: true,
     });
 
     mainSwiper = new Swiper(".slider-features__main", {
@@ -42,6 +44,7 @@ export const sliderFeatures = (function () {
       spaceBetween: 0,
       speed: 600,
       effect: "fade",
+      allowTouchMove: false,
       navigation: {
         nextEl: ".slider-features__nav-btn--next",
         prevEl: ".slider-features__nav-btn--prev",

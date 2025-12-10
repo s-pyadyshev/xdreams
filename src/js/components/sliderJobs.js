@@ -1,9 +1,14 @@
-import { auto } from "@popperjs/core";
 import Swiper from "swiper";
+import { Navigation } from "swiper/modules";
 
 export const sliderJobs = (function () {
   const init = function () {
     const sliderJobs = new Swiper(".slider-jobs", {
+      modules: [Navigation],
+      navigation: {
+        nextEl: ".slider-jobs__nav-btn--next",
+        prevEl: ".slider-jobs__nav-btn--prev",
+      },
       slidesPerView: 1.2,
       spaceBetween: 16,
       spaceBetween: 20,

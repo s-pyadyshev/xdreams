@@ -25,6 +25,7 @@ export const createSliderManager = (selectorPattern) => {
           },
           slidesPerView: 1.2,
           spaceBetween: 16,
+          centeredSlides: true,
         });
 
         swiperInstances.push(swiperInstance);

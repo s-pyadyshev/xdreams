@@ -8,9 +8,26 @@ import { sliderSteps } from "./components/sliderSteps.js";
 import { toggle } from "./components/toggle.js";
 import { quiz } from "./components/quiz.js";
 import { tabs } from "./components/tabs.js";
-// import { imageScroll } from "./components/imageScroll.js";
 import { scrollspy } from "./components/scrollspy.js";
-// import { slider } from "./components/slider.js";
+import { heroScroll } from "./components/heroScroll.js";
+
+let globalPercentDisplay = null;
+let globalLoaderContainer = null;
+
+document.addEventListener("DOMContentLoaded", () => {
+  const loaderContainer = document.querySelector(".image-sequence-loading");
+  if (loaderContainer && !globalLoaderContainer) {
+    globalLoaderContainer = loaderContainer;
+
+    const percentDisplay = document.createElement("div");
+    percentDisplay.className = "loading-percent";
+    percentDisplay.textContent = "0%";
+    loaderContainer.appendChild(percentDisplay);
+    loaderContainer.classList.add("show");
+
+    globalPercentDisplay = percentDisplay;
+  }
+});
 
 window.addEventListener(
   "load",
@@ -26,10 +43,14 @@ window.addEventListener(
     quiz.init();
     scrollspy.init();
     tabs.init();
+    heroScroll.init();
 
-    const loaderContainer = document.querySelector(".image-sequence-loading");
+    const loaderContainer =
+      globalLoaderContainer ||
+      document.querySelector(".image-sequence-loading");
+    const percentDisplay = globalPercentDisplay;
 
-    if (loaderContainer) {
+    if (loaderContainer && percentDisplay) {
       gsap.registerPlugin(ScrollTrigger);
 
       const sections = gsap.utils.toArray(".pin-section");
@@ -40,54 +61,411 @@ window.addEventListener(
       let lastScrollTop = window.scrollY;
       let isSnapping = false;
       let isLastSectionGlobal = false;
-      // let lastSectionActivated = false;
+      let currentBreakpoint =
+        window.innerWidth <= 767
+          ? "mobile"
+          : window.innerWidth <= 1024
+          ? "tablet"
+          : "desktop";
 
-      loaderContainer.classList.add("show");
+      function getImagePath(basePath) {
+        return basePath;
+      }
 
-      let totalImages = 0;
-      let loadedImages = 0;
-      const allImagesLoaded = new Promise((resolve) => {
-        const checkComplete = () => {
-          if (loadedImages >= totalImages && totalImages > 0) {
-            resolve();
+      function getFileNameWithSuffix(baseName, index) {
+        const paddedIndex = (index + 1).toString().padStart(3, "0");
+        let suffix = "";
+        if (window.innerWidth <= 767) {
+          suffix = "-mobile";
+        } else if (window.innerWidth <= 1024) {
+          suffix = "-tablet";
+        }
+        return `${baseName}${suffix}-${paddedIndex}.webp`;
+      }
+
+      class ProgressiveImageLoader {
+        constructor() {
+          this.imageCache = new Map();
+          this.loadingQueue = [];
+          this.concurrentLoads = 8;
+          this.activeLoads = 0;
+          this.sectionsLoading = new Set();
+          this.sectionsLoaded = new Set();
+        }
+
+        loadImage(url) {
+          if (this.imageCache.has(url)) {
+            return Promise.resolve(this.imageCache.get(url));
+          }
+
+          return new Promise((resolve, reject) => {
+            const img = new Image();
+
+            img.onload = () => {
+              this.imageCache.set(url, img);
+              this.activeLoads--;
+              this.processQueue();
+              resolve(img);
+            };
+
+            img.onerror = () => {
+              this.activeLoads--;
+              this.processQueue();
+              reject(new Error(`Failed to load ${url}`));
+            };
+
+            if (this.activeLoads < this.concurrentLoads) {
+              this.activeLoads++;
+              img.src = url;
+            } else {
+              this.loadingQueue.push({ img, url, resolve, reject });
+            }
+          });
+        }
+
+        processQueue() {
+          while (
+            this.loadingQueue.length > 0 &&
+            this.activeLoads < this.concurrentLoads
+          ) {
+            const { img, url, resolve, reject } = this.loadingQueue.shift();
+            this.activeLoads++;
+            img.onload = () => {
+              this.imageCache.set(url, img);
+              this.activeLoads--;
+              this.processQueue();
+              resolve(img);
+            };
+            img.onerror = () => {
+              this.activeLoads--;
+              this.processQueue();
+              reject(new Error(`Failed to load ${url}`));
+            };
+            img.src = url;
+          }
+        }
+
+        async loadSection(sectionIndex, urls) {
+          if (
+            this.sectionsLoaded.has(sectionIndex) ||
+            this.sectionsLoading.has(sectionIndex)
+          ) {
+            return;
+          }
+
+          this.sectionsLoading.add(sectionIndex);
+
+          const chunkSize = 20;
+          for (let i = 0; i < urls.length; i += chunkSize) {
+            const chunk = urls.slice(i, i + chunkSize);
+            await Promise.allSettled(chunk.map((url) => this.loadImage(url)));
+          }
+
+          this.sectionsLoading.delete(sectionIndex);
+          this.sectionsLoaded.add(sectionIndex);
+        }
+
+        getImage(url) {
+          return this.imageCache.get(url);
+        }
+
+        isSectionLoaded(sectionIndex) {
+          return this.sectionsLoaded.has(sectionIndex);
+        }
+
+        isLoading(sectionIndex) {
+          return this.sectionsLoading.has(sectionIndex);
+        }
+
+        clearCache() {
+          this.imageCache.clear();
+          this.sectionsLoaded.clear();
+          this.sectionsLoading.clear();
+          this.loadingQueue = [];
+        }
+      }
+
+      const imageLoader = new ProgressiveImageLoader();
+
+      function buildSectionData() {
+        return sections.map((section, index) => {
+          const frameCount = parseInt(section.dataset.frameCount, 10);
+          const baseImagePath = section.dataset.imagePath;
+          const basePath = getImagePath(baseImagePath);
+
+          const urls = Array.from({ length: frameCount }, (_, i) => {
+            const fileName = getFileNameWithSuffix(basePath, i);
+            return fileName;
+          });
+
+          return {
+            section,
+            index,
+            frameCount,
+            basePath,
+            urls,
+            canvas: section.querySelector(".image-sequence-canvas"),
+          };
+        });
+      }
+
+      let sectionData = buildSectionData();
+
+      function resizeCanvas(canvas) {
+        const rect = canvas.parentElement.getBoundingClientRect();
+        let displayWidth = rect.width;
+        let displayHeight = rect.height;
+
+        if (displayWidth <= 0 || displayHeight <= 0) {
+          displayWidth = window.innerWidth;
+          displayHeight = window.innerHeight;
+        }
+
+        const dpr = Math.min(window.devicePixelRatio || 1, 1);
+
+        canvas.width = displayWidth * dpr;
+        canvas.height = displayHeight * dpr;
+        canvas.style.width = displayWidth + "px";
+        canvas.style.height = displayHeight + "px";
+
+        const ctx = canvas.getContext("2d", { alpha: false });
+        ctx.scale(dpr, dpr);
+      }
+
+      function drawImageCover(ctx, img, canvasW, canvasH) {
+        if (canvasW <= 0 || canvasH <= 0 || img.width <= 0 || img.height <= 0)
+          return;
+
+        const imgRatio = img.width / img.height;
+        const canvasRatio = canvasW / canvasH;
+
+        let drawW, drawH, drawX, drawY;
+
+        if (imgRatio > canvasRatio) {
+          drawH = canvasH;
+          drawW = canvasH * imgRatio;
+        } else {
+          drawW = canvasW;
+          drawH = canvasW / imgRatio;
+        }
+
+        drawX = (canvasW - drawW) / 2;
+        drawY = (canvasH - drawH) / 2;
+
+        ctx.clearRect(0, 0, canvasW, canvasH);
+        ctx.drawImage(img, drawX, drawY, drawW, drawH);
+      }
+
+      function imageSequence({
+        urls,
+        canvas,
+        scrollTrigger,
+        onComplete,
+        effectiveFps = 15,
+        sectionIndex,
+      }) {
+        const ctx = canvas.getContext("2d", { alpha: false });
+        let curFrame = -1;
+        let playhead = { frame: 0 };
+        let hasTriggeredNextLoad = false;
+
+        const updateImage = () => {
+          const frame = Math.round(playhead.frame);
+          if (frame !== curFrame) {
+            const img = imageLoader.getImage(urls[frame]);
+            if (img?.complete) {
+              drawImageCover(ctx, img, canvas.width, canvas.height);
+              curFrame = frame;
+            }
+          }
+
+          if (!hasTriggeredNextLoad && frame > 0) {
+            hasTriggeredNextLoad = true;
+            const nextSectionIndex = sectionIndex + 1;
+
+            if (nextSectionIndex < sectionData.length) {
+              const nextSection = sectionData[nextSectionIndex];
+
+              if (
+                !imageLoader.isSectionLoaded(nextSectionIndex) &&
+                !imageLoader.isLoading(nextSectionIndex)
+              ) {
+                imageLoader.loadSection(nextSectionIndex, nextSection.urls);
+              }
+            }
           }
         };
 
-        const originalImage = window.Image;
-        window.Image = function () {
-          const img = new originalImage();
-          const originalOnload = img.onload;
-          img.onload = function (...args) {
-            loadedImages++;
-            checkComplete();
-            if (originalOnload) originalOnload.apply(this, args);
-          };
-          const originalOnerror = img.onerror;
-          img.onerror = function (...args) {
-            loadedImages++;
-            checkComplete();
-            if (originalOnerror) originalOnerror.apply(this, args);
-          };
-          return img;
-        };
-      });
+        const duration = urls.length / effectiveFps;
 
-      sections.forEach((section) => {
-        const frameCount = parseInt(section.dataset.frameCount, 10) || 0;
-        totalImages += frameCount;
-      });
+        return gsap.to(playhead, {
+          frame: urls.length - 1,
+          ease: "none",
+          duration: duration,
+          onUpdate: updateImage,
+          onComplete: onComplete,
+          scrollTrigger: scrollTrigger,
+        });
+      }
+
+      function updateLoaderPercent(loaded, total) {
+        if (!percentDisplay) return;
+        const percent = Math.min(100, Math.round((loaded / total) * 100));
+        percentDisplay.textContent = `${percent}%`;
+        if (percent === 100) {
+          setTimeout(() => {
+            loaderContainer.classList.add("fade-out");
+            setTimeout(() => {
+              loaderContainer.style.display = "none";
+            }, 1000);
+          }, 300);
+        }
+      }
+
+      async function initializeSequences() {
+        const firstFrameUrls = sectionData.map(({ urls }) => urls[0]);
+        const totalImages = firstFrameUrls.length;
+
+        if (totalImages === 0) {
+          updateLoaderPercent(1, 1);
+          return;
+        }
+
+        let loadedCount = 0;
+        updateLoaderPercent(0, totalImages);
+
+        const loadPromises = firstFrameUrls.map((url) =>
+          imageLoader
+            .loadImage(url)
+            .then(() => {
+              loadedCount++;
+              updateLoaderPercent(loadedCount, totalImages);
+            })
+            .catch(() => {
+              loadedCount++;
+              updateLoaderPercent(loadedCount, totalImages);
+            })
+        );
+
+        await Promise.all(loadPromises);
+
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+        await new Promise((resolve) => requestAnimationFrame(resolve));
+
+        sectionData.forEach(({ canvas }) => {
+          if (canvas) resizeCanvas(canvas);
+        });
+
+        if (sectionData[0]) {
+          await imageLoader.loadSection(0, sectionData[0].urls);
+        }
+
+        sectionData.forEach(({ canvas, basePath }) => {
+          if (!canvas) return;
+          const firstUrl = getFileNameWithSuffix(basePath, 0);
+          const img = imageLoader.getImage(firstUrl);
+          if (img?.complete) {
+            const ctx = canvas.getContext("2d", { alpha: false });
+            drawImageCover(ctx, img, canvas.width, canvas.height);
+          }
+        });
+
+        sectionData.forEach(({ section, urls, canvas, index }) => {
+          if (!canvas) return;
+
+          const nextSection = sections[index + 1];
+          const isLastSection = index + 1 === sections.length - 1;
+
+          const handleComplete = () => {
+            if (nextSection) {
+              nextSection.classList.add("pin-section-in-transition");
+              gsap.to(window, {
+                duration: 1,
+                scrollTo: nextSection,
+                overwrite: "auto",
+                onStart: () => {
+                  if (!nextSection.classList.contains("last-section")) {
+                    imageSequenceScrollText?.classList.remove("hidden");
+                  } else {
+                    imageSequenceScrollText?.classList.add("hidden");
+                  }
+                },
+                onComplete: () => {
+                  nextSection.classList.remove("pin-section-in-transition");
+                  if (isLastSection) {
+                    isLastSectionGlobal = true;
+                    imageSequenceScrollText?.classList.add("hidden");
+                    setTimeout(() => {
+                      const menu = document.querySelector(".menu");
+                      const menuLinkFirst = document
+                        .querySelectorAll(".menu__item")[0]
+                        ?.querySelector(".menu__link");
+                      const menuContentFirst =
+                        menuLinkFirst?.nextElementSibling?.querySelector("li");
+
+                      menu?.classList.toggle("active");
+                      menuLinkFirst?.classList.toggle("active");
+                      menuContentFirst?.classList.toggle("active");
+                    }, 2000);
+                  } else {
+                    isLastSectionGlobal = false;
+                    if (index + 1 < sections.length - 1) {
+                      imageSequenceScrollText?.classList.remove("hidden");
+                    }
+                  }
+                },
+              });
+            }
+          };
+
+          const scrollTriggerConfig = {
+            trigger: section,
+            pin: true,
+            start: "top top",
+            end: "bottom top",
+            scrub: true,
+            snap: 0.7,
+            onToggle: (self) => {
+              if (self.isActive) {
+                if (index < sections.length - 1) {
+                  imageSequenceScrollText?.classList.remove("hidden");
+                } else {
+                  imageSequenceScrollText?.classList.add("hidden");
+                }
+              }
+            },
+          };
+
+          imageSequence({
+            urls,
+            canvas,
+            scrollTrigger: scrollTriggerConfig,
+            onComplete: handleComplete,
+            effectiveFps: 15,
+            sectionIndex: index,
+          });
+        });
+
+        if (sections.length > 1) {
+          imageSequenceScrollText?.classList.remove("hidden");
+        }
+      }
+
+      initializeSequences();
 
       window.addEventListener("scroll", () => {
         if (!isSnapping) {
           lastScrollTop = window.scrollY;
         }
         if (isLastSectionGlobal) {
+          const menu = document.querySelector(".menu");
           const menuLinkFirst = document
             .querySelectorAll(".menu__item")[0]
             ?.querySelector(".menu__link");
           const menuContentFirst =
             menuLinkFirst?.nextElementSibling?.querySelector("li");
 
+          menu?.classList.remove("active");
           menuLinkFirst?.classList.remove("active");
           menuContentFirst?.classList.remove("active");
         }
@@ -124,6 +502,10 @@ window.addEventListener(
                       "pin-section-in-transition"
                     );
                     isSnapping = false;
+
+                    if (i - 1 < sections.length - 1) {
+                      imageSequenceScrollText?.classList.remove("hidden");
+                    }
                   });
                 }
               }
@@ -133,197 +515,48 @@ window.addEventListener(
         }
       });
 
-      function resizeCanvas(canvas) {
-        const rect = canvas.parentElement.getBoundingClientRect();
-        const displayWidth = rect.width;
-        const displayHeight = rect.height;
+      let resizeTimeout;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+          const newBreakpoint =
+            window.innerWidth <= 767
+              ? "mobile"
+              : window.innerWidth <= 1024
+              ? "tablet"
+              : "desktop";
 
-        if (displayWidth > 0 && displayHeight > 0) {
-          canvas.width = displayWidth;
-          canvas.height = displayHeight;
-        } else {
-          canvas.width = window.innerWidth;
-          canvas.height = window.innerHeight;
-        }
-      }
+          if (newBreakpoint !== currentBreakpoint) {
+            currentBreakpoint = newBreakpoint;
 
-      function drawImageCover(ctx, img, canvasW, canvasH) {
-        if (canvasW <= 0 || canvasH <= 0 || img.width <= 0 || img.height <= 0)
-          return;
+            ScrollTrigger.getAll().forEach((trigger) => trigger.kill(true));
 
-        const imgRatio = img.width / img.height;
-        const canvasRatio = canvasW / canvasH;
+            imageLoader.clearCache();
 
-        let drawW, drawH, drawX, drawY;
+            sectionData = buildSectionData();
 
-        if (imgRatio > canvasRatio) {
-          drawH = canvasH;
-          drawW = canvasH * imgRatio;
-        } else {
-          drawW = canvasW;
-          drawH = canvasW / imgRatio;
-        }
+            loaderContainer.style.display = "flex";
+            loaderContainer.classList.remove("fade-out");
+            loaderContainer.classList.add("show");
 
-        drawX = (canvasW - drawW) / 2;
-        drawY = (canvasH - drawH) / 2;
-
-        ctx.clearRect(0, 0, canvasW, canvasH);
-        ctx.drawImage(img, drawX, drawY, drawW, drawH);
-      }
-
-      function imageSequence({
-        urls,
-        canvas,
-        scrollTrigger,
-        onComplete,
-        effectiveFps = 15,
-      }) {
-        const ctx = canvas.getContext("2d");
-        let curFrame = -1;
-        let playhead = { frame: 0 };
-
-        const images = urls.map((url) => {
-          const img = new Image();
-          img.src = url;
-          return img;
-        });
-
-        const updateImage = () => {
-          const frame = Math.round(playhead.frame);
-          if (frame !== curFrame && images[frame]?.complete) {
-            drawImageCover(ctx, images[frame], canvas.width, canvas.height);
-            curFrame = frame;
-          }
-        };
-
-        const duration = images.length / effectiveFps;
-
-        return gsap.to(playhead, {
-          frame: images.length - 1,
-          ease: "none",
-          duration: duration,
-          onUpdate: updateImage,
-          onComplete: onComplete,
-          scrollTrigger: scrollTrigger,
-        });
-      }
-
-      allImagesLoaded.then(() => {
-        requestAnimationFrame(() => {
-          sections.forEach((section, index) => {
-            const canvas = section.querySelector(".image-sequence-canvas");
-            if (!canvas) return;
-
-            resizeCanvas(canvas);
-
-            const imagePath = section.dataset.imagePath;
-            const firstImageUrl = `${imagePath}-001.jpg`;
-            const img = new Image();
-            img.src = firstImageUrl;
-
-            const drawFirst = () => {
-              const ctx = canvas.getContext("2d");
-              drawImageCover(ctx, img, canvas.width, canvas.height);
-            };
-
-            if (img.complete) {
-              drawFirst();
-            } else {
-              img.onload = drawFirst;
+            if (percentDisplay) {
+              percentDisplay.textContent = "0%";
             }
-          });
 
-          loaderContainer.classList.add("fade-out");
-          setTimeout(() => {
-            loaderContainer.style.display = "none";
-          }, 500);
-        });
-      });
-
-      sections.forEach((section, index) => {
-        const frameCount = parseInt(section.dataset.frameCount, 10);
-        const imagePath = section.dataset.imagePath;
-        const urls = Array.from(
-          { length: frameCount },
-          (_, i) => `${imagePath}-${(i + 1).toString().padStart(3, "0")}.jpg`
-        );
-
-        const canvas = section.querySelector(".image-sequence-canvas");
-        if (!canvas) return;
-
-        const nextSection = sections[index + 1];
-        const isLastSection = index + 1 === sections.length - 1;
-
-        const handleComplete = () => {
-          if (nextSection) {
-            nextSection.classList.add("pin-section-in-transition");
-            gsap.to(window, {
-              duration: 1,
-              scrollTo: nextSection,
-              overwrite: "auto",
-              onStart: () => {
-                if (isLastSection) {
-                  imageSequenceScrollText.classList.add("hidden");
-                }
-              },
-              onComplete: () => {
-                nextSection.classList.remove("pin-section-in-transition");
-                if (isLastSection) {
-                  isLastSectionGlobal = true;
-                  setTimeout(() => {
-                    const menuLinkFirst = document
-                      .querySelectorAll(".menu__item")[0]
-                      ?.querySelector(".menu__link");
-                    const menuContentFirst =
-                      menuLinkFirst?.nextElementSibling?.querySelector("li");
-
-                    menuLinkFirst?.classList.toggle("active");
-                    menuContentFirst?.classList.toggle("active");
-                  }, 2000);
-                } else {
-                  isLastSectionGlobal = false;
-                }
-              },
+            initializeSequences();
+          } else {
+            sections.forEach((section) => {
+              const canvas = section.querySelector(".image-sequence-canvas");
+              if (canvas) {
+                resizeCanvas(canvas);
+              }
             });
           }
-        };
-
-        const scrollTriggerConfig = {
-          trigger: section,
-          pin: true,
-          start: "top top",
-          end: "bottom top",
-          scrub: true,
-          snap: 0.7,
-        };
-
-        // if (isLastSection) {
-        //   scrollTriggerConfig.onEnter = (self) => {
-        //     if (self.direction > 0) {
-        //       lastSectionActivated = true;
-        //     }
-        //   };
-        // }
-
-        imageSequence({
-          urls,
-          canvas,
-          scrollTrigger: scrollTriggerConfig,
-          onComplete: handleComplete,
-          effectiveFps: 15,
-        });
-      });
-
-      window.addEventListener("resize", () => {
-        sections.forEach((section) => {
-          const canvas = section.querySelector(".image-sequence-canvas");
-          if (canvas) {
-            resizeCanvas(canvas);
-          }
-        });
+        }, 250);
       });
     }
-    document.querySelector("body").classList.add("page-loaded");
+
+    document.querySelector("body")?.classList.add("page-loaded");
   },
   false
 );

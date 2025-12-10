@@ -3,14 +3,14 @@
   bottom: 30px;
   display: flex;
   justify-content: space-between;
-  width: calc(100% - 60px);
+  left: 60px;
+  right: 60px;
 }
 
 .slider-menu .swiper-pagination {
   position: static;
   padding-top: 30px;
   padding-bottom: 30px;
-  width: calc(100% - 60px);
 }
 
 .slider-menu .swiper-pagination-bullet {
@@ -19,12 +19,10 @@
 
 .slider-menu .swiper-button-prev {
   padding-top: 2px;
-  padding-left: 20px;
 }
 
 .slider-menu .swiper-button-next {
   padding-top: 2px;
-  padding-right: 20px;
 }
 
 .slider-menu .swiper-button-prev svg,

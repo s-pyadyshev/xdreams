@@ -11,9 +11,12 @@
     position: absolute;
     top: 0;
     left: 0;
+    right: 0;
     width: 100%;
     height: 100%;
+    margin-inline: auto;
     background-color: rgba(0, 0, 0, 0.2);
+    transition: all 1s;
   }
 }
 
@@ -23,6 +26,7 @@
   object-position: top;
   margin-inline: auto;
   width: 100%;
+  transition: all 1s;
 }
 
 .hero__inner {
@@ -57,7 +61,7 @@
   letter-spacing: 0;
 
   @include desktop {
-    font-weight: 900;
+    font-weight: 700;
     font-size: 55px;
     line-height: 70px;
     margin-bottom: 20px;
@@ -81,13 +85,15 @@
 }
 
 .hero__motto img {
-  margin: 0 auto;
+  margin: 20px auto;
+  width: 100%;
 
   @include desktop {
     height: auto;
     width: auto;
     object-fit: contain;
     display: block;
+    margin: 0 auto;
   }
 }
 
@@ -263,12 +269,22 @@
 .hero__video iframe {
   width: 100vw;
   height: 56.25vw;
-  /* Given a 16:9 aspect ratio, 9/16*100 = 56.25 */
   min-height: 100vh;
   min-width: 177.77vh;
-  /* Given a 16:9 aspect ratio, 16/9*100 = 177.77 */
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.hero.narrowed>img {
+  width: 90%;
+  margin-top: 130px;
+  border-radius: 20px;
+}
+
+.hero.narrowed:before {
+  width: 90%;
+  padding-top: 130px;
+  border-radius: 20px;
 }

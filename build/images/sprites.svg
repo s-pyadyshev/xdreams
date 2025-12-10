@@ -3,14 +3,14 @@
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <symbol id="chevron-circle-left" viewBox="0 0 34 34">
   <g fill="none" stroke-width="2">
-    <circle cx="17" cy="17" r="17" stroke="none"/>
+    <circle cx="17" cy="17" r="17"/>
     <circle cx="17" cy="17" r="16"/>
     <path d="m20.063 23.98-6.972-6.973 6.972-6.972"/>
   </g>
 </symbol>
 <symbol id="chevron-circle-right" viewBox="0 0 35 34">
   <g fill="none" stroke-width="2">
-    <ellipse cx="17.5" cy="17" rx="17.5" ry="17" stroke="none"/>
+    <ellipse cx="17.5" cy="17" rx="17.5" ry="17"/>
     <ellipse cx="17.5" cy="17" rx="16.5" ry="16"/>
     <path d="m14.169 23.98 6.972-6.972-6.972-6.972"/>
   </g>
@@ -19,10 +19,10 @@
   <path fill="none" d="m1.059 7.436 6.377 6.377 6.377-6.376"/>
 </symbol>
 <symbol id="chevron-left" viewBox="0 0 16.773 16.773">
-  <path fill="none" d="M8.386 15.36 1.414 8.386l6.972-6.972"/>
+  <path fill="none" d="M8.386 15.36 1.414 8.386l6.972-6.972" data-name="Path 254"/>
 </symbol>
 <symbol id="chevron-right" viewBox="0 0 16.773 16.773">
-  <path fill="none" d="m8.387 15.359 6.972-6.972-6.972-6.972"/>
+  <path fill="none" d="m8.387 15.359 6.972-6.972-6.972-6.972" data-name="Path 254"/>
 </symbol>
 <symbol id="facebook" viewBox="0 0 21.57 21.57">
   <path d="M21.57 20.38a1.19 1.19 0 0 1-1.19 1.19h-5.5v-8.353h2.8l.42-3.256h-3.217V7.883c0-.942.261-1.585 1.613-1.585h1.724V3.386a23 23 0 0 0-2.512-.128 3.922 3.922 0 0 0-4.187 4.3v2.4H8.71v3.256h2.811v8.353H1.19A1.19 1.19 0 0 1 0 20.38V1.19A1.19 1.19 0 0 1 1.19 0h19.19a1.19 1.19 0 0 1 1.19 1.19Z"/>

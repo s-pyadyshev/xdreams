@@ -18,6 +18,7 @@ export const mobileMenu = (() => {
     const sliderMenu = createSliderManager("[class*='slider-menu']");
 
     const openMenu = () => {
+      menu.classList.add("active");
       mobileMenuToggle.classList.add("active");
       body.classList.toggle("menu-active");
       menu.classList.add("menu--open");
@@ -28,6 +29,7 @@ export const mobileMenu = (() => {
     };
 
     const closeMenu = () => {
+      menu.classList.remove("active");
       mobileMenuToggle.classList.remove("active");
       body.classList.toggle("menu-active");
       menu.classList.remove("menu--open");
